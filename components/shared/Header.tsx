@@ -6,7 +6,7 @@ import { ArrowUpRight, CirclePlay } from "lucide-react";
 
 const Header = () => {
   return (
-    <header>
+    <header className="w-full flex items-center justify-center">
       <nav className="container flex items-center justify-between">
         <Image
           className="dark:invert"

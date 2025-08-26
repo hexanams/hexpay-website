@@ -6,4 +6,6 @@ export enum ClientRoutes {
   PRICING = "/pricing",
   CONTACT = "/contact",
   PAYROLL = "/payroll",
+  PRIVACY = "/privacy",
+  TERMS = "/terms",
 }
