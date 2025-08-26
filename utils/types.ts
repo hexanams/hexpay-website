@@ -13,3 +13,8 @@ export interface IHRFeature {
   name: string;
   icon: LucideIcon;
 }
+
+export interface IFaq {
+  question: string;
+  answer: string;
+}
