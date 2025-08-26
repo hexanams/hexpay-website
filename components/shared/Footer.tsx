@@ -33,7 +33,6 @@ const Footer = () => {
   });
 
   const onSubmit = (values: z.infer<typeof subscribeSchema>) => {
-    // setResetEmail(values.email);
     console.log({
       values,
     });
