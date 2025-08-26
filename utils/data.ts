@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 import { ClientRoutes } from "./enums/routes-enum";
-import { INavLink, ISocialIcon } from "./types";
+import { IHRFeature, INavLink, ISocialIcon } from "./types";
 
 export const navLinks: INavLink[] = [
   {

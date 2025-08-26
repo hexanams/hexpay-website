@@ -8,3 +8,8 @@ export interface INavLink {
 export interface ISocialIcon {
   icon: LucideIcon;
 }
+
+export interface IHRFeature {
+  name: string;
+  icon: LucideIcon;
+}

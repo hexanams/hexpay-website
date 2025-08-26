@@ -1,6 +1,13 @@
 import React from "react";
 import { Button } from "../ui/button";
-import { CirclePlay } from "lucide-react";
+import {
+  CirclePlay,
+  BadgeDollarSign,
+  UsersRound,
+  Sparkles,
+  Headset,
+} from "lucide-react";
+import HrFeatures from "../home/HrFeature";
 
 const Demo = () => {
   return (
@@ -8,16 +15,19 @@ const Demo = () => {
       <div className="container">
         <div className="flex flex-col">
           <div className="flex">
-            <Button>Real-Time Payroll Intelligence</Button>
-            <Button>Team Onboarding Made Easy</Button>
+            <HrFeatures
+              name="Real-Time Payroll Intelligence"
+              icon={BadgeDollarSign}
+            />
+            <HrFeatures name="Team Onboarding Made Easy" icon={UsersRound} />
           </div>
           <h3>
             Built for founders, operators, and HR leads who want to do more with
             less.
           </h3>
           <div className="flex">
-            <Button>AI Enabled Data Insight</Button>
-            <Button>Free professional support</Button>
+            <HrFeatures name="AI Enabled Data Insight" icon={Sparkles} />
+            <HrFeatures name="Free professional support" icon={Headset} />
           </div>
         </div>
         <p>
