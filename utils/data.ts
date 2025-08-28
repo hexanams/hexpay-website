@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 import { ClientRoutes } from "./enums/routes-enum";
-import { IFaq, IHRFeature, INavLink, ISocialIcon } from "./types";
+import { IFaq, INavLink, ISocialIcon, ITestimonialItem } from "./types";
 
 export const navLinks: INavLink[] = [
   {
@@ -102,5 +102,32 @@ export const faqs: IFaq[] = [
     question: "What does HexPay cost?",
     answer:
       "HexPay offers a free trial period. After the trial, you can choose from a range of subscription plans, including a monthly or annual plan.",
+  },
+];
+
+export const testimonials: ITestimonialItem[] = [
+  {
+    image: "/images/woman.jpg",
+    text: "This software has replaced three separate tools we used to run our HR operations. From onboarding new hires and running payroll, everything works seamlessly. The automation features mean fewer errors, and the analytics give us great insight into workforce trends. It’s been a game-changer for our company.",
+    color: "#F2EFE9",
+    name: "Tolani Bolarinwa, Founder at DesignFriend",
+  },
+  {
+    image: "/images/woman.jpg",
+    text: "This software has replaced three separate tools we used to run our HR operations. From onboarding new hires and running payroll, everything works seamlessly. The automation features mean fewer errors, and the analytics give us great insight into workforce trends. It’s been a game-changer for our company.",
+    color: "#C2E3D1",
+    name: "Tolani Bolarinwa, Founder at DesignFriend",
+  },
+  {
+    image: "/images/woman.jpg",
+    text: "This software has replaced three separate tools we used to run our HR operations. From onboarding new hires and running payroll, everything works seamlessly. The automation features mean fewer errors, and the analytics give us great insight into workforce trends. It’s been a game-changer for our company.",
+    color: "#FFF4DB",
+    name: "Tolani Bolarinwa, Founder at DesignFriend",
+  },
+  {
+    image: "/images/woman.jpg",
+    text: "This software has replaced three separate tools we used to run our HR operations. From onboarding new hires and running payroll, everything works seamlessly. The automation features mean fewer errors, and the analytics give us great insight into workforce trends. It’s been a game-changer for our company.",
+    color: "#CAEAEF",
+    name: "Tolani Bolarinwa, Founder at DesignFriend",
   },
 ];

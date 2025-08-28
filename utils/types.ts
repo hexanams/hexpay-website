@@ -29,3 +29,10 @@ export interface IBusinessWithImageCard {
   description: string;
   image: string;
 }
+
+export interface ITestimonialItem {
+  image: string;
+  text: string;
+  color: string;
+  name: string;
+}
