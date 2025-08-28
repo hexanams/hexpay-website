@@ -36,3 +36,16 @@ export interface ITestimonialItem {
   color: string;
   name: string;
 }
+
+export interface IPricingItemFeature {
+  name: string;
+  isChecked: boolean;
+}
+export interface IPricingItem {
+  title: string;
+  description: string;
+  price: number;
+  noOfEmployees: number;
+  isRecommended: boolean;
+  features: IPricingItemFeature[];
+}
