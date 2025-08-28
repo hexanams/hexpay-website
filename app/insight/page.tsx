@@ -1,7 +1,12 @@
+import AllIndustries from "@/components/home/AllIndustries";
 import React from "react";
 
 const InsightPage = () => {
-  return <div>InsightPage</div>;
+  return (
+    <>
+      <AllIndustries />
+    </>
+  );
 };
 
 export default InsightPage;

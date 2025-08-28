@@ -1,7 +1,12 @@
+import AllIndustries from "@/components/home/AllIndustries";
 import React from "react";
 
 const PricingPage = () => {
-  return <div>PricingPage</div>;
+  return (
+    <>
+      <AllIndustries />
+    </>
+  );
 };
 
 export default PricingPage;

@@ -1,7 +1,12 @@
+import AllIndustries from "@/components/home/AllIndustries";
 import React from "react";
 
 const PayrollPage = () => {
-  return <div>PayrollPage</div>;
+  return (
+    <>
+      <AllIndustries />
+    </>
+  );
 };
 
 export default PayrollPage;

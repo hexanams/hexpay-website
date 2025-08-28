@@ -1,7 +1,12 @@
+import AllIndustries from "@/components/home/AllIndustries";
 import React from "react";
 
 const CompliancePage = () => {
-  return <div>CompliancePage</div>;
+  return (
+    <>
+      <AllIndustries />
+    </>
+  );
 };
 
 export default CompliancePage;
