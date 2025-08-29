@@ -59,3 +59,17 @@ export interface IFeatureDescription {
   description: string;
   items: IFeatureDescriptionItem[];
 }
+
+export interface IPointerItem {
+  title: string;
+  icon: LucideIcon;
+  isOutlined?: boolean;
+  outLineColor?: string;
+}
+
+export interface IPointer {
+  title: string;
+  color: string;
+  image: string;
+  items: IPointerItem[];
+}

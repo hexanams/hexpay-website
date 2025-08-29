@@ -1,6 +1,8 @@
 import AllIndustries from "@/components/home/AllIndustries";
 import FeatureDescription from "@/components/shared/FeatureDescription";
+import Pointers from "@/components/shared/Pointers";
 import { Badge } from "@/components/ui/badge";
+import { ArrowUpRight, ClockIcon } from "lucide-react";
 import React from "react";
 
 const InsightPage = () => {
@@ -44,6 +46,32 @@ const InsightPage = () => {
             title: "Forecasting Tools",
             description:
               "Plan ahead with accurate payroll cost projections. (coming soon)",
+          },
+        ]}
+      />
+      <Pointers
+        title="All To Your Benefit"
+        color="#C2E3D1"
+        image="/images/people-office.jpg"
+        items={[
+          {
+            title: "Gain visibility into your largest expense—people.",
+            icon: ClockIcon,
+          },
+          {
+            title: "Make data-driven hiring and budgeting decisions.",
+            icon: ClockIcon,
+          },
+          {
+            title:
+              "Stay ahead of workforce challenges before they become problems.",
+            icon: ClockIcon,
+          },
+          {
+            title: "Get Started",
+            icon: ArrowUpRight,
+            isOutlined: true,
+            outLineColor: "#008000",
           },
         ]}
       />

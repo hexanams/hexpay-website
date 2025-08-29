@@ -1,6 +1,8 @@
 import AllIndustries from "@/components/home/AllIndustries";
 import FeatureDescription from "@/components/shared/FeatureDescription";
+import Pointers from "@/components/shared/Pointers";
 import { Badge } from "@/components/ui/badge";
+import { ArrowUpRight, ClockIcon } from "lucide-react";
 import React from "react";
 
 const CompliancePage = () => {
@@ -41,6 +43,31 @@ const CompliancePage = () => {
           {
             title: "Audit-Ready Records",
             description: "Keep your books clean with organized payroll data.",
+          },
+        ]}
+      />
+      <Pointers
+        title="All To Your Benefit"
+        color="#FFF4DB"
+        image="/images/people-office.jpg"
+        items={[
+          {
+            title: "Eliminate compliance headaches.",
+            icon: ClockIcon,
+          },
+          {
+            title: "Avoid penalties and late fees.",
+            icon: ClockIcon,
+          },
+          {
+            title: "Peace of mind knowing your payroll meets every standard.",
+            icon: ClockIcon,
+          },
+          {
+            title: "Get Started",
+            icon: ArrowUpRight,
+            isOutlined: true,
+            outLineColor: "#FF881B",
           },
         ]}
       />

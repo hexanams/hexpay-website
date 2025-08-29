@@ -1,6 +1,8 @@
 import AllIndustries from "@/components/home/AllIndustries";
 import FeatureDescription from "@/components/shared/FeatureDescription";
+import Pointers from "@/components/shared/Pointers";
 import { Badge } from "@/components/ui/badge";
+import { ArrowUpRight, ClockIcon } from "lucide-react";
 import React from "react";
 
 const PayrollPage = () => {
@@ -24,7 +26,7 @@ const PayrollPage = () => {
       </section>
       <FeatureDescription
         title="Pay your team differently"
-        description="Managing salaries doesn’t need to be stressful. We automate calculations, ensure accuracy, and pay employees on time—without juggling spreadsheets or manual errors."
+        description="Managing salaries doesn't need to be stressful. We automate calculations, ensure accuracy, and pay employees on time—without juggling spreadsheets or manual errors."
         items={[
           {
             title: "Set up the team",
@@ -49,6 +51,31 @@ const PayrollPage = () => {
             title: "Employee Self-Service",
             description:
               "Employees can download payslips and view tax details anytime.",
+          },
+        ]}
+      />
+      <Pointers
+        title="Let's Get Your Company Onboarded"
+        color="#CAEAEF"
+        image="/images/man-box.jpg"
+        items={[
+          {
+            title: "Save hours every month on payroll.",
+            icon: ClockIcon,
+          },
+          {
+            title: "Avoid costly errors and salary payment complexity.",
+            icon: ClockIcon,
+          },
+          {
+            title: "Focus on running your business, not calculations.",
+            icon: ClockIcon,
+          },
+          {
+            title: "Get Started",
+            icon: ArrowUpRight,
+            isOutlined: true,
+            outLineColor: "#008AA0",
           },
         ]}
       />
