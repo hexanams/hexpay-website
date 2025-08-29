@@ -49,3 +49,13 @@ export interface IPricingItem {
   isRecommended: boolean;
   features: IPricingItemFeature[];
 }
+
+export interface IFeatureDescriptionItem {
+  title: string;
+  description: string;
+}
+export interface IFeatureDescription {
+  title: string;
+  description: string;
+  items: IFeatureDescriptionItem[];
+}
