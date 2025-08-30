@@ -11,8 +11,8 @@ import HrFeatures from "../home/HrFeature";
 
 const Demo = () => {
   return (
-    <section className="w-full flex items-center justify-center">
-      <div className="container">
+    <section className="w-full flex items-center justify-center h-[609px] bg-custom-purple">
+      <div className="container h-full">
         <div className="flex flex-col">
           <div className="flex">
             <HrFeatures
@@ -21,7 +21,7 @@ const Demo = () => {
             />
             <HrFeatures name="Team Onboarding Made Easy" icon={UsersRound} />
           </div>
-          <h3>
+          <h3 className="font-inria-serif font-bold text-5xl text-white">
             Built for founders, operators, and HR leads who want to do more with
             less.
           </h3>

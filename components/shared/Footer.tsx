@@ -65,7 +65,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex bg-custom-purple col-span-5 h-full items-center pl-[50px]">
-        <div className="flex gap-6">
+        <div className="flex gap-8">
           <div className="flex flex-col items-start gap-8">
             <p className="font-aspekta font-semibold text-xl text-white">
               Company

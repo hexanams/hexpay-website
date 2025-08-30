@@ -12,6 +12,10 @@
 
 :root {
   --font-aspekta: "Aspekta Variable", sans-serif;
+  --font-inria-serif: var(--font-inria-serif);
+  --font-geist-sans: var(--font-geist-sans);
+  --font-geist-mono: var(--font-geist-mono);
+  --font-instrument-sans: var(--font-instrument-sans);
   --color-custom-dark: #1b1c1e;
   --color-custom-purple: #0b0527;
   --color-custom-gray: #f2f2f2;
@@ -20,6 +24,22 @@
 
 .font-aspekta {
   font-family: var(--font-aspekta);
+}
+
+.font-inria-serif {
+  font-family: var(--font-inria-serif);
+}
+
+.font-geist-sans {
+  font-family: var(--font-geist-sans);
+}
+
+.font-geist-mono {
+  font-family: var(--font-geist-mono);
+}
+
+.font-instrument-sans {
+  font-family: var(--font-instrument-sans);
 }
 
 .bg-custom-dark {
