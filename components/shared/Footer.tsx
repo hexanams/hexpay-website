@@ -40,7 +40,7 @@ const Footer = () => {
   return (
     <footer className="w-full flex items-center justify-center">
       <div className="container flex">
-        <div className="flex flex-col">
+        <div className="flex flex-col bg-white flex-1">
           <Image
             className="dark:invert"
             src="/images/hexpay.png"
@@ -63,70 +63,72 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="flex">
-          <div className="flex flex-col items-center">
-            <p>Company</p>
-            <ul className="flex flex-col items-center gap-4">
-              {companyLinks.map((item, i) => (
-                <li key={i}>
-                  <Link href={item.link}>{item.name}</Link>
-                </li>
-              ))}
-            </ul>
+        <div className="flex bg-custom-purple flex-3">
+          <div className="flex">
+            <div className="flex flex-col items-center">
+              <p>Company</p>
+              <ul className="flex flex-col items-center gap-4">
+                {companyLinks.map((item, i) => (
+                  <li key={i}>
+                    <Link href={item.link}>{item.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex flex-col items-center">
+              <p>Support</p>
+              <ul className="flex flex-col items-center gap-4">
+                {supportLinks.map((item, i) => (
+                  <li key={i}>
+                    <Link href={item.link}>{item.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex flex-col items-center">
+              <p>Legal</p>
+              <ul className="flex flex-col items-center gap-4">
+                {legalLinks.map((item, i) => (
+                  <li key={i}>
+                    <Link href={item.link}>{item.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div className="flex flex-col items-center">
-            <p>Support</p>
-            <ul className="flex flex-col items-center gap-4">
-              {supportLinks.map((item, i) => (
-                <li key={i}>
-                  <Link href={item.link}>{item.name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="flex flex-col items-center">
-            <p>Legal</p>
-            <ul className="flex flex-col items-center gap-4">
-              {legalLinks.map((item, i) => (
-                <li key={i}>
-                  <Link href={item.link}>{item.name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="flex flex-col">
-          <p>Stay Updated with HexPay</p>
+          <div className="flex flex-col">
+            <p>Stay Updated with HexPay</p>
 
-          <Form {...form}>
-            <form className="flex" onSubmit={form.handleSubmit(onSubmit)}>
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col gap-2">
-                    <FormControl>
-                      <Input
-                        type="email"
-                        className="px-3 py-1 h-9 w-full text-foreground font-normal text-sm font-sans shadow-xs"
-                        placeholder="Enter your email address"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage className="text-red-500" />
-                  </FormItem>
-                )}
-              />
-              <Button type="submit" className="" size="icon">
-                <ArrowRight />
-              </Button>
-            </form>
-          </Form>
-          <p>
-            Get the latest updates on payroll, compliance, and smarter team
-            management — straight to your inbox. No spam, just insights that
-            matter.
-          </p>
+            <Form {...form}>
+              <form className="flex" onSubmit={form.handleSubmit(onSubmit)}>
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col gap-2">
+                      <FormControl>
+                        <Input
+                          type="email"
+                          className="px-3 py-1 h-9 w-full text-foreground font-normal text-sm font-sans shadow-xs"
+                          placeholder="Enter your email address"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage className="text-red-500" />
+                    </FormItem>
+                  )}
+                />
+                <Button type="submit" className="" size="icon">
+                  <ArrowRight />
+                </Button>
+              </form>
+            </Form>
+            <p>
+              Get the latest updates on payroll, compliance, and smarter team
+              management — straight to your inbox. No spam, just insights that
+              matter.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
