@@ -20,6 +20,7 @@
   --color-custom-purple: #0b0527;
   --color-custom-gray: #f2f2f2;
   --color-custom-black: #1b1b1b;
+  --color-custom-mint: #e7fdfb;
 }
 
 .font-aspekta {
@@ -88,6 +89,18 @@
 
 .border-custom-black {
   border-color: var(--color-custom-black);
+}
+
+.bg-custom-mint {
+  background-color: var(--color-custom-mint);
+}
+
+.text-custom-mint {
+  color: var(--color-custom-mint);
+}
+
+.border-custom-mint {
+  border-color: var(--color-custom-mint);
 }
 
 @custom-variant dark (&:is(.dark *));

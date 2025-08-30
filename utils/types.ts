@@ -12,7 +12,9 @@ export interface ISocialIcon {
 
 export interface IHRFeature {
   name: string;
-  icon: LucideIcon;
+  icon: () => JSX.Element;
+  color: string;
+  className?: string;
 }
 
 export interface IFaq {
