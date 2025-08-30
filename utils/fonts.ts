@@ -1,4 +1,9 @@
-import { Geist, Geist_Mono, Inria_Serif } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Inria_Serif,
+  Instrument_Sans,
+} from "next/font/google";
 import localFont from "next/font/local";
 
 export const geistSans = Geist({
@@ -15,6 +20,12 @@ export const inriaSerif = Inria_Serif({
 export const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+export const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const aspekta = localFont({

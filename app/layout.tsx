@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import AppLayout from "@/components/shared/AppLayout";
-import { aspekta, geistMono, geistSans, inriaSerif } from "@/utils/fonts";
+import {
+  aspekta,
+  geistMono,
+  geistSans,
+  inriaSerif,
+  instrumentSans,
+} from "@/utils/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inriaSerif.variable} ${aspekta.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inriaSerif.variable} ${aspekta.variable} ${instrumentSans.variable} antialiased`}
       >
         <AppLayout>{children}</AppLayout>
       </body>

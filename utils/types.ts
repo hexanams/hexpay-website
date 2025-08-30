@@ -1,4 +1,5 @@
 import { LucideIcon } from "lucide-react";
+import { JSX } from "react";
 
 export interface INavLink {
   name: string;
@@ -6,7 +7,7 @@ export interface INavLink {
 }
 
 export interface ISocialIcon {
-  icon: LucideIcon;
+  icon: () => JSX.Element;
 }
 
 export interface IHRFeature {

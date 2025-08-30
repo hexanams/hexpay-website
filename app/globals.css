@@ -14,6 +14,8 @@
   --font-aspekta: "Aspekta Variable", sans-serif;
   --color-custom-dark: #1b1c1e;
   --color-custom-purple: #0b0527;
+  --color-custom-gray: #f2f2f2;
+  --color-custom-black: #1b1b1b;
 }
 
 .font-aspekta {
@@ -42,6 +44,30 @@
 
 .border-custom-purple {
   border-color: var(--color-custom-purple);
+}
+
+.bg-custom-gray {
+  background-color: var(--color-custom-gray);
+}
+
+.text-custom-gray {
+  color: var(--color-custom-gray);
+}
+
+.border-custom-gray {
+  border-color: var(--color-custom-gray);
+}
+
+.bg-custom-black {
+  background-color: var(--color-custom-black);
+}
+
+.text-custom-black {
+  color: var(--color-custom-black);
+}
+
+.border-custom-black {
+  border-color: var(--color-custom-black);
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -86,6 +112,8 @@
   --radius-xl: calc(var(--radius) + 4px);
   --color-custom-dark: #1b1c1e;
   --color-custom-purple: #0b0527;
+  --color-custom-gray: #f2f2f2;
+  --color-custom-black: #1b1b1b;
 }
 
 :root {
