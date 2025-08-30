@@ -1,6 +1,23 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "Aspekta Variable";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  src: url("/fonts/aspekta--aspekta-fonts-2.100/packages/fonts/variable/AspektaVF.woff2")
+    format("woff2");
+}
+
+:root {
+  --font-aspekta: "Aspekta Variable", sans-serif;
+}
+
+.font-aspekta {
+  font-family: var(--font-aspekta);
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

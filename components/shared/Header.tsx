@@ -3,6 +3,7 @@ import Image from "next/image";
 import { navLinks } from "@/utils/data";
 import { Button } from "../ui/button";
 import { ArrowUpRight, CirclePlay } from "lucide-react";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -19,7 +20,12 @@ const Header = () => {
         <ul className="flex items-center gap-8">
           {navLinks.map((item) => (
             <li key={item.name}>
-              <a href={item.link}>{item.name}</a>
+              <Link
+                href={item.link}
+                className="font-aspekta font-normal text-base"
+              >
+                {item.name}
+              </Link>
             </li>
           ))}
         </ul>
