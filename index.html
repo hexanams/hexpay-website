@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>HexPay — The Operating System for African Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="landing.css"/>
+<script src="image-slot.js"></script>
+<style>
+.hero{padding:64px 0 72px}
+.hero-grid{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center;max-width:1040px}
+.hero-portrait{position:relative;padding:12px;align-self:stretch}
+.hero-portrait .fig-label{position:absolute;bottom:-24px;left:12px}
+@media (max-width:860px){ .hero-grid{grid-template-columns:1fr} .hero-portrait{order:-1;max-width:220px;margin:0 auto} }
+.hero h1{font-size:clamp(38px,5.4vw,64px);line-height:1.12;margin-top:20px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p.lede{font-size:17px;color:var(--text-sub);line-height:1.7;max-width:560px;margin-top:24px}
+.hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.punch{font-family:'Poppins',sans-serif;font-style:italic;font-size:19px;color:var(--accent);margin-top:16px}
+.hero-shot-wrap{max-width:1180px;margin:80px auto 0;padding:0 32px 0}
+.hero-shot{position:relative;padding:22px;min-width:0}
+.hero-shot img{border-radius:0}
+.fig-label{position:absolute;bottom:-28px;left:22px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)}
+
+/* reframe diagram */
+.rf-diagram{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:center}
+.rf-col{display:flex;flex-direction:column;gap:14px;min-width:0}
+.rf-label{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.05em;color:var(--text-mute);margin-bottom:10px}
+.rf-box{border:1.5px dashed var(--line);padding:14px 16px;font-size:13px;color:var(--text-sub);background:var(--panel)}
+.rf-col.new .rf-box{border-style:solid;border-color:var(--accent);color:var(--text);background:var(--accent-soft)}
+.rf-arrow{display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;color:var(--text-mute);font-size:20px}
+@media (max-width:800px){ .rf-diagram{grid-template-columns:1fr} .rf-arrow{transform:rotate(90deg);margin:8px 0} }
+
+/* modules diagram */
+.mod-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.mod-track::before{content:"";position:absolute;top:44px;left:5%;right:5%;height:1px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 16px);z-index:0}
+.mod-panel{position:relative;z-index:1;background:var(--panel);padding:26px 20px;margin:0 8px;min-width:0}
+.mod-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:20px}
+.mod-panel h4{font-family:'Poppins',sans-serif;font-size:19px;font-weight:500;margin-bottom:10px}
+.mod-panel p{font-size:12.5px;color:var(--text-sub);line-height:1.6;margin-bottom:16px}
+.mod-status{font-family:'IBM Plex Mono',monospace;font-size:10.5px;padding:4px 9px;display:inline-block}
+@media (max-width:940px){ .mod-track{grid-template-columns:1fr} .mod-track::before{display:none} .mod-panel{margin:0 0 16px} }
+
+/* spec sheet */
+.spec-sheet{border-top:1px solid var(--line);min-width:0}
+.spec-row{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+.spec-row .k{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)}
+.spec-row .v{font-size:14.5px;color:var(--text)}
+.spec-row .v b{font-family:'Poppins',sans-serif;font-weight:600}
+@media (max-width:700px){ .spec-row{grid-template-columns:1fr;gap:6px} }
+
+.cta-band{background:var(--ink);color:var(--paper);padding:100px 0;text-align:center}
+.cta-band h2{color:#fff;font-size:36px;max-width:640px;margin:0 auto}
+.cta-band p{color:rgba(250,248,243,0.6);font-size:15.5px;margin:16px auto 0;max-width:460px}
+.cta-band .hero-cta{justify-content:center;margin-top:32px}
+.store-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink);border-radius:2px}
+.store-badge:hover{background:var(--ink);color:var(--paper)}
+.store-badge svg{flex-shrink:0}
+.nav-stores{display:flex;gap:8px}
+.nav-stores .store-badge{padding:6px 10px;font-size:10.5px;border-width:1px}
+@media (max-width:1140px){ .nav-stores{display:none} }
+.app-section .b-text{max-width:460px}
+.app-badges{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.photo-band{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.photo-item{position:relative;padding:14px;min-width:0}
+.photo-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
+@media (max-width:940px){ .photo-band{grid-template-columns:1fr} }
+@media (max-width:800px){ .photo-band{grid-template-columns:1fr} }
+.spec-grid{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start}
+.spec-photo{position:relative;padding:14px;min-width:0}
+.spec-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
+@media (max-width:900px){ .spec-grid{grid-template-columns:1fr} }
+.benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0}
+.benefit-row.rev .b-img{order:2}
+.benefit-row.rev .b-text{order:1}
+.b-img{position:relative;padding:14px;min-width:0}
+.b-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
+.b-text{min-width:0}
+.b-text ul{margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.b-text li{font-size:13.5px;color:var(--text-sub);display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.b-text li b{color:var(--text)}
+.b-text li .chk{font-family:'IBM Plex Mono',monospace;color:var(--accent);flex-shrink:0}
+@media (max-width:900px){ .benefit-row{grid-template-columns:1fr} .benefit-row.rev .b-img,.benefit-row.rev .b-text{order:initial} }
+.bank-diagram{position:relative;display:grid;grid-template-columns:1fr 300px 1fr;align-items:center;padding:36px 0;gap:0}
+.bank-diagram::before{content:"";position:absolute;top:50%;left:0;right:0;height:1px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 16px);z-index:0}
+.bank-col{display:flex;flex-direction:column;gap:14px;z-index:1;position:relative;min-width:0}
+.bank-col.left{align-items:flex-end}
+.bank-col.right{align-items:flex-start}
+.bank-chip{background:var(--panel);border:1px solid var(--line);padding:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;display:flex;align-items:center;gap:9px;min-width:150px}
+.bank-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.bank-hub{position:relative;z-index:2;background:var(--ink);color:var(--paper);padding:30px 26px}
+.bank-hub .htag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(250,248,243,0.5);letter-spacing:.04em;margin-bottom:6px}
+.bank-hub h4{font-family:'Poppins',sans-serif;color:#fff;font-size:19px;font-weight:500;margin-bottom:18px}
+.hub-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px solid rgba(250,248,243,0.16);padding-top:16px}
+.hub-stats div b{display:block;font-family:'IBM Plex Mono',monospace;font-size:17px;color:var(--accent)}
+.hub-stats div span{display:block;font-size:10.5px;color:rgba(250,248,243,0.5);margin-top:4px}
+.bank-stage{position:relative;height:440px;max-width:920px;margin:0 auto}
+.bank-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1}
+.bank-svg path{fill:none;stroke:rgba(63,212,212,0.55);stroke-width:1.5;stroke-dasharray:6 8;animation:flow 2.4s linear infinite}
+.bank-svg path:nth-child(2){animation-delay:.15s}
+.bank-svg path:nth-child(3){animation-delay:.3s}
+.bank-svg path:nth-child(4){animation-delay:.45s}
+.bank-svg path:nth-child(5){animation-delay:.6s}
+.bank-svg path:nth-child(6){animation-delay:.75s}
+@keyframes flow{to{stroke-dashoffset:-56}}
+.bank-chip-abs{position:absolute;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);padding:9px 14px 9px 9px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(250,248,243,0.85);display:flex;align-items:center;gap:10px;white-space:nowrap;transform:translateY(-50%);z-index:2}
+.bank-chip-abs .logo{width:26px;height:26px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:600;font-size:11px;color:#0B1220}
+.bank-chip-abs.right{padding:9px 9px 9px 14px}
+.bank-chip-abs .dot{width:6px;height:6px;border-radius:50%;background:#3FD4D4;flex-shrink:0}
+.bank-chip-abs.left{left:0}
+.bank-chip-abs.right{right:0;flex-direction:row-reverse}
+.bank-hub-abs{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;background:#171F2C;border:1px solid rgba(255,255,255,0.18);padding:26px 28px;width:270px;text-align:center}
+.bank-hub-abs .htag{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(250,248,243,0.5);letter-spacing:.06em;margin-bottom:6px}
+.bank-hub-abs h4{font-family:'Poppins',sans-serif;color:#fff;font-size:19px;font-weight:500;margin-bottom:18px}
+.hub-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px solid rgba(255,255,255,0.14);padding-top:16px;text-align:left}
+.hub-stats div b{display:block;font-family:'IBM Plex Mono',monospace;font-size:16px;color:#3FD4D4}
+.hub-stats div span{display:block;font-size:10px;color:rgba(250,248,243,0.5);margin-top:4px}
+@media (max-width:860px){
+  .bank-stage{height:auto;display:flex;flex-direction:column;gap:14px;align-items:center}
+  .bank-svg{display:none}
+  .bank-chip-abs{position:static;transform:none;width:100%;max-width:280px;justify-content:center}
+  .bank-hub-abs{position:static;transform:none;order:-1;width:100%;max-width:320px}
+}
+.nav-item{position:relative}
+.nav-trigger{background:none;border:none;font:inherit;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-sub);cursor:pointer;padding:4px 0}
+.nav-trigger:hover{color:var(--ink)}
+.mega-panel{position:fixed;top:74px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 24px 50px rgba(15,20,30,0.12);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:60}
+.nav-item.open .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+@media (min-width:941px){ .nav-item:hover .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none} }
+.mega-inner{max-width:1180px;margin:0 auto;padding:36px 32px;display:grid;grid-template-columns:1fr 1fr 340px;gap:36px}
+.mega-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text-mute);margin-bottom:16px}
+.mega-col a{display:block;font-size:14px;color:var(--text);margin-bottom:14px}
+.mega-col a span{display:block;font-size:11.5px;color:var(--text-sub);margin-top:2px;font-family:'Inter',sans-serif}
+.mega-col a:hover{color:var(--accent)}
+.mega-img{position:relative;padding:10px}
+@media (max-width:940px){ .mega-inner{grid-template-columns:1fr;padding:24px} .mega-img{max-width:320px} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item" id="productNavItem">
+        <button class="nav-trigger" id="productTrigger" aria-expanded="false" aria-controls="productMega">Product</button>
+        <div class="mega-panel" id="productMega">
+          <div class="mega-inner">
+            <div class="mega-col">
+              <h5>MODULES</h5>
+              <a href="index.html#roadmap">Payroll &amp; HR<span>Live — the entry module</span></a>
+              <a href="index.html#roadmap">Sales<span>Next — revenue alongside payroll</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="index.html#roadmap">Finance<span>Coming — cash flow &amp; accounting sync</span></a>
+              <a href="index.html#roadmap">Inventory<span>Coming — stock &amp; cost of goods</span></a>
+            </div>
+            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
+              <image-slot id="nav-mega-shot" style="width:100%;height:180px" shape="rect" placeholder="Drop a product screenshot"></image-slot>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#roadmap">Roadmap</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-actions">
+      <div class="nav-stores">
+        <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.19 7.31c1.35.07 2.29.74 3.08.8.94-.19 1.85-.87 2.86-.72 1.22.11 2.15.65 2.77 1.6-2.63 1.61-2.06 5.17.35 6.16-.5 1.36-1.16 2.71-1.2 2.71M12.03 7.25c-.15-2.23 1.66-4.09 3.74-4.25.29 2.32-2.02 4.06-3.74 4.25z"/></svg>App Store</a>
+        <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.3.3-.5.7-.5 1.2v16.4c0 .5.2.9.5 1.2l.1.1L13 12 3.7 2.5z"/><path d="M16.3 14.8L13 11.5l-9.3 9.3.1.1c.5.3 1.1.2 1.6-.1zm3-6.1L16.3 6.6 5.4 1.6c-.6-.3-1.3-.2-1.7.2z"/><path d="M19.3 8.7l-3 1.7 3 1.7c.6-.4.9-1 .9-1.7s-.3-1.3-.9-1.7z"/><path d="M16.3 11.5l3-1.7-3-1.7-3.3 3.4z"/></svg>Google Play</a>
+      </div>
+      <a href="login.html" class="login">Log in</a>
+      <a href="signup.html" class="btn btn-primary">Get started</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero gridpaper">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="tag">THE OPERATING SYSTEM FOR AFRICAN BUSINESSES</div>
+      <h1>Payroll was the beginning.<br/>Running your business <em>is the point.</em></h1>
+      <p class="lede">The operating system for growing Nigerian businesses — people, money and operations, in one place.</p>
+      <div class="hero-cta">
+        <a href="signup.html" class="btn btn-primary">Get started free</a>
+        <a href="#roadmap" class="btn btn-ghost">See the modules</a>
+      </div>
+    </div>
+    <div class="hero-portrait bracketed">
+      <span class="bl"></span><span class="br"></span>
+      <image-slot id="hero-portrait" src="https://images.unsplash.com/photo-1573496527892-904f897eb744?q=80&w=1200&auto=format&fit=crop" credit="Photo by Christina @ wocintechchat.com M on Unsplash" credit-href="https://unsplash.com/@wocintechchat" style="width:100%;height:400px" shape="rect" placeholder="Drop a photo — small business owner"></image-slot>
+      <div class="fig-label">FIG. 00 — BUSINESS OWNER</div>
+    </div>
+  </div>
+</section>
+
+<section id="product">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">THE SHIFT</div>
+      <h2>A different question, on purpose.</h2>
+      <p>Most tools answer a narrow question well. HexPay answers the one that actually keeps founders up at night.</p>
+    </div>
+    <div class="rf-diagram">
+      <div class="rf-col old">
+        <div class="rf-label">OLD MODEL</div>
+        <div class="rf-box">Payroll tool</div>
+        <div class="rf-box">Spreadsheet for sales</div>
+        <div class="rf-box">Bank app + POS reports</div>
+        <div class="rf-box">WhatsApp for everything else</div>
+      </div>
+      <div class="rf-arrow">→</div>
+      <div class="rf-col new">
+        <div class="rf-label">HEXPAY MODEL</div>
+        <div class="rf-box">Payroll · Leave · HR</div>
+        <div class="rf-box">Sales &amp; Finance</div>
+        <div class="rf-box">One login, one team</div>
+        <div class="rf-box">Modules switch on as you grow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-shade" style="padding-top:64px">
+  <div class="wrap">
+    <div class="tag" style="margin-bottom:24px">ON THE GROUND</div>
+    <div class="photo-band">
+      <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="photo-lagos" src="https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?q=80&w=1200&auto=format&fit=crop" credit="Photo by Nupo Deyon Daniel on Unsplash" credit-href="https://unsplash.com/@thewallpaperguy_" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo — Lagos retail business"></image-slot>
+        <div class="photo-cap">FIG. 02 — LAGOS, RETAIL</div>
+      </div>
+      <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="photo-abuja" src="https://images.unsplash.com/photo-1758873269317-51888e824b28?q=80&w=1200&auto=format&fit=crop" credit="Photo by Vitaly Gariev on Unsplash" credit-href="https://unsplash.com/@silverkblack" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo — Abuja team at work"></image-slot>
+        <div class="photo-cap">FIG. 03 — ABUJA, OPERATIONS</div>
+      </div>
+      <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="photo-ph" src="https://images.unsplash.com/photo-1778550579010-cb0d00cd94e6?q=80&w=1200&auto=format&fit=crop" credit="Photo by Bill Fairs on Unsplash" credit-href="https://unsplash.com/@moonboyz" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo — Port Harcourt small business"></image-slot>
+        <div class="photo-cap">FIG. 04 — PORT HARCOURT, SMB</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap" style="border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">SIMPLE START, MODULAR GROWTH</div>
+      <h2>Start with payroll. Expand when you're ready.</h2>
+      <p>You don't need every module on day one. HexPay grows module by module, so you never pay for complexity you don't need yet.</p>
+    </div>
+    <div class="mod-track">
+      <div class="mod-panel bracketed"><span class="bl"></span><span class="br"></span>
+        <div class="mod-tag">MOD. 01</div>
+        <h4>Payroll &amp; HR</h4>
+        <p>Run payroll, manage leave, onboard employees and stay compliant.</p>
+        <span class="mod-status" style="background:var(--accent-soft);color:var(--accent)">LIVE NOW</span>
+      </div>
+      <div class="mod-panel bracketed"><span class="bl"></span><span class="br"></span>
+        <div class="mod-tag">MOD. 02</div>
+        <h4>Sales</h4>
+        <p>Track revenue, orders and POS sales alongside payroll cost.</p>
+        <span class="mod-status" style="background:var(--amber-soft);color:var(--amber)">NEXT</span>
+      </div>
+      <div class="mod-panel bracketed"><span class="bl"></span><span class="br"></span>
+        <div class="mod-tag">MOD. 03</div>
+        <h4>Finance</h4>
+        <p>Cash flow, expenses and accounting sync — the full financial picture.</p>
+        <span class="mod-status" style="background:var(--line-soft);color:var(--text-mute)">COMING</span>
+      </div>
+      <div class="mod-panel bracketed"><span class="bl"></span><span class="br"></span>
+        <div class="mod-tag">MOD. 04</div>
+        <h4>Inventory</h4>
+        <p>Stock, purchasing and cost of goods, connected to sales and finance.</p>
+        <span class="mod-status" style="background:var(--line-soft);color:var(--text-mute)">COMING</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line-soft)" class="bg-ink">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">MULTI-BANK INTEGRATION</div>
+      <h2>Every bank, one ledger.</h2>
+      <p>HexPay connects to the accounts you already bank with — payroll funding, disbursement and reconciliation happen centrally, whichever bank holds the money.</p>
+    </div>
+    <div class="bank-stage">
+      <svg class="bank-svg" viewBox="0 0 920 440" preserveAspectRatio="xMidYMid meet">
+        <path id="p1" d="M210,44 Q340,44 325,220"/>
+        <path id="p2" d="M210,220 Q300,220 325,220"/>
+        <path id="p3" d="M210,396 Q340,396 325,220"/>
+        <path id="p4" d="M710,44 Q580,44 595,220"/>
+        <path id="p5" d="M710,220 Q620,220 595,220"/>
+        <path id="p6" d="M710,396 Q580,396 595,220"/>
+      </svg>
+      <div class="bank-chip-abs left" style="top:10%"><span class="logo" style="background:#FF6600">GT</span>GTBank</div>
+      <div class="bank-chip-abs left" style="top:50%"><span class="logo" style="background:#F5A623">AB</span>Access Bank</div>
+      <div class="bank-chip-abs left" style="top:90%"><span class="logo" style="background:#E4002B">ZB</span>Zenith Bank</div>
+      <div class="bank-chip-abs right" style="top:10%"><span class="logo" style="background:#D71920">UBA</span>UBA</div>
+      <div class="bank-chip-abs right" style="top:50%"><span class="logo" style="background:#3FD4D4">K</span>Kuda</div>
+      <div class="bank-chip-abs right" style="top:90%"><span class="logo" style="background:#00C3F9">PT</span>Paystack · Titan</div>
+      <div class="bank-hub-abs bracketed"><span class="bl" style="border-color:rgba(255,255,255,0.4)"></span><span class="br" style="border-color:rgba(255,255,255,0.4)"></span>
+        <div class="htag">CENTRAL REVENUE INSIGHT</div>
+        <h4>HexPay Ledger</h4>
+        <div class="hub-stats">
+          <div><b>₦2.1B+</b><span>disbursed monthly</span></div>
+          <div><b>6</b><span>banks connected</span></div>
+          <div><b>99.9%</b><span>reconciliation accuracy</span></div>
+          <div><b>Real-time</b><span>balance visibility</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">FOR EMPLOYERS</div>
+      <h2>Run payroll with confidence, not spreadsheets.</h2>
+      <p>Built for the person who owns the outcome — accurate pay, on time, every time, with the compliance handled for you.</p>
+    </div>
+    <div class="benefit-row">
+      <div class="b-text">
+        <ul>
+          <li><span class="chk">✓</span><div><b>Run payroll in minutes</b>, not days — review, approve, disburse.</div></li>
+          <li><span class="chk">✓</span><div><b>Stay compliant automatically</b> — PAYE, Pension, NHF and NSITF calculated and filed for you.</div></li>
+          <li><span class="chk">✓</span><div><b>See the full cost of your team</b> — payroll, leave and hiring in one view, no reconciliation.</div></li>
+          <li><span class="chk">✓</span><div><b>Grow without switching tools</b> — add sales, finance and inventory on the same account.</div></li>
+        </ul>
+      </div>
+      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="emp-owner" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" credit="Photo by Austin Distel on Unsplash" credit-href="https://unsplash.com/@austindistel" style="width:100%;height:360px" shape="rect" placeholder="Drop a photo — Nigerian business owner reviewing payroll"></image-slot>
+        <div class="b-cap">FIG. 06 — EMPLOYER, REVIEWING PAYROLL RUN</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line-soft);padding-top:64px">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">FOR EMPLOYEES</div>
+      <h2>Pay you can see, and trust.</h2>
+      <p>Every employee gets a clear view of their own pay, leave and benefits — without asking HR for a spreadsheet.</p>
+    </div>
+    <div class="benefit-row rev">
+      <div class="b-text">
+        <ul>
+          <li><span class="chk">✓</span><div><b>Digital payslips</b>, always available — no more chasing HR for a copy.</div></li>
+          <li><span class="chk">✓</span><div><b>Request and track leave</b> from a phone, with real-time approval status.</div></li>
+          <li><span class="chk">✓</span><div><b>See deductions clearly</b> — pension, tax and NHF broken down, not a mystery.</div></li>
+          <li><span class="chk">✓</span><div><b>Update your own details</b> — bank account, next of kin, documents — without a form.</div></li>
+        </ul>
+      </div>
+      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="emp-worker" src="https://images.unsplash.com/photo-1573496527892-904f897eb744?q=80&w=1200&auto=format&fit=crop" credit="Photo by Christina @ wocintechchat.com M on Unsplash" credit-href="https://unsplash.com/@wocintechchat" style="width:100%;height:360px" shape="rect" placeholder="Drop a photo — employee checking payslip on phone"></image-slot>
+        <div class="b-cap">FIG. 07 — EMPLOYEE, VIEWING PAYSLIP</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">BUILT HERE, FOR HERE</div>
+      <h2>Specification, not marketing copy.</h2>
+      <p>Not a global tool with Nigeria bolted on — here's exactly what that means in practice.</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-sheet">
+        <div class="spec-row"><div class="k">CURRENCY</div><div class="v"><b>Naira-native</b> — payroll, invoicing and reporting built around the Naira from day one.</div></div>
+        <div class="spec-row"><div class="k">COMPLIANCE</div><div class="v"><b>PAYE · Pension · NHF · NSITF</b> handled automatically, aligned to current Nigerian tax law.</div></div>
+        <div class="spec-row"><div class="k">DISBURSEMENT</div><div class="v"><b>Direct to Nigerian bank accounts</b>, funded through Paystack — no foreign payment processor required.</div></div>
+        <div class="spec-row"><div class="k">SUPPORT</div><div class="v"><b>&lt; 1 hour response</b> from a team that understands Nigerian business operations.</div></div>
+      </div>
+      <div class="spec-photo bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="photo-owner" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop" credit="Photo by Blake Wisz on Unsplash" credit-href="https://unsplash.com/@blakewisz" style="width:100%;height:420px" shape="rect" placeholder="Drop a photo — Nigerian business owner"></image-slot>
+        <div class="spec-cap">FIG. 05 — WALLET, MULTI-BANK FUNDING</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid var(--line-soft)" class="app-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">SELF-SERVICE APP</div>
+      <h2>Everything, in your employees' pocket.</h2>
+      <p>Payslips, leave requests, deductions and profile updates — employees serve themselves from the HexPay app, no HR queue required.</p>
+    </div>
+    <div class="benefit-row">
+      <div class="b-text">
+        <ul>
+          <li><span class="chk">✓</span><div><b>View and download payslips</b> the moment payroll runs.</div></li>
+          <li><span class="chk">✓</span><div><b>Request leave</b> and track approval status in real time.</div></li>
+          <li><span class="chk">✓</span><div><b>Update bank details, next of kin and documents</b> without a form.</div></li>
+          <li><span class="chk">✓</span><div><b>Works on any phone</b> — low-data mode for patchy connections.</div></li>
+        </ul>
+        <div class="app-badges">
+          <a href="#" class="store-badge"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.19 7.31c1.35.07 2.29.74 3.08.8.94-.19 1.85-.87 2.86-.72 1.22.11 2.15.65 2.77 1.6-2.63 1.61-2.06 5.17.35 6.16-.5 1.36-1.16 2.71-1.2 2.71M12.03 7.25c-.15-2.23 1.66-4.09 3.74-4.25.29 2.32-2.02 4.06-3.74 4.25z"/></svg>Download on the App Store</a>
+          <a href="#" class="store-badge"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.3.3-.5.7-.5 1.2v16.4c0 .5.2.9.5 1.2l.1.1L13 12 3.7 2.5z"/><path d="M16.3 14.8L13 11.5l-9.3 9.3.1.1c.5.3 1.1.2 1.6-.1zm3-6.1L16.3 6.6 5.4 1.6c-.6-.3-1.3-.2-1.7.2z"/><path d="M19.3 8.7l-3 1.7 3 1.7c.6-.4.9-1 .9-1.7s-.3-1.3-.9-1.7z"/><path d="M16.3 11.5l3-1.7-3-1.7-3.3 3.4z"/></svg>Get it on Google Play</a>
+        </div>
+      </div>
+      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="app-shot" style="width:100%;height:360px" shape="rect" placeholder="Drop a photo — employee using the HexPay app"></image-slot>
+        <div class="b-cap">FIG. 08 — SELF-SERVICE APP, MOBILE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Run your whole business from one platform.</h2>
+    <p>Start with payroll today. Expand into sales, finance and inventory as you grow — on the same account, the same data, no migration.</p>
+    <div class="hero-cta">
+      <a href="signup.html" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
+      <a href="about.html" class="btn btn-on-dark">Learn our story</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
+        <p>The operating system for African businesses — payroll, sales, finance and operations, in one intelligent platform.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="index.html#product">Payroll & HR</a>
+        <a href="index.html#roadmap">Roadmap</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="extensions.html">Extensions</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="about.html#mission">Our mission</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms of service</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 HexPay Africa. All rights reserved.</span>
+      <div class="foot-social"><a href="#">X</a><a href="#">LinkedIn</a><a href="#">Instagram</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("navBurger").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("mobile-open"));
+const productNavItem=document.getElementById("productNavItem"), productTrigger=document.getElementById("productTrigger");
+productTrigger.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  const isOpen=productNavItem.classList.toggle("open");
+  productTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
+});
+document.addEventListener("click",(e)=>{ if(!productNavItem.contains(e.target)){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+</script>
+</body>
+</html>

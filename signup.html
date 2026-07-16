@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign up — HexPay</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="landing.css">
+<style>
+body{background:var(--paper)}
+.auth-wrap{min-height:100vh;display:grid;grid-template-columns:1fr 500px}
+.auth-brand{position:relative;background:var(--ink);color:var(--paper);padding:56px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.auth-brand .gridpaper{position:absolute;inset:0;opacity:.35;background-image:linear-gradient(rgba(250,248,243,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(250,248,243,0.08) 1px,transparent 1px);background-size:44px 44px}
+.auth-brand-top{position:relative;z-index:1}
+.auth-brand-mid{position:relative;z-index:1;max-width:440px}
+.auth-brand-mid h1{color:#fff;font-size:36px;line-height:1.2;margin-bottom:18px}
+.auth-brand-mid p{color:rgba(250,248,243,0.62);font-size:15px;line-height:1.7}
+.checklist{position:relative;z-index:1;display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.checklist div{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:rgba(250,248,243,0.75)}
+.checklist div span.chk{font-family:'IBM Plex Mono',monospace;color:#5FD1E0;flex-shrink:0}
+.auth-brand-foot{position:relative;z-index:1;font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(250,248,243,0.4);border-top:1px solid rgba(250,248,243,0.14);padding-top:20px}
+.auth-panel{display:flex;flex-direction:column;justify-content:center;padding:56px}
+.auth-panel-inner{width:100%;max-width:380px;margin:0 auto}
+.auth-back{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute);display:inline-flex;align-items:center;gap:6px;margin-bottom:28px;background:none;border:none;cursor:pointer}
+.auth-back:hover{color:var(--ink)}
+.step-track{display:flex;align-items:center;gap:6px;margin-bottom:28px}
+.step-track .dash{flex:1;height:2px;background:var(--line)}
+.step-track .dash.done{background:var(--accent)}
+.step-track .num{font-family:'IBM Plex Mono',monospace;font-size:11px;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--text-mute);flex-shrink:0}
+.step-track .num.active{border-color:var(--accent);color:var(--accent)}
+.step-track .num.done{background:var(--accent);border-color:var(--accent);color:#fff}
+.step-label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:8px}
+.auth-panel-inner h2{font-size:26px;margin-bottom:8px}
+.auth-panel-inner>p.sub{font-size:13.5px;color:var(--text-sub);margin-bottom:28px}
+.field{margin-bottom:16px}
+.field-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field label{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;color:var(--text-mute);margin-bottom:7px;text-transform:uppercase}
+.field input,.field select{width:100%;border:1.5px solid var(--line);background:var(--panel);padding:12px 14px;font-family:'Inter',sans-serif;font-size:14px;color:var(--text);border-radius:2px;transition:border-color .15s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--accent)}
+.field-hint{font-size:11px;color:var(--text-mute);margin-top:6px}
+.terms{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:var(--text-sub);margin:18px 0 22px;line-height:1.5}
+.terms input{width:14px;height:14px;accent-color:var(--accent);margin-top:2px;flex-shrink:0}
+.terms a{color:var(--accent)}
+.terms a:hover{color:var(--ink)}
+.auth-btn{width:100%;justify-content:center;padding:14px}
+.auth-switch{margin-top:28px;text-align:center;font-size:13px;color:var(--text-sub)}
+.auth-switch a{color:var(--accent);font-weight:500}
+.auth-switch a:hover{color:var(--ink)}
+.otp-row{display:flex;gap:10px;margin-bottom:8px}
+.otp-row input{width:100%;text-align:center;border:1.5px solid var(--line);background:var(--panel);padding:14px 0;font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--text);border-radius:2px}
+.otp-row input:focus{outline:none;border-color:var(--accent)}
+.otp-meta{display:flex;justify-content:space-between;align-items:center;margin:10px 0 24px;font-size:12.5px;color:var(--text-sub)}
+.otp-meta b{color:var(--text)}
+.resend{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent);background:none;border:none;cursor:pointer}
+.resend:hover{color:var(--ink)}
+.otp-target{background:var(--accent-soft);border:1px solid var(--line);padding:12px 14px;font-size:13px;color:var(--text-sub);margin-bottom:22px;border-radius:2px}
+.otp-target b{color:var(--text);font-family:'IBM Plex Mono',monospace}
+.step-panel{display:none}
+.step-panel.active{display:block}
+@media (max-width:900px){
+  .auth-wrap{grid-template-columns:1fr}
+  .auth-brand{display:none}
+  .auth-panel{padding:40px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="auth-wrap">
+  <div class="auth-brand">
+    <div class="gridpaper"></div>
+    <div class="auth-brand-top"><a href="index.html" class="nav-logo" style="color:#fff"><span class="mark" style="border-color:rgba(255,255,255,0.5)">Hx</span>HexPay</a></div>
+    <div class="auth-brand-mid">
+      <span class="tag" style="color:#5FD1E0">get started, no card required</span>
+      <h1>Set up payroll in an afternoon, not a quarter.</h1>
+      <p>Add your team, connect your bank, run your first payroll cycle. HexPay handles compliance, payslips and reconciliation automatically.</p>
+      <div class="checklist">
+        <div><span class="chk">[✓]</span>Free for your first 5 employees</div>
+        <div><span class="chk">[✓]</span>Connects to GTBank, Access, Zenith, UBA, Kuda</div>
+        <div><span class="chk">[✓]</span>No setup fees, cancel anytime</div>
+      </div>
+    </div>
+    <div class="auth-brand-foot">TRUSTED BY 400+ BUSINESSES ACROSS NIGERIA</div>
+  </div>
+  <div class="auth-panel">
+    <div class="auth-panel-inner">
+      <a href="index.html" class="auth-back" id="backLink">&larr; Back to site</a>
+
+      <div class="step-track">
+        <div class="num active" id="dot1">1</div><div class="dash" id="dash1"></div>
+        <div class="num" id="dot2">2</div><div class="dash" id="dash2"></div>
+        <div class="num" id="dot3">3</div>
+      </div>
+
+      <div class="step-panel active" id="step1">
+        <div class="step-label">STEP 1 OF 3 — YOUR DETAILS</div>
+        <h2>Create your account</h2>
+        <p class="sub">Tell us about you and your company.</p>
+        <form onsubmit="return false">
+          <div class="field-2">
+            <div class="field"><label>First name</label><input type="text" id="firstName" placeholder="Ada" required></div>
+            <div class="field"><label>Last name</label><input type="text" placeholder="Obi" required></div>
+          </div>
+          <div class="field"><label>Company name</label><input type="text" placeholder="Obi Logistics Ltd" required></div>
+          <div class="field"><label>Work email</label><input type="email" id="emailInput" placeholder="you@company.com" required></div>
+          <button class="btn btn-primary auth-btn" type="submit" onclick="goStep(2)">Continue</button>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p>
+      </div>
+
+      <div class="step-panel" id="step2">
+        <div class="step-label">STEP 2 OF 3 — VERIFY EMAIL</div>
+        <h2>Check your inbox</h2>
+        <p class="sub">Enter the 6-digit code we sent to confirm it's you.</p>
+        <div class="otp-target">Code sent to <b id="emailTarget">you@company.com</b></div>
+        <div class="otp-row">
+          <input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric">
+        </div>
+        <div class="otp-meta"><span>Didn't get it?</span><button class="resend">Resend code</button></div>
+        <button class="btn btn-primary auth-btn" onclick="goStep(3)">Verify &amp; continue</button>
+      </div>
+
+      <div class="step-panel" id="step3">
+        <div class="step-label">STEP 3 OF 3 — SECURE YOUR ACCOUNT</div>
+        <h2>Almost there</h2>
+        <p class="sub">Confirm your phone, tell us your team size, and set a password.</p>
+        <form onsubmit="return false">
+          <div class="field"><label>Phone number</label><input type="tel" placeholder="+234 801 234 5678" required></div>
+          <div class="field">
+            <label>SMS verification code</label>
+            <div class="otp-row" style="margin-bottom:6px">
+              <input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric">
+            </div>
+            <div class="field-hint">Code sent via SMS to the number above</div>
+          </div>
+          <div class="field">
+            <label>Team size</label>
+            <select required>
+              <option value="">Select team size</option>
+              <option>1–5 employees</option>
+              <option>6–20 employees</option>
+              <option>21–100 employees</option>
+              <option>100+ employees</option>
+            </select>
+          </div>
+          <div class="field"><label>Set password</label><input type="password" placeholder="••••••••" required><div class="field-hint">At least 8 characters</div></div>
+          <label class="terms"><input type="checkbox" required>I agree to HexPay's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+          <button class="btn btn-primary auth-btn" type="submit">Create account</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function goStep(n){
+  document.querySelectorAll('.step-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('step'+n).classList.add('active');
+  for(let i=1;i<=3;i++){
+    const dot=document.getElementById('dot'+i);
+    dot.classList.remove('active','done');
+    if(i<n)dot.classList.add('done');
+    else if(i===n)dot.classList.add('active');
+  }
+  for(let i=1;i<=2;i++){
+    document.getElementById('dash'+i).classList.toggle('done', i<n);
+  }
+  const back=document.getElementById('backLink');
+  if(n>1){ back.textContent='← Back'; back.onclick=(e)=>{e.preventDefault(); goStep(n-1);}; }
+  else { back.textContent='← Back to site'; back.onclick=null; back.href='index.html'; }
+  if(n===2){ document.getElementById('emailTarget').textContent = document.getElementById('emailInput').value || 'you@company.com'; }
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('.otp-row').forEach(row=>{
+  const inputs=[...row.querySelectorAll('input')];
+  inputs.forEach((inp,i)=>{
+    inp.addEventListener('input',()=>{ if(inp.value && inputs[i+1]) inputs[i+1].focus(); });
+    inp.addEventListener('keydown',(e)=>{ if(e.key==='Backspace' && !inp.value && inputs[i-1]) inputs[i-1].focus(); });
+  });
+});
+</script>
+</body>
+</html>
