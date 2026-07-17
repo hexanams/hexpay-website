@@ -64,6 +64,15 @@
 .mod-status{font-family:'IBM Plex Mono',monospace;font-size:10.5px;padding:4px 9px;display:inline-block}
 @media (max-width:940px){ .mod-track{grid-template-columns:1fr} .mod-track::before{display:none} .mod-panel{margin:0 0 16px} }
 
+/* three pillars */
+.pillar-track{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.pillar{position:relative;background:var(--panel);padding:28px 24px}
+.pillar-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.04em;margin-bottom:18px}
+.pillar h4{font-family:'Poppins',sans-serif;font-size:20px;font-weight:500;margin-bottom:10px}
+.pillar p{font-size:13px;color:var(--text-sub);line-height:1.65;margin-bottom:16px}
+.pillar a{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px}
+@media (max-width:800px){ .pillar-track{grid-template-columns:1fr} }
+
 /* spec sheet */
 .spec-sheet{border-top:1px solid var(--line);min-width:0}
 .spec-row{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
@@ -260,9 +269,9 @@
 <section class="hero gridpaper">
   <div class="wrap hero-grid">
     <div>
-      <div class="tag">THE OPERATING SYSTEM FOR AFRICAN BUSINESSES</div>
-      <h1>Payroll was the beginning.<br/>Running your business <em>is the point.</em></h1>
-      <p class="lede">The operating system for growing Nigerian businesses, people, money and operations, in one place.</p>
+      <div class="tag">PEOPLE. PAYROLL. REVENUE.</div>
+      <h1>The only platform that connects <em>your people</em> to <em>your money.</em></h1>
+      <p class="lede">Most tools show you one piece, who works for you, what you pay them, or what the business earns. HexPay is the operating system that holds all three in one place, so growing Nigerian businesses can see the whole picture.</p>
       <div class="hero-cta">
         <a href="https://hex-software-frontend.vercel.app/signup" class="btn btn-primary">Get started free</a>
         <a href="#roadmap" class="btn btn-ghost">See the modules</a>
@@ -296,25 +305,45 @@
 <section id="product">
   <div class="wrap">
     <div class="section-head">
-      <div class="tag">THE SHIFT</div>
+      <div class="tag">THE DIFFERENTIATOR</div>
       <h2>A different question, on purpose.</h2>
-      <p>Most tools answer a narrow question well. HexPay answers the one that actually keeps founders up at night.</p>
+      <p>Most tools answer a narrow question well. HexPay answers the one that actually keeps founders up at night: what is my team costing me, and what is the business actually making.</p>
     </div>
     <div class="rf-diagram">
       <div class="rf-col old">
-        <div class="rf-label">OLD MODEL</div>
-        <div class="rf-box">Payroll tool</div>
-        <div class="rf-box">Spreadsheet for sales</div>
-        <div class="rf-box">Bank app + POS reports</div>
-        <div class="rf-box">WhatsApp for everything else</div>
+        <div class="rf-label">OLD MODEL, THREE TOOLS</div>
+        <div class="rf-box">HR spreadsheet for who works here</div>
+        <div class="rf-box">Payroll tool for what they're paid</div>
+        <div class="rf-box">Bank app + POS reports for revenue</div>
+        <div class="rf-box">WhatsApp and guesswork to connect them</div>
       </div>
       <div class="rf-arrow">→</div>
       <div class="rf-col new">
-        <div class="rf-label">HEXPAY MODEL</div>
-        <div class="rf-box">Payroll · Leave · HR</div>
-        <div class="rf-box">Sales &amp; Finance</div>
-        <div class="rf-box">One login, one team</div>
-        <div class="rf-box">Modules switch on as you grow</div>
+        <div class="rf-label">HEXPAY MODEL, ONE PLATFORM</div>
+        <div class="rf-box">People, one record for every employee</div>
+        <div class="rf-box">Payroll, tied directly to that record</div>
+        <div class="rf-box">Revenue, synced from every bank you use</div>
+        <div class="rf-box">One login, the full picture, always current</div>
+      </div>
+    </div>
+    <div class="pillar-track">
+      <div class="pillar bracketed"><span class="bl"></span><span class="br"></span>
+        <div class="pillar-tag">01, PEOPLE</div>
+        <h4>Who works for you.</h4>
+        <p>Onboarding, HR records, leave and attendance, kept accurate so nothing downstream is guesswork.</p>
+        <a href="product-time-tracking.html">See Time Tracking →</a>
+      </div>
+      <div class="pillar bracketed"><span class="bl"></span><span class="br"></span>
+        <div class="pillar-tag">02, PAYROLL</div>
+        <h4>What you pay them.</h4>
+        <p>Run payroll in minutes, stay compliant automatically, and know exactly what your team costs every month.</p>
+        <a href="product-payroll.html">See Payroll →</a>
+      </div>
+      <div class="pillar bracketed"><span class="bl"></span><span class="br"></span>
+        <div class="pillar-tag">03, REVENUE</div>
+        <h4>What the business makes.</h4>
+        <p>Every bank account synced into one ledger, so payroll cost and revenue sit side by side, not in separate apps.</p>
+        <a href="product-bank-sync.html">See Bank Sync →</a>
       </div>
     </div>
   </div>
@@ -344,8 +373,8 @@
   <div class="wrap">
     <div class="section-head">
       <div class="tag">SIMPLE START, MODULAR GROWTH</div>
-      <h2>Start with payroll. Expand when you're ready.</h2>
-      <p>You don't need every module on day one. HexPay grows module by module, so you never pay for complexity you don't need yet.</p>
+      <h2>Start with People, Payroll and Revenue. Expand when you're ready.</h2>
+      <p>Those three are live today, unified from day one. You don't need every module on top of them right away, HexPay grows module by module, so you never pay for complexity you don't need yet.</p>
     </div>
     <div class="mod-track">
       <div class="mod-panel bracketed"><span class="bl"></span><span class="br"></span>
@@ -356,9 +385,9 @@
       </div>
       <div class="mod-panel bracketed"><span class="bl"></span><span class="br"></span>
         <div class="mod-tag">MOD. 02</div>
-        <h4>Sales</h4>
-        <p>Track revenue, orders and POS sales alongside payroll cost.</p>
-        <span class="mod-status" style="background:var(--amber-soft);color:var(--amber)">NEXT</span>
+        <h4>Bank Sync &amp; Revenue</h4>
+        <p>Every account, one ledger, revenue and payroll cost side by side.</p>
+        <span class="mod-status" style="background:var(--accent-soft);color:var(--accent)">LIVE NOW</span>
       </div>
       <div class="mod-panel bracketed"><span class="bl"></span><span class="br"></span>
         <div class="mod-tag">MOD. 03</div>
@@ -538,8 +567,8 @@
 
 <section class="cta-band">
   <div class="wrap">
-    <h2>Run your whole business from one platform.</h2>
-    <p>Start with payroll today. Expand into sales, finance and inventory as you grow, on the same account, the same data, no migration.</p>
+    <h2>Your people, your payroll, your revenue. One platform.</h2>
+    <p>Start today with all three connected. Expand into finance and inventory as you grow, on the same account, the same data, no migration.</p>
     <div class="hero-cta">
       <a href="https://hex-software-frontend.vercel.app/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
       <a href="about.html" class="btn btn-on-dark">Learn our story</a>
@@ -552,7 +581,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <a href="index.html" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
-        <p>The operating system for African businesses, payroll, sales, finance and operations, in one intelligent platform.</p>
+        <p>The operating system for African businesses, people, payroll and revenue, in one intelligent platform.</p>
       </div>
       <div class="foot-col">
         <h4>Product</h4>
