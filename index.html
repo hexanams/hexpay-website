@@ -157,7 +157,7 @@
 .nav-trigger:hover{color:var(--ink)}
 .mega-panel{position:fixed;top:74px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 24px 50px rgba(15,20,30,0.12);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:60}
 .nav-item.open .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none}
-@media (min-width:941px){ .nav-item:hover .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none} }
+
 .mega-inner{max-width:1180px;margin:0 auto;padding:36px 32px;display:grid;grid-template-columns:1fr 1fr 340px;gap:36px}
 .mega-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text-mute);margin-bottom:16px}
 .mega-col a{display:block;font-size:14px;color:var(--text);margin-bottom:14px}
@@ -580,26 +580,22 @@
 
 <script>
 document.getElementById("navBurger").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("mobile-open"));
-const productNavItem=document.getElementById("productNavItem"), productTrigger=document.getElementById("productTrigger");
-productTrigger.addEventListener("click",(e)=>{
-  e.stopPropagation();
-  const isOpen=productNavItem.classList.toggle("open");
-  productTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
-});
-document.addEventListener("click",(e)=>{ if(!productNavItem.contains(e.target)){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
-document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
-const businessNavItem=document.getElementById("businessNavItem"), businessTrigger=document.getElementById("businessTrigger");
-businessTrigger.addEventListener("click",(e)=>{
-  e.stopPropagation();
-  const isOpen=businessNavItem.classList.toggle("open");
-  businessTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
-});
-document.addEventListener("click",(e)=>{ if(!businessNavItem.contains(e.target)){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
-document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
-const resourcesNavItem=document.getElementById("resourcesNavItem"), resourcesTrigger=document.getElementById("resourcesTrigger");
-resourcesTrigger.addEventListener("click",(e)=>{ e.stopPropagation(); const isOpen=resourcesNavItem.classList.toggle("open"); resourcesTrigger.setAttribute("aria-expanded",isOpen?"true":"false"); });
-document.addEventListener("click",(e)=>{ if(!resourcesNavItem.contains(e.target)){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
-document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
+function wireMegaMenu(itemId,triggerId){
+  const item=document.getElementById(itemId), trigger=document.getElementById(triggerId);
+  if(!item||!trigger) return;
+  let closeTimer=null;
+  const open=()=>{ clearTimeout(closeTimer); item.classList.add("open"); trigger.setAttribute("aria-expanded","true"); };
+  const scheduleClose=()=>{ clearTimeout(closeTimer); closeTimer=setTimeout(()=>{ item.classList.remove("open"); trigger.setAttribute("aria-expanded","false"); },250); };
+  const closeNow=()=>{ clearTimeout(closeTimer); item.classList.remove("open"); trigger.setAttribute("aria-expanded","false"); };
+  trigger.addEventListener("click",(e)=>{ e.stopPropagation(); item.classList.contains("open")?closeNow():open(); });
+  item.addEventListener("mouseenter",()=>{ if(window.innerWidth>940) open(); });
+  item.addEventListener("mouseleave",()=>{ if(window.innerWidth>940) scheduleClose(); });
+  document.addEventListener("click",(e)=>{ if(!item.contains(e.target)) closeNow(); });
+  document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closeNow(); });
+}
+wireMegaMenu("productNavItem","productTrigger");
+wireMegaMenu("businessNavItem","businessTrigger");
+wireMegaMenu("resourcesNavItem","resourcesTrigger");
 </script>
 </body>
 </html>
