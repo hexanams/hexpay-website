@@ -3,55 +3,49 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>About | HexPay</title>
+<title>Blog | HexPay</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="landing.css"/>
 <script src="image-slot.js"></script>
 <style>
-.a-hero{padding:96px 0 80px}
-.a-hero h1{font-size:clamp(34px,5vw,52px);line-height:1.18;max-width:780px;margin-top:20px}
-.a-hero p{font-size:17px;color:var(--text-sub);max-width:560px;margin-top:22px;line-height:1.7}
+.blog-hero{padding:72px 0 56px}
+.blog-hero h1{font-size:clamp(34px,4.6vw,50px);line-height:1.15;margin-top:20px;max-width:640px}
+.blog-hero p{font-size:17px;color:var(--text-sub);line-height:1.7;max-width:540px;margin-top:22px}
 
-.mv-row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.mv-cell{padding:40px;border-right:1px solid var(--line)}
-.mv-cell:last-child{border-right:none}
-.mv-cell .tag{margin-bottom:16px}
-.mv-cell h3{font-size:23px;margin-bottom:12px}
-.mv-cell p{font-size:14.5px;color:var(--text-sub);line-height:1.75;max-width:400px}
+.featured{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:48px 0}
+.featured-img{position:relative;padding:14px}
+.featured-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
+.featured-text .cat-pill{display:inline-flex;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);border:1px solid var(--accent);padding:4px 10px;margin-bottom:16px}
+.featured-text h2{font-size:28px;line-height:1.25;margin-bottom:14px}
+.featured-text p{font-size:14.5px;color:var(--text-sub);line-height:1.7;margin-bottom:20px}
+.featured-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-mute)}
+@media (max-width:860px){ .featured{grid-template-columns:1fr} }
 
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.story-shot{position:relative;padding:16px}
-.story-text p{font-size:15px;color:var(--text-sub);line-height:1.85;margin-bottom:18px}
-.story-text p.lead{font-family:'Poppins',sans-serif;font-style:italic;font-size:21px;color:var(--text);line-height:1.5}
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px}
+.filter-btn{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:9px 16px;border:1.5px solid var(--line);background:var(--panel);color:var(--text-sub);cursor:pointer;border-radius:2px;transition:all .15s}
+.filter-btn:hover{border-color:var(--ink);color:var(--ink)}
+.filter-btn.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 
-.pillar-row{display:grid;grid-template-columns:100px 1fr;gap:28px;padding:34px 0;border-top:1px solid var(--line)}
-.pillar-row:last-child{border-bottom:1px solid var(--line)}
-.pillar-row .pn{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)}
-.pillar-row h4{font-family:'Poppins',sans-serif;font-size:20px;font-weight:500;margin-bottom:8px}
-.pillar-row p{font-size:14px;color:var(--text-sub);line-height:1.7;max-width:540px}
-
-.val-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.val-card{padding:28px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.val-card h4{font-family:'Poppins',sans-serif;font-size:16px;font-weight:600;margin-bottom:10px}
-.val-card p{font-size:12.5px;color:var(--text-sub);line-height:1.65}
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.post-card{border:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column}
+.post-card .post-img{position:relative;height:180px}
+.post-card .post-img image-slot{width:100%;height:100%}
+.post-body{padding:22px}
+.post-cat{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);margin-bottom:10px}
+.post-body h3{font-size:16.5px;line-height:1.35;margin-bottom:10px}
+.post-body p{font-size:12.5px;color:var(--text-sub);line-height:1.6;margin-bottom:14px}
+.post-meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);border-top:1px solid var(--line-soft);padding-top:14px}
+@media (max-width:900px){ .post-grid{grid-template-columns:1fr 1fr} }
+@media (max-width:640px){ .post-grid{grid-template-columns:1fr} }
 
 .cta-band{background:var(--ink);color:var(--paper);padding:100px 0;text-align:center}
 .cta-band h2{color:#fff;font-size:36px;max-width:640px;margin:0 auto}
 .cta-band p{color:rgba(250,248,243,0.6);font-size:15.5px;margin:16px auto 0;max-width:460px}
-.cta-band .hero-cta{display:flex;justify-content:center;gap:14px;margin-top:32px}
-
-@media (max-width:900px){
-  .mv-row,.story-grid,.val-grid{grid-template-columns:1fr}
-  .mv-cell{border-right:none;border-bottom:1px solid var(--line)}
-}
-.photo-band{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.photo-item{position:relative;padding:14px}
-.photo-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
-@media (max-width:800px){ .photo-band{grid-template-columns:1fr} }
-.nav-stores{display:flex;gap:8px}
+.cta-band .hero-cta{display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap}
 .store-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink);border-radius:2px}
 .store-badge:hover{background:var(--ink);color:var(--paper)}
+.nav-stores{display:flex;gap:8px}
 .nav-stores .store-badge{padding:6px 10px;font-size:10.5px;border-width:1px}
 @media (max-width:1140px){ .nav-stores{display:none} }
 .nav-item{position:relative;padding-bottom:26px;margin-bottom:-26px}
@@ -70,7 +64,6 @@
 </style>
 </head>
 <body>
-
 <header class="site">
   <nav class="nav">
     <a href="index.html" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
@@ -86,7 +79,7 @@
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
-              <a href="product-time-tracking.html">Time Tracking<span>Clock-ins, shifts and attendance</span></a>
+              <a href="product-time-tracking.html">Time Tracking<span>Clock ins, shifts and attendance</span></a>
               <a href="product-remittance-compliance.html">Remittance &amp; Compliance<span>PAYE, pension, NHF filed automatically</span></a>
             </div>
             <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
@@ -151,93 +144,94 @@
   </nav>
 </header>
 
-<section class="a-hero gridpaper">
+<section class="blog-hero gridpaper">
   <div class="wrap">
-    <div class="tag">ABOUT HEXPAY</div>
-    <h1>We're building the operating system for African businesses.</h1>
-    <p>Not another point solution. A single, intelligent platform that grows from payroll into everything a small or mid-sized business needs to run, without the cost or chaos of stitching five tools together.</p>
+    <div class="tag">BLOG</div>
+    <h1>Notes on building payroll for African businesses.</h1>
+    <p>Product updates, compliance explainers and stories from founders running their teams on HexPay.</p>
   </div>
 </section>
 
-<section id="mission" style="padding-top:0;padding-bottom:0">
+<section style="padding-top:0">
   <div class="wrap">
-    <div class="mv-row">
-      <div class="mv-cell">
-        <div class="tag">OUR VISION</div>
-        <h3>The single platform African businesses run on.</h3>
-        <p>From their first hire to their hundredth, one account, one connected system, growing with the business instead of getting replaced by it.</p>
+    <div class="featured">
+      <div class="featured-img bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="blog-featured" style="width:100%;height:360px" shape="rect" placeholder="Drop a photo for the featured post"></image-slot>
+        <div class="featured-cap">FIG. 01, FEATURED POST</div>
       </div>
-      <div class="mv-cell">
-        <div class="tag">OUR MISSION</div>
-        <h3>Fewer tools. Better decisions.</h3>
-        <p>To help businesses manage people, sales, payroll, finance and operations from one intelligent platform, so founders spend less time reconciling tools and more time growing.</p>
+      <div class="featured-text">
+        <span class="cat-pill">FOUNDER STORIES</span>
+        <h2>How a 12 person logistics team in Lagos cut payroll day from three days to twenty minutes.</h2>
+        <p>A look inside how one operations lead moved her whole team off spreadsheets and WhatsApp reminders, and what changed in the first payroll cycle on HexPay.</p>
+        <div class="featured-meta">14 JUL 2026 · 6 MIN READ</div>
       </div>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="wrap story-grid">
-    <div class="story-shot bracketed">
-      <span class="bl"></span><span class="br"></span>
-      <image-slot id="story-shot" src="https://images.unsplash.com/photo-1758873269317-51888e824b28?q=80&w=1200&auto=format&fit=crop" credit="Photo by Vitaly Gariev on Unsplash" credit-href="https://unsplash.com/@silverkblack" style="width:100%;height:460px" shape="rect" placeholder="Drop a team or office photo"></image-slot>
-    </div>
-    <div class="story-text">
-      <div class="tag" style="margin-bottom:20px">WHERE WE STARTED</div>
-      <p class="lead">Payroll was never the whole point.</p>
-      <p>HexPay began as a way to solve one very specific, very painful problem for Nigerian businesses: paying people correctly, on time, and in line with tax law, without a finance team of ten.</p>
-      <p>But the deeper we went, the clearer it became. Payroll was never isolated. It touches hiring, leave, cash flow, sales performance and compliance all at once. Businesses weren't looking for a better payroll tool. They were looking for a better way to run the business.</p>
-      <p>So we kept building. Payroll became the entry point to something bigger: a connected operating system for how African businesses actually work.</p>
-    </div>
-  </div>
-</section>
-
-<section style="border-top:1px solid var(--line-soft)">
   <div class="wrap">
-    <div class="section-head">
-      <div class="tag">HOW WE BUILD</div>
-      <h2>Our approach</h2>
-      <p>Three principles guide every module we ship.</p>
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-cat="all">All posts</button>
+      <button class="filter-btn" data-cat="product">Product</button>
+      <button class="filter-btn" data-cat="compliance">Compliance</button>
+      <button class="filter-btn" data-cat="founder">Founder Stories</button>
+      <button class="filter-btn" data-cat="guides">Guides</button>
     </div>
-    <div>
-      <div class="pillar-row"><div class="pn">01</div><div><h4>Simple start</h4><p>Every business starts with payroll, the module that's most urgent, most regulated, and hardest to get wrong. No forced onboarding into modules you don't need yet.</p></div></div>
-      <div class="pillar-row"><div class="pn">02</div><div><h4>Modular growth</h4><p>Sales, finance and inventory switch on when you're ready for them, same account, same data, no migration, no re-implementation.</p></div></div>
-      <div class="pillar-row"><div class="pn">03</div><div><h4>Workflows, not features</h4><p>We don't chase feature-list parity with the last tool you tried. We connect the workflows between modules, because that's where the real value is.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section style="border-top:1px solid var(--line-soft)">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="tag">WHAT WE BELIEVE</div>
-      <h2>Our values</h2>
-      <p>The standard we hold ourselves to as we build for African businesses.</p>
-    </div>
-    <div class="val-grid">
-      <div class="val-card"><h4>Built here, for here</h4><p>Nigerian business realities come first, not an afterthought bolted onto a global product.</p></div>
-      <div class="val-card"><h4>Trust is earned in Naira</h4><p>Payroll and money touch real livelihoods. We treat accuracy and compliance as non-negotiable.</p></div>
-      <div class="val-card"><h4>Small businesses deserve better tools</h4><p>Enterprise-grade software shouldn't require an enterprise budget or an enterprise IT team.</p></div>
-      <div class="val-card"><h4>Growth shouldn't mean more chaos</h4><p>As a business scales, its tools should get simpler to manage, not more fragmented.</p></div>
-    </div>
-  </div>
-</section>
-
-<section style="border-top:1px solid var(--line-soft)">
-  <div class="wrap">
-    <div class="tag" style="margin-bottom:24px">THE BUSINESSES WE BUILD FOR</div>
-    <div class="photo-band">
-      <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="a-photo-1" src="https://images.unsplash.com/photo-1778550579010-cb0d00cd94e6?q=80&w=1200&auto=format&fit=crop" credit="Photo by Bill Fairs on Unsplash" credit-href="https://unsplash.com/@moonboyz" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo, Nigerian retail shop"></image-slot>
-        <div class="photo-cap">FIG. 06, KANO, RETAIL</div>
+    <div class="post-grid" id="postGrid">
+      <div class="post-card" data-cat="product">
+        <div class="post-img"><image-slot id="post-1" style="width:100%;height:100%" shape="rect" placeholder="Drop a post image"></image-slot></div>
+        <div class="post-body">
+          <div class="post-cat">PRODUCT</div>
+          <h3>Introducing Bank Sync: one ledger for every account you bank with.</h3>
+          <p>Why we built multi bank reconciliation first, and how it works under the hood.</p>
+          <div class="post-meta">10 JUL 2026 · 4 MIN READ</div>
+        </div>
       </div>
-      <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="a-photo-2" src="https://images.unsplash.com/photo-1573496527892-904f897eb744?q=80&w=1200&auto=format&fit=crop" credit="Photo by Christina @ wocintechchat.com M on Unsplash" credit-href="https://unsplash.com/@wocintechchat" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo, small team meeting"></image-slot>
-        <div class="photo-cap">FIG. 07, IBADAN, TEAM</div>
+      <div class="post-card" data-cat="compliance">
+        <div class="post-img"><image-slot id="post-2" style="width:100%;height:100%" shape="rect" placeholder="Drop a post image"></image-slot></div>
+        <div class="post-body">
+          <div class="post-cat">COMPLIANCE</div>
+          <h3>PAYE, pension and NHF: a plain language guide for Nigerian employers.</h3>
+          <p>What each statutory deduction actually covers, and what happens if you miss a filing.</p>
+          <div class="post-meta">03 JUL 2026 · 7 MIN READ</div>
+        </div>
       </div>
-      <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="a-photo-3" src="https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?q=80&w=1200&auto=format&fit=crop" credit="Photo by Nupo Deyon Daniel on Unsplash" credit-href="https://unsplash.com/@thewallpaperguy_" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo, logistics or warehouse"></image-slot>
-        <div class="photo-cap">FIG. 08, LAGOS, LOGISTICS</div>
+      <div class="post-card" data-cat="founder">
+        <div class="post-img"><image-slot id="post-3" style="width:100%;height:100%" shape="rect" placeholder="Drop a post image"></image-slot></div>
+        <div class="post-body">
+          <div class="post-cat">FOUNDER STORIES</div>
+          <h3>From 8 to 60 employees: scaling a retail chain without a finance team.</h3>
+          <p>An Abuja retail founder on hiring fast without payroll becoming the bottleneck.</p>
+          <div class="post-meta">28 JUN 2026 · 5 MIN READ</div>
+        </div>
+      </div>
+      <div class="post-card" data-cat="guides">
+        <div class="post-img"><image-slot id="post-4" style="width:100%;height:100%" shape="rect" placeholder="Drop a post image"></image-slot></div>
+        <div class="post-body">
+          <div class="post-cat">GUIDES</div>
+          <h3>Running your first payroll cycle: a step by step walkthrough.</h3>
+          <p>Everything you need before you click approve on your first run.</p>
+          <div class="post-meta">20 JUN 2026 · 6 MIN READ</div>
+        </div>
+      </div>
+      <div class="post-card" data-cat="product">
+        <div class="post-img"><image-slot id="post-5" style="width:100%;height:100%" shape="rect" placeholder="Drop a post image"></image-slot></div>
+        <div class="post-body">
+          <div class="post-cat">PRODUCT</div>
+          <h3>Time tracking is here: clock ins that feed straight into payroll.</h3>
+          <p>How shift data flows from the app into your next payroll run, automatically.</p>
+          <div class="post-meta">12 JUN 2026 · 3 MIN READ</div>
+        </div>
+      </div>
+      <div class="post-card" data-cat="compliance">
+        <div class="post-img"><image-slot id="post-6" style="width:100%;height:100%" shape="rect" placeholder="Drop a post image"></image-slot></div>
+        <div class="post-body">
+          <div class="post-cat">COMPLIANCE</div>
+          <h3>What changed in Nigerian tax law this year, and what it means for payroll.</h3>
+          <p>A summary of the year's PAYE and pension updates, and how HexPay handles them.</p>
+          <div class="post-meta">05 JUN 2026 · 5 MIN READ</div>
+        </div>
       </div>
     </div>
   </div>
@@ -245,11 +239,11 @@
 
 <section class="cta-band">
   <div class="wrap">
-    <h2>Come run your business on HexPay.</h2>
-    <p>Start with payroll today, free. Expand into sales, finance and inventory whenever you're ready.</p>
+    <h2>Run your whole business from one platform.</h2>
+    <p>Start with payroll today, free for your first 5 employees.</p>
     <div class="hero-cta">
       <a href="https://hex-software-frontend.vercel.app/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
-      <a href="index.html" class="btn btn-on-dark">Explore the product</a>
+      <a href="about.html" class="btn btn-on-dark">Learn our story</a>
     </div>
   </div>
 </section>
@@ -273,11 +267,11 @@
         <a href="pricing.html">Pricing</a>
       </div>
       <div class="foot-col">
-        <h4>Company</h4>
-        <a href="about.html">About</a>
-        <a href="about.html#mission">Our mission</a>
-        <a href="#">Careers</a>
-        <a href="#">Contact</a>
+        <h4>Resources</h4>
+        <a href="about.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="industries.html">Industries</a>
+        <a href="guides.html">Guides</a>
       </div>
       <div class="foot-col">
         <h4>Legal</h4>
@@ -296,25 +290,30 @@
 <script>
 document.getElementById("navBurger").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("mobile-open"));
 const productNavItem=document.getElementById("productNavItem"), productTrigger=document.getElementById("productTrigger");
-productTrigger.addEventListener("click",(e)=>{
-  e.stopPropagation();
-  const isOpen=productNavItem.classList.toggle("open");
-  productTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
-});
+productTrigger.addEventListener("click",(e)=>{ e.stopPropagation(); const isOpen=productNavItem.classList.toggle("open"); productTrigger.setAttribute("aria-expanded",isOpen?"true":"false"); });
 document.addEventListener("click",(e)=>{ if(!productNavItem.contains(e.target)){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
 document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
 const businessNavItem=document.getElementById("businessNavItem"), businessTrigger=document.getElementById("businessTrigger");
-businessTrigger.addEventListener("click",(e)=>{
-  e.stopPropagation();
-  const isOpen=businessNavItem.classList.toggle("open");
-  businessTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
-});
+businessTrigger.addEventListener("click",(e)=>{ e.stopPropagation(); const isOpen=businessNavItem.classList.toggle("open"); businessTrigger.setAttribute("aria-expanded",isOpen?"true":"false"); });
 document.addEventListener("click",(e)=>{ if(!businessNavItem.contains(e.target)){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
 document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
 const resourcesNavItem=document.getElementById("resourcesNavItem"), resourcesTrigger=document.getElementById("resourcesTrigger");
 resourcesTrigger.addEventListener("click",(e)=>{ e.stopPropagation(); const isOpen=resourcesNavItem.classList.toggle("open"); resourcesTrigger.setAttribute("aria-expanded",isOpen?"true":"false"); });
 document.addEventListener("click",(e)=>{ if(!resourcesNavItem.contains(e.target)){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
 document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
+
+const filterBtns=document.querySelectorAll(".filter-btn");
+const postCards=document.querySelectorAll(".post-card");
+filterBtns.forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    filterBtns.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    const cat=btn.dataset.cat;
+    postCards.forEach(card=>{
+      card.style.display = (cat==="all" || card.dataset.cat===cat) ? "flex" : "none";
+    });
+  });
+});
 </script>
 </body>
 </html>

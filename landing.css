@@ -6,7 +6,7 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 button{font-family:inherit}
 :root{
-  --ink:#12181F; --accent:#0F7C93; --accent-soft:#E4F2F3; --amber:#B8752A; --amber-soft:#FBF1E4;
+  --ink:#12181F; --accent:#0F7C93; --accent-soft:#EFEADC; --amber:#B8752A; --amber-soft:#FBF1E4;
   --text:#12181F; --text-sub:#454E59; --text-mute:#767F89;
   --paper:#FAF8F3; --panel:#FFFFFF; --line:#D8D4C7; --line-soft:#E7E4DA;
 }
@@ -68,8 +68,8 @@ footer.site{background:var(--ink);color:rgba(250,248,243,0.8);padding:60px 0 24p
 .foot-social{display:flex;gap:14px}
 .foot-social a:hover{color:#fff}
 
-section{padding:110px 0}
-.section-head{max-width:640px;margin-bottom:56px}
+section{padding:88px 0}
+.section-head{max-width:640px;margin-bottom:44px}
 .section-head h2{font-size:34px;line-height:1.2;margin-top:14px}
 .section-head p{font-size:15.5px;color:var(--text-sub);margin-top:14px;line-height:1.65;max-width:520px}
 .bg-tint{background:var(--accent-soft)}

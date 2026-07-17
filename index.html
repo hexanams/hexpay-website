@@ -3,21 +3,42 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>HexPay — The Operating System for African Businesses</title>
+<title>HexPay, The Operating System for African Businesses</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="landing.css"/>
 <script src="image-slot.js"></script>
 <style>
 .hero{padding:64px 0 72px}
-.hero-grid{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center;max-width:1040px}
-.hero-portrait{position:relative;padding:12px;align-self:stretch}
-.hero-portrait .fig-label{position:absolute;bottom:-24px;left:12px}
-@media (max-width:860px){ .hero-grid{grid-template-columns:1fr} .hero-portrait{order:-1;max-width:220px;margin:0 auto} }
-.hero h1{font-size:clamp(38px,5.4vw,64px);line-height:1.12;margin-top:20px}
+.hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center;max-width:1140px}
+.hero h1{font-size:clamp(38px,4.6vw,58px);line-height:1.12;margin-top:20px}
 .hero h1 em{font-style:italic;color:var(--accent)}
 .hero p.lede{font-size:17px;color:var(--text-sub);line-height:1.7;max-width:560px;margin-top:24px}
 .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+
+/* hero product card */
+.hero-card{position:relative;padding:14px}
+.hero-card .fig-label{position:absolute;bottom:-24px;left:14px}
+.hero-card-inner{background:var(--panel);border:1px solid var(--line);padding:22px 22px 20px}
+.hc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.hc-top .hc-title{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);letter-spacing:.04em}
+.hc-live{display:flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent)}
+.hc-live .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:heroPulse 1.6s ease-in-out infinite}
+@keyframes heroPulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hc-balance{font-family:'Poppins',sans-serif;font-weight:600;font-size:30px;color:var(--text);margin-bottom:4px}
+.hc-balance-label{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:20px}
+.hc-rows{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line-soft);padding-top:16px}
+.hc-row{display:flex;align-items:center;justify-content:space-between}
+.hc-row .hr-label{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-sub)}
+.hc-row .hr-val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text);font-weight:500}
+.hc-row .hr-val.up{color:var(--accent)}
+.hc-bars{display:flex;align-items:flex-end;gap:5px;height:38px;margin-top:18px}
+.hc-bars span{flex:1;background:var(--accent-soft);border-radius:2px 2px 0 0}
+.hc-bars span.peak{background:var(--accent)}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero-card{max-width:340px;margin:0 auto}
+}
 .punch{font-family:'Poppins',sans-serif;font-style:italic;font-size:19px;color:var(--accent);margin-top:16px}
 .hero-shot-wrap{max-width:1180px;margin:80px auto 0;padding:0 32px 0}
 .hero-shot{position:relative;padding:22px;min-width:0}
@@ -72,7 +93,7 @@
 .spec-photo{position:relative;padding:14px;min-width:0}
 .spec-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
 @media (max-width:900px){ .spec-grid{grid-template-columns:1fr} }
-.benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0}
+.benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;padding:0}
 .benefit-row.rev .b-img{order:2}
 .benefit-row.rev .b-text{order:1}
 .b-img{position:relative;padding:14px;min-width:0}
@@ -83,47 +104,55 @@
 .b-text li b{color:var(--text)}
 .b-text li .chk{font-family:'IBM Plex Mono',monospace;color:var(--accent);flex-shrink:0}
 @media (max-width:900px){ .benefit-row{grid-template-columns:1fr} .benefit-row.rev .b-img,.benefit-row.rev .b-text{order:initial} }
-.bank-diagram{position:relative;display:grid;grid-template-columns:1fr 300px 1fr;align-items:center;padding:36px 0;gap:0}
-.bank-diagram::before{content:"";position:absolute;top:50%;left:0;right:0;height:1px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 16px);z-index:0}
-.bank-col{display:flex;flex-direction:column;gap:14px;z-index:1;position:relative;min-width:0}
-.bank-col.left{align-items:flex-end}
-.bank-col.right{align-items:flex-start}
-.bank-chip{background:var(--panel);border:1px solid var(--line);padding:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;display:flex;align-items:center;gap:9px;min-width:150px}
-.bank-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
-.bank-hub{position:relative;z-index:2;background:var(--ink);color:var(--paper);padding:30px 26px}
-.bank-hub .htag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(250,248,243,0.5);letter-spacing:.04em;margin-bottom:6px}
-.bank-hub h4{font-family:'Poppins',sans-serif;color:#fff;font-size:19px;font-weight:500;margin-bottom:18px}
-.hub-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px solid rgba(250,248,243,0.16);padding-top:16px}
-.hub-stats div b{display:block;font-family:'IBM Plex Mono',monospace;font-size:17px;color:var(--accent)}
-.hub-stats div span{display:block;font-size:10.5px;color:rgba(250,248,243,0.5);margin-top:4px}
-.bank-stage{position:relative;height:440px;max-width:920px;margin:0 auto}
-.bank-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1}
-.bank-svg path{fill:none;stroke:rgba(63,212,212,0.55);stroke-width:1.5;stroke-dasharray:6 8;animation:flow 2.4s linear infinite}
-.bank-svg path:nth-child(2){animation-delay:.15s}
-.bank-svg path:nth-child(3){animation-delay:.3s}
-.bank-svg path:nth-child(4){animation-delay:.45s}
-.bank-svg path:nth-child(5){animation-delay:.6s}
-.bank-svg path:nth-child(6){animation-delay:.75s}
-@keyframes flow{to{stroke-dashoffset:-56}}
-.bank-chip-abs{position:absolute;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);padding:9px 14px 9px 9px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(250,248,243,0.85);display:flex;align-items:center;gap:10px;white-space:nowrap;transform:translateY(-50%);z-index:2}
-.bank-chip-abs .logo{width:26px;height:26px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:600;font-size:11px;color:#0B1220}
-.bank-chip-abs.right{padding:9px 9px 9px 14px}
-.bank-chip-abs .dot{width:6px;height:6px;border-radius:50%;background:#3FD4D4;flex-shrink:0}
-.bank-chip-abs.left{left:0}
-.bank-chip-abs.right{right:0;flex-direction:row-reverse}
-.bank-hub-abs{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;background:#171F2C;border:1px solid rgba(255,255,255,0.18);padding:26px 28px;width:270px;text-align:center}
-.bank-hub-abs .htag{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(250,248,243,0.5);letter-spacing:.06em;margin-bottom:6px}
-.bank-hub-abs h4{font-family:'Poppins',sans-serif;color:#fff;font-size:19px;font-weight:500;margin-bottom:18px}
-.hub-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px solid rgba(255,255,255,0.14);padding-top:16px;text-align:left}
-.hub-stats div b{display:block;font-family:'IBM Plex Mono',monospace;font-size:16px;color:#3FD4D4}
-.hub-stats div span{display:block;font-size:10px;color:rgba(250,248,243,0.5);margin-top:4px}
-@media (max-width:860px){
-  .bank-stage{height:auto;display:flex;flex-direction:column;gap:14px;align-items:center}
-  .bank-svg{display:none}
-  .bank-chip-abs{position:static;transform:none;width:100%;max-width:280px;justify-content:center}
-  .bank-hub-abs{position:static;transform:none;order:-1;width:100%;max-width:320px}
+.flow-stage{position:relative;max-width:1160px;margin:0 auto}
+.flow-track{display:grid;grid-template-columns:1fr 90px 200px 90px 260px;align-items:center;gap:0;position:relative}
+.sync-col{display:flex;flex-direction:column;gap:9px}
+.sync-col .fn-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;color:rgba(250,248,243,0.45);margin-bottom:5px}
+.bank-logo-chip{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.14);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:12px;position:relative}
+.bank-logo-chip .brand-swatch{width:8px;height:22px;border-radius:2px;flex-shrink:0}
+.bank-logo-chip .bank-name{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(250,248,243,0.75);flex:1}
+.bank-logo-chip .sync-dot{width:6px;height:6px;border-radius:50%;background:#3FD4D4;flex-shrink:0;box-shadow:0 0 0 3px rgba(63,212,212,0.18)}
+.flow-arrows{position:relative;height:100%;min-height:260px}
+.flow-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.flow-svg path{fill:none;stroke:rgba(63,212,212,0.6);stroke-width:2;stroke-dasharray:7 9;animation:flow 2s linear infinite}
+.flow-svg path:nth-child(2){animation-delay:.18s}
+.flow-svg path:nth-child(3){animation-delay:.36s}
+.flow-svg path:nth-child(4){animation-delay:.54s}
+.flow-svg path:nth-child(5){animation-delay:.72s}
+.flow-svg path:nth-child(6){animation-delay:.9s}
+@keyframes flow{to{stroke-dashoffset:-64}}
+.flow-hub{position:relative;z-index:3;background:#171F2C;border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:24px 22px;text-align:center}
+.flow-hub .htag{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:rgba(250,248,243,0.5);letter-spacing:.05em;margin-bottom:6px}
+.flow-hub h4{font-family:'Poppins',sans-serif;color:#fff;font-size:17px;font-weight:600;line-height:1.25;margin-bottom:16px}
+.hub-synced{display:flex;align-items:center;justify-content:center;gap:7px;background:rgba(63,212,212,0.12);border:1px solid rgba(63,212,212,0.3);border-radius:6px;padding:8px 10px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#3FD4D4}
+.hub-synced .pulse{width:6px;height:6px;border-radius:50%;background:#3FD4D4;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.insight-panel{position:relative;z-index:3;background:#171F2C;border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:22px 22px 20px}
+.insight-panel .htag{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:rgba(250,248,243,0.5);letter-spacing:.05em;margin-bottom:6px}
+.insight-panel h4{font-family:'Poppins',sans-serif;color:#fff;font-size:16px;font-weight:600;line-height:1.25;margin-bottom:16px}
+.insight-rows{display:flex;flex-direction:column;gap:11px}
+.insight-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.insight-row .ir-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(250,248,243,0.55)}
+.insight-row .ir-val{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#fff;font-weight:600}
+.insight-row .ir-val.up{color:#3FD4D4}
+.insight-bar{height:3px;border-radius:2px;background:rgba(255,255,255,0.1);overflow:hidden;margin-top:2px}
+.insight-bar span{display:block;height:100%;background:#3FD4D4;border-radius:2px}
+.flow-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;border-top:1px solid rgba(255,255,255,0.14);padding-top:20px}
+.flow-stats div{text-align:center;border-right:1px solid rgba(255,255,255,0.1)}
+.flow-stats div:last-child{border-right:none}
+.flow-stats div b{display:block;font-family:'IBM Plex Mono',monospace;font-size:19px;color:#3FD4D4}
+.flow-stats div span{display:block;font-size:10.5px;color:rgba(250,248,243,0.5);margin-top:5px}
+@media (max-width:980px){
+  .flow-track{grid-template-columns:1fr}
+  .flow-arrows{min-height:40px;height:40px;display:flex;align-items:center;justify-content:center}
+  .flow-svg{display:none}
+  .flow-arrows::before{content:"";width:2px;height:100%;background:repeating-linear-gradient(rgba(63,212,212,0.6) 0 5px,transparent 5px 10px)}
+  .flow-arrows::after{content:"";position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid rgba(63,212,212,0.6)}
+  .flow-hub,.insight-panel{width:100%;max-width:340px;margin:0 auto}
+  .flow-stats{grid-template-columns:repeat(2,1fr);row-gap:20px}
+  .flow-stats div:nth-child(2n){border-right:none}
 }
-.nav-item{position:relative}
+.nav-item{position:relative;padding-bottom:26px;margin-bottom:-26px}
 .nav-trigger{background:none;border:none;font:inherit;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-sub);cursor:pointer;padding:4px 0}
 .nav-trigger:hover{color:var(--ink)}
 .mega-panel{position:fixed;top:74px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 24px 50px rgba(15,20,30,0.12);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:60}
@@ -150,13 +179,13 @@
           <div class="mega-inner">
             <div class="mega-col">
               <h5>MODULES</h5>
-              <a href="index.html#roadmap">Payroll &amp; HR<span>Live — the entry module</span></a>
-              <a href="index.html#roadmap">Sales<span>Next — revenue alongside payroll</span></a>
+              <a href="product-bank-sync.html">Bank Sync<span>One ledger across every bank</span></a>
+              <a href="product-payroll.html">Payroll<span>Run payroll in minutes, not days</span></a>
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
-              <a href="index.html#roadmap">Finance<span>Coming — cash flow &amp; accounting sync</span></a>
-              <a href="index.html#roadmap">Inventory<span>Coming — stock &amp; cost of goods</span></a>
+              <a href="product-time-tracking.html">Time Tracking<span>Clock-ins, shifts and attendance</span></a>
+              <a href="product-remittance-compliance.html">Remittance &amp; Compliance<span>PAYE, pension, NHF filed automatically</span></a>
             </div>
             <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
               <image-slot id="nav-mega-shot" style="width:100%;height:180px" shape="rect" placeholder="Drop a product screenshot"></image-slot>
@@ -164,17 +193,57 @@
           </div>
         </div>
       </div>
-      <a href="index.html#roadmap">Roadmap</a>
+      <div class="nav-item" id="businessNavItem">
+        <button class="nav-trigger" id="businessTrigger" aria-expanded="false" aria-controls="businessMega">For Businesses</button>
+        <div class="mega-panel" id="businessMega">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr">
+            <div class="mega-col">
+              <h5>BY SIZE</h5>
+              <a href="solutions-small-business.html">Small Businesses<span>1 to 20 employees, free to start</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="solutions-growing-business.html">Growing Businesses<span>20 to 200 employees, scaling operations</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="solutions-enterprise.html">Enterprise<span>200+ employees, multi entity, custom controls</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="resourcesNavItem">
+        <button class="nav-trigger" id="resourcesTrigger" aria-expanded="false" aria-controls="resourcesMega">Resources</button>
+        <div class="mega-panel" id="resourcesMega">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr">
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="about.html">About Us<span>Our mission and story</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="blog.html">Blog<span>Product news and founder stories</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="industries.html">Industries<span>Built for how you actually work</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="guides.html">Guides<span>Step by step tutorials</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
       <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
     </div>
     <div class="nav-actions">
       <div class="nav-stores">
         <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.19 7.31c1.35.07 2.29.74 3.08.8.94-.19 1.85-.87 2.86-.72 1.22.11 2.15.65 2.77 1.6-2.63 1.61-2.06 5.17.35 6.16-.5 1.36-1.16 2.71-1.2 2.71M12.03 7.25c-.15-2.23 1.66-4.09 3.74-4.25.29 2.32-2.02 4.06-3.74 4.25z"/></svg>App Store</a>
         <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.3.3-.5.7-.5 1.2v16.4c0 .5.2.9.5 1.2l.1.1L13 12 3.7 2.5z"/><path d="M16.3 14.8L13 11.5l-9.3 9.3.1.1c.5.3 1.1.2 1.6-.1zm3-6.1L16.3 6.6 5.4 1.6c-.6-.3-1.3-.2-1.7.2z"/><path d="M19.3 8.7l-3 1.7 3 1.7c.6-.4.9-1 .9-1.7s-.3-1.3-.9-1.7z"/><path d="M16.3 11.5l3-1.7-3-1.7-3.3 3.4z"/></svg>Google Play</a>
       </div>
-      <a href="login.html" class="login">Log in</a>
-      <a href="signup.html" class="btn btn-primary">Get started</a>
+      <a href="https://hex-software-frontend.vercel.app/login" class="login">Log in</a>
+      <a href="https://hex-software-frontend.vercel.app/signup" class="btn btn-primary">Get started</a>
       <button class="nav-burger" id="navBurger" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     </div>
   </nav>
@@ -185,16 +254,33 @@
     <div>
       <div class="tag">THE OPERATING SYSTEM FOR AFRICAN BUSINESSES</div>
       <h1>Payroll was the beginning.<br/>Running your business <em>is the point.</em></h1>
-      <p class="lede">The operating system for growing Nigerian businesses — people, money and operations, in one place.</p>
+      <p class="lede">The operating system for growing Nigerian businesses, people, money and operations, in one place.</p>
       <div class="hero-cta">
-        <a href="signup.html" class="btn btn-primary">Get started free</a>
+        <a href="https://hex-software-frontend.vercel.app/signup" class="btn btn-primary">Get started free</a>
         <a href="#roadmap" class="btn btn-ghost">See the modules</a>
       </div>
     </div>
-    <div class="hero-portrait bracketed">
+    <div class="hero-card bracketed">
       <span class="bl"></span><span class="br"></span>
-      <image-slot id="hero-portrait" src="https://images.unsplash.com/photo-1573496527892-904f897eb744?q=80&w=1200&auto=format&fit=crop" credit="Photo by Christina @ wocintechchat.com M on Unsplash" credit-href="https://unsplash.com/@wocintechchat" style="width:100%;height:400px" shape="rect" placeholder="Drop a photo — small business owner"></image-slot>
-      <div class="fig-label">FIG. 00 — BUSINESS OWNER</div>
+      <div class="hero-card-inner">
+        <div class="hc-top">
+          <span class="hc-title">HEXPAY LEDGER</span>
+          <span class="hc-live"><span class="dot"></span>LIVE</span>
+        </div>
+        <div class="hc-balance">₦48.6M</div>
+        <div class="hc-balance-label">TOTAL CASH POSITION, ACROSS 6 BANKS</div>
+        <div class="hc-rows">
+          <div class="hc-row"><span class="hr-label">PAYROLL RUN, THIS MONTH</span><span class="hr-val">₦21.4M</span></div>
+          <div class="hc-row"><span class="hr-label">REVENUE, LAST 30 DAYS</span><span class="hr-val up">₦14.2M ▲12%</span></div>
+          <div class="hc-row"><span class="hr-label">ACCOUNTS RECONCILED</span><span class="hr-val up">6 of 6</span></div>
+        </div>
+        <div class="hc-bars">
+          <span style="height:35%"></span><span style="height:52%"></span><span style="height:44%"></span>
+          <span style="height:68%"></span><span style="height:58%"></span><span style="height:80%" class="peak"></span>
+          <span style="height:64%"></span>
+        </div>
+      </div>
+      <div class="fig-label">FIG. 00, HEXPAY LEDGER, LIVE VIEW</div>
     </div>
   </div>
 </section>
@@ -231,16 +317,16 @@
     <div class="tag" style="margin-bottom:24px">ON THE GROUND</div>
     <div class="photo-band">
       <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="photo-lagos" src="https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?q=80&w=1200&auto=format&fit=crop" credit="Photo by Nupo Deyon Daniel on Unsplash" credit-href="https://unsplash.com/@thewallpaperguy_" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo — Lagos retail business"></image-slot>
-        <div class="photo-cap">FIG. 02 — LAGOS, RETAIL</div>
+        <image-slot id="photo-lagos" src="assets/photos/boutique-owner.jpg" credit="Photo by Muhammad-Taha Ibrahim on Unsplash" credit-href="https://unsplash.com/@mtibrahim" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo, Lagos retail business"></image-slot>
+        <div class="photo-cap">FIG. 02, LAGOS, RETAIL</div>
       </div>
       <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="photo-abuja" src="https://images.unsplash.com/photo-1758873269317-51888e824b28?q=80&w=1200&auto=format&fit=crop" credit="Photo by Vitaly Gariev on Unsplash" credit-href="https://unsplash.com/@silverkblack" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo — Abuja team at work"></image-slot>
-        <div class="photo-cap">FIG. 03 — ABUJA, OPERATIONS</div>
+        <image-slot id="photo-abuja" src="https://images.unsplash.com/photo-1758873269317-51888e824b28?q=80&w=1200&auto=format&fit=crop" credit="Photo by Vitaly Gariev on Unsplash" credit-href="https://unsplash.com/@silverkblack" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo, Abuja team at work"></image-slot>
+        <div class="photo-cap">FIG. 03, ABUJA, OPERATIONS</div>
       </div>
       <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="photo-ph" src="https://images.unsplash.com/photo-1778550579010-cb0d00cd94e6?q=80&w=1200&auto=format&fit=crop" credit="Photo by Bill Fairs on Unsplash" credit-href="https://unsplash.com/@moonboyz" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo — Port Harcourt small business"></image-slot>
-        <div class="photo-cap">FIG. 04 — PORT HARCOURT, SMB</div>
+        <image-slot id="photo-ph" src="https://images.unsplash.com/photo-1778550579010-cb0d00cd94e6?q=80&w=1200&auto=format&fit=crop" credit="Photo by Bill Fairs on Unsplash" credit-href="https://unsplash.com/@moonboyz" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo, Port Harcourt small business"></image-slot>
+        <div class="photo-cap">FIG. 04, PORT HARCOURT, SMB</div>
       </div>
     </div>
   </div>
@@ -269,7 +355,7 @@
       <div class="mod-panel bracketed"><span class="bl"></span><span class="br"></span>
         <div class="mod-tag">MOD. 03</div>
         <h4>Finance</h4>
-        <p>Cash flow, expenses and accounting sync — the full financial picture.</p>
+        <p>Cash flow, expenses and accounting sync, the full financial picture.</p>
         <span class="mod-status" style="background:var(--line-soft);color:var(--text-mute)">COMING</span>
       </div>
       <div class="mod-panel bracketed"><span class="bl"></span><span class="br"></span>
@@ -285,34 +371,60 @@
 <section style="border-top:1px solid var(--line-soft)" class="bg-ink">
   <div class="wrap">
     <div class="section-head">
-      <div class="tag">MULTI-BANK INTEGRATION</div>
+      <div class="tag">BANK SYNC</div>
       <h2>Every bank, one ledger.</h2>
-      <p>HexPay connects to the accounts you already bank with — payroll funding, disbursement and reconciliation happen centrally, whichever bank holds the money.</p>
+      <p>Connect every business account you already bank with. HexPay syncs them into one reconciled ledger, then turns that ledger into a single source of truth for how the business is actually doing.</p>
     </div>
-    <div class="bank-stage">
-      <svg class="bank-svg" viewBox="0 0 920 440" preserveAspectRatio="xMidYMid meet">
-        <path id="p1" d="M210,44 Q340,44 325,220"/>
-        <path id="p2" d="M210,220 Q300,220 325,220"/>
-        <path id="p3" d="M210,396 Q340,396 325,220"/>
-        <path id="p4" d="M710,44 Q580,44 595,220"/>
-        <path id="p5" d="M710,220 Q620,220 595,220"/>
-        <path id="p6" d="M710,396 Q580,396 595,220"/>
-      </svg>
-      <div class="bank-chip-abs left" style="top:10%"><span class="logo" style="background:#FF6600">GT</span>GTBank</div>
-      <div class="bank-chip-abs left" style="top:50%"><span class="logo" style="background:#F5A623">AB</span>Access Bank</div>
-      <div class="bank-chip-abs left" style="top:90%"><span class="logo" style="background:#E4002B">ZB</span>Zenith Bank</div>
-      <div class="bank-chip-abs right" style="top:10%"><span class="logo" style="background:#D71920">UBA</span>UBA</div>
-      <div class="bank-chip-abs right" style="top:50%"><span class="logo" style="background:#3FD4D4">K</span>Kuda</div>
-      <div class="bank-chip-abs right" style="top:90%"><span class="logo" style="background:#00C3F9">PT</span>Paystack · Titan</div>
-      <div class="bank-hub-abs bracketed"><span class="bl" style="border-color:rgba(255,255,255,0.4)"></span><span class="br" style="border-color:rgba(255,255,255,0.4)"></span>
-        <div class="htag">CENTRAL REVENUE INSIGHT</div>
-        <h4>HexPay Ledger</h4>
-        <div class="hub-stats">
-          <div><b>₦2.1B+</b><span>disbursed monthly</span></div>
-          <div><b>6</b><span>banks connected</span></div>
-          <div><b>99.9%</b><span>reconciliation accuracy</span></div>
-          <div><b>Real-time</b><span>balance visibility</span></div>
+    <div class="flow-stage">
+      <div class="flow-track">
+        <div class="sync-col">
+          <div class="fn-label">CONNECTED ACCOUNTS</div>
+          <div class="bank-logo-chip"><span class="brand-swatch" style="background:#FF6600"></span><span class="bank-name">GTBank</span><span class="sync-dot"></span></div>
+          <div class="bank-logo-chip"><span class="brand-swatch" style="background:#F5A623"></span><span class="bank-name">Access Bank</span><span class="sync-dot"></span></div>
+          <div class="bank-logo-chip"><span class="brand-swatch" style="background:#E4002B"></span><span class="bank-name">Zenith Bank</span><span class="sync-dot"></span></div>
+          <div class="bank-logo-chip"><span class="brand-swatch" style="background:#D71920"></span><span class="bank-name">United Bank for Africa</span><span class="sync-dot"></span></div>
+          <div class="bank-logo-chip"><span class="brand-swatch" style="background:#7C3AED"></span><span class="bank-name">Kuda</span><span class="sync-dot"></span></div>
+          <div class="bank-logo-chip"><span class="brand-swatch" style="background:#00C3F9"></span><span class="bank-name">Titan by Paystack</span><span class="sync-dot"></span></div>
         </div>
+        <div class="flow-arrows">
+          <svg class="flow-svg" viewBox="0 0 130 300" preserveAspectRatio="none">
+            <path d="M0,25 L130,150"/>
+            <path d="M0,75 L130,150"/>
+            <path d="M0,125 L130,150"/>
+            <path d="M0,175 L130,150"/>
+            <path d="M0,225 L130,150"/>
+            <path d="M0,275 L130,150"/>
+          </svg>
+        </div>
+        <div class="flow-hub">
+          <div class="htag">CENTRAL LEDGER</div>
+          <h4>HexPay Bank Sync</h4>
+          <div class="hub-synced"><span class="pulse"></span>All accounts synced</div>
+        </div>
+        <div class="flow-arrows">
+          <svg class="flow-svg" viewBox="0 0 130 300" preserveAspectRatio="none">
+            <path d="M0,150 L130,150"/>
+          </svg>
+        </div>
+        <div class="insight-panel">
+          <div class="htag">SINGLE SOURCE OF TRUTH</div>
+          <h4>Merged business insight</h4>
+          <div class="insight-rows">
+            <div class="insight-row"><span class="ir-label">TOTAL CASH POSITION</span><span class="ir-val">₦48.6M</span></div>
+            <div class="insight-row"><span class="ir-label">REVENUE, LAST 30 DAYS</span><span class="ir-val up">₦14.2M ▲12%</span></div>
+            <div>
+              <div class="insight-row"><span class="ir-label">PAYROLL COST RATIO</span><span class="ir-val">31%</span></div>
+              <div class="insight-bar"><span style="width:31%"></span></div>
+            </div>
+            <div class="insight-row"><span class="ir-label">ACCOUNTS RECONCILED</span><span class="ir-val up">6 of 6</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="flow-stats">
+        <div><b>₦2.1B+</b><span>synced monthly</span></div>
+        <div><b>6</b><span>banks connected</span></div>
+        <div><b>99.9%</b><span>reconciliation accuracy</span></div>
+        <div><b>Real-time</b><span>balance visibility</span></div>
       </div>
     </div>
   </div>
@@ -323,44 +435,44 @@
     <div class="section-head">
       <div class="tag">FOR EMPLOYERS</div>
       <h2>Run payroll with confidence, not spreadsheets.</h2>
-      <p>Built for the person who owns the outcome — accurate pay, on time, every time, with the compliance handled for you.</p>
+      <p>Built for the person who owns the outcome, accurate pay, on time, every time, with the compliance handled for you.</p>
     </div>
     <div class="benefit-row">
       <div class="b-text">
         <ul>
-          <li><span class="chk">✓</span><div><b>Run payroll in minutes</b>, not days — review, approve, disburse.</div></li>
-          <li><span class="chk">✓</span><div><b>Stay compliant automatically</b> — PAYE, Pension, NHF and NSITF calculated and filed for you.</div></li>
-          <li><span class="chk">✓</span><div><b>See the full cost of your team</b> — payroll, leave and hiring in one view, no reconciliation.</div></li>
-          <li><span class="chk">✓</span><div><b>Grow without switching tools</b> — add sales, finance and inventory on the same account.</div></li>
+          <li><span class="chk">✓</span><div><b>Run payroll in minutes</b>, not days, review, approve, disburse.</div></li>
+          <li><span class="chk">✓</span><div><b>Stay compliant automatically</b>, PAYE, Pension, NHF and NSITF calculated and filed for you.</div></li>
+          <li><span class="chk">✓</span><div><b>See the full cost of your team</b>, payroll, leave and hiring in one view, no reconciliation.</div></li>
+          <li><span class="chk">✓</span><div><b>Grow without switching tools</b>, add sales, finance and inventory on the same account.</div></li>
         </ul>
       </div>
       <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="emp-owner" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" credit="Photo by Austin Distel on Unsplash" credit-href="https://unsplash.com/@austindistel" style="width:100%;height:360px" shape="rect" placeholder="Drop a photo — Nigerian business owner reviewing payroll"></image-slot>
-        <div class="b-cap">FIG. 06 — EMPLOYER, REVIEWING PAYROLL RUN</div>
+        <image-slot id="emp-owner" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" credit="Photo by Austin Distel on Unsplash" credit-href="https://unsplash.com/@austindistel" style="width:100%;height:360px" shape="rect" placeholder="Drop a photo, Nigerian business owner reviewing payroll"></image-slot>
+        <div class="b-cap">FIG. 06, EMPLOYER, REVIEWING PAYROLL RUN</div>
       </div>
     </div>
   </div>
 </section>
 
-<section style="border-top:1px solid var(--line-soft);padding-top:64px">
+<section style="border-top:1px solid var(--line-soft)">
   <div class="wrap">
     <div class="section-head">
       <div class="tag">FOR EMPLOYEES</div>
       <h2>Pay you can see, and trust.</h2>
-      <p>Every employee gets a clear view of their own pay, leave and benefits — without asking HR for a spreadsheet.</p>
+      <p>Every employee gets a clear view of their own pay, leave and benefits, without asking HR for a spreadsheet.</p>
     </div>
     <div class="benefit-row rev">
       <div class="b-text">
         <ul>
-          <li><span class="chk">✓</span><div><b>Digital payslips</b>, always available — no more chasing HR for a copy.</div></li>
+          <li><span class="chk">✓</span><div><b>Digital payslips</b>, always available, no more chasing HR for a copy.</div></li>
           <li><span class="chk">✓</span><div><b>Request and track leave</b> from a phone, with real-time approval status.</div></li>
-          <li><span class="chk">✓</span><div><b>See deductions clearly</b> — pension, tax and NHF broken down, not a mystery.</div></li>
-          <li><span class="chk">✓</span><div><b>Update your own details</b> — bank account, next of kin, documents — without a form.</div></li>
+          <li><span class="chk">✓</span><div><b>See deductions clearly</b>, pension, tax and NHF broken down, not a mystery.</div></li>
+          <li><span class="chk">✓</span><div><b>Update your own details</b>, bank account, next of kin, documents, without a form.</div></li>
         </ul>
       </div>
       <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="emp-worker" src="https://images.unsplash.com/photo-1573496527892-904f897eb744?q=80&w=1200&auto=format&fit=crop" credit="Photo by Christina @ wocintechchat.com M on Unsplash" credit-href="https://unsplash.com/@wocintechchat" style="width:100%;height:360px" shape="rect" placeholder="Drop a photo — employee checking payslip on phone"></image-slot>
-        <div class="b-cap">FIG. 07 — EMPLOYEE, VIEWING PAYSLIP</div>
+        <image-slot id="emp-worker" src="assets/photos/bar-owner-phone.jpg" credit="Photo by Tlou Manamela on Unsplash" credit-href="https://unsplash.com/@manamela" style="width:100%;height:360px" shape="rect" placeholder="Drop a photo, employee checking payslip on phone"></image-slot>
+        <div class="b-cap">FIG. 07, EMPLOYEE, VIEWING PAYSLIP</div>
       </div>
     </div>
   </div>
@@ -371,18 +483,18 @@
     <div class="section-head">
       <div class="tag">BUILT HERE, FOR HERE</div>
       <h2>Specification, not marketing copy.</h2>
-      <p>Not a global tool with Nigeria bolted on — here's exactly what that means in practice.</p>
+      <p>Not a global tool with Nigeria bolted on. Here's exactly what that means in practice.</p>
     </div>
     <div class="spec-grid">
       <div class="spec-sheet">
-        <div class="spec-row"><div class="k">CURRENCY</div><div class="v"><b>Naira-native</b> — payroll, invoicing and reporting built around the Naira from day one.</div></div>
+        <div class="spec-row"><div class="k">CURRENCY</div><div class="v"><b>Naira-native</b>, payroll, invoicing and reporting built around the Naira from day one.</div></div>
         <div class="spec-row"><div class="k">COMPLIANCE</div><div class="v"><b>PAYE · Pension · NHF · NSITF</b> handled automatically, aligned to current Nigerian tax law.</div></div>
-        <div class="spec-row"><div class="k">DISBURSEMENT</div><div class="v"><b>Direct to Nigerian bank accounts</b>, funded through Paystack — no foreign payment processor required.</div></div>
+        <div class="spec-row"><div class="k">DISBURSEMENT</div><div class="v"><b>Direct to Nigerian bank accounts</b>, funded through Paystack, no foreign payment processor required.</div></div>
         <div class="spec-row"><div class="k">SUPPORT</div><div class="v"><b>&lt; 1 hour response</b> from a team that understands Nigerian business operations.</div></div>
       </div>
       <div class="spec-photo bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="photo-owner" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop" credit="Photo by Blake Wisz on Unsplash" credit-href="https://unsplash.com/@blakewisz" style="width:100%;height:420px" shape="rect" placeholder="Drop a photo — Nigerian business owner"></image-slot>
-        <div class="spec-cap">FIG. 05 — WALLET, MULTI-BANK FUNDING</div>
+        <image-slot id="photo-owner" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop" credit="Photo by Blake Wisz on Unsplash" credit-href="https://unsplash.com/@blakewisz" style="width:100%;height:420px" shape="rect" placeholder="Drop a photo, Nigerian business owner"></image-slot>
+        <div class="spec-cap">FIG. 05, WALLET, MULTI-BANK FUNDING</div>
       </div>
     </div>
   </div>
@@ -393,7 +505,7 @@
     <div class="section-head">
       <div class="tag">SELF-SERVICE APP</div>
       <h2>Everything, in your employees' pocket.</h2>
-      <p>Payslips, leave requests, deductions and profile updates — employees serve themselves from the HexPay app, no HR queue required.</p>
+      <p>Payslips, leave requests, deductions and profile updates, employees serve themselves from the HexPay app, no HR queue required.</p>
     </div>
     <div class="benefit-row">
       <div class="b-text">
@@ -401,7 +513,7 @@
           <li><span class="chk">✓</span><div><b>View and download payslips</b> the moment payroll runs.</div></li>
           <li><span class="chk">✓</span><div><b>Request leave</b> and track approval status in real time.</div></li>
           <li><span class="chk">✓</span><div><b>Update bank details, next of kin and documents</b> without a form.</div></li>
-          <li><span class="chk">✓</span><div><b>Works on any phone</b> — low-data mode for patchy connections.</div></li>
+          <li><span class="chk">✓</span><div><b>Works on any phone</b>, low-data mode for patchy connections.</div></li>
         </ul>
         <div class="app-badges">
           <a href="#" class="store-badge"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.19 7.31c1.35.07 2.29.74 3.08.8.94-.19 1.85-.87 2.86-.72 1.22.11 2.15.65 2.77 1.6-2.63 1.61-2.06 5.17.35 6.16-.5 1.36-1.16 2.71-1.2 2.71M12.03 7.25c-.15-2.23 1.66-4.09 3.74-4.25.29 2.32-2.02 4.06-3.74 4.25z"/></svg>Download on the App Store</a>
@@ -409,8 +521,8 @@
         </div>
       </div>
       <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="app-shot" style="width:100%;height:360px" shape="rect" placeholder="Drop a photo — employee using the HexPay app"></image-slot>
-        <div class="b-cap">FIG. 08 — SELF-SERVICE APP, MOBILE</div>
+        <image-slot id="app-shot" style="width:100%;height:360px" shape="rect" placeholder="Drop a photo, employee using the HexPay app"></image-slot>
+        <div class="b-cap">FIG. 08, SELF-SERVICE APP, MOBILE</div>
       </div>
     </div>
   </div>
@@ -419,9 +531,9 @@
 <section class="cta-band">
   <div class="wrap">
     <h2>Run your whole business from one platform.</h2>
-    <p>Start with payroll today. Expand into sales, finance and inventory as you grow — on the same account, the same data, no migration.</p>
+    <p>Start with payroll today. Expand into sales, finance and inventory as you grow, on the same account, the same data, no migration.</p>
     <div class="hero-cta">
-      <a href="signup.html" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
+      <a href="https://hex-software-frontend.vercel.app/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
       <a href="about.html" class="btn btn-on-dark">Learn our story</a>
     </div>
   </div>
@@ -432,14 +544,18 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <a href="index.html" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
-        <p>The operating system for African businesses — payroll, sales, finance and operations, in one intelligent platform.</p>
+        <p>The operating system for African businesses, payroll, sales, finance and operations, in one intelligent platform.</p>
       </div>
       <div class="foot-col">
         <h4>Product</h4>
-        <a href="index.html#product">Payroll & HR</a>
-        <a href="index.html#roadmap">Roadmap</a>
+        <a href="product-bank-sync.html">Bank Sync</a>
+        <a href="product-payroll.html">Payroll</a>
+        <a href="product-time-tracking.html">Time Tracking</a>
+        <a href="product-remittance-compliance.html">Remittance &amp; Compliance</a>
+        <a href="solutions-small-business.html">Small Businesses</a>
+        <a href="solutions-growing-business.html">Growing Businesses</a>
+        <a href="solutions-enterprise.html">Enterprise</a>
         <a href="pricing.html">Pricing</a>
-        <a href="extensions.html">Extensions</a>
       </div>
       <div class="foot-col">
         <h4>Company</h4>
@@ -472,6 +588,18 @@ productTrigger.addEventListener("click",(e)=>{
 });
 document.addEventListener("click",(e)=>{ if(!productNavItem.contains(e.target)){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
 document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+const businessNavItem=document.getElementById("businessNavItem"), businessTrigger=document.getElementById("businessTrigger");
+businessTrigger.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  const isOpen=businessNavItem.classList.toggle("open");
+  businessTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
+});
+document.addEventListener("click",(e)=>{ if(!businessNavItem.contains(e.target)){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
+const resourcesNavItem=document.getElementById("resourcesNavItem"), resourcesTrigger=document.getElementById("resourcesTrigger");
+resourcesTrigger.addEventListener("click",(e)=>{ e.stopPropagation(); const isOpen=resourcesNavItem.classList.toggle("open"); resourcesTrigger.setAttribute("aria-expanded",isOpen?"true":"false"); });
+document.addEventListener("click",(e)=>{ if(!resourcesNavItem.contains(e.target)){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
 </script>
 </body>
 </html>

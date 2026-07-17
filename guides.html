@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Guides | HexPay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="landing.css"/>
+<script src="image-slot.js"></script>
+<style>
+.guides-hero{padding:72px 0 48px;text-align:center}
+.guides-hero .tag{justify-content:center}
+.guides-hero h1{font-size:clamp(34px,4.6vw,50px);line-height:1.15;margin-top:20px;max-width:640px;margin-left:auto;margin-right:auto}
+.guides-hero p{font-size:17px;color:var(--text-sub);line-height:1.7;max-width:540px;margin:22px auto 0}
+
+.search-wrap{max-width:520px;margin:36px auto 0;position:relative}
+.search-wrap input{width:100%;border:1.5px solid var(--ink);background:var(--panel);padding:14px 16px 14px 44px;font-family:'Inter',sans-serif;font-size:14px;color:var(--text);border-radius:2px}
+.search-wrap input:focus{outline:none;border-color:var(--accent)}
+.search-wrap svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--text-mute)}
+
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.cat-tile{padding:28px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);cursor:pointer;background:var(--panel);transition:background .15s}
+.cat-tile:hover{background:var(--accent-soft)}
+.cat-tile.active{background:var(--ink)}
+.cat-tile.active h4, .cat-tile.active .cat-count{color:#fff}
+.cat-tile .cat-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:14px}
+.cat-tile.active .cat-num{color:rgba(250,248,243,0.5)}
+.cat-tile h4{font-family:'Poppins',sans-serif;font-size:16.5px;font-weight:500;margin-bottom:8px}
+.cat-tile .cat-count{font-size:12px;color:var(--text-sub)}
+@media (max-width:900px){ .cat-grid{grid-template-columns:1fr 1fr} }
+@media (max-width:560px){ .cat-grid{grid-template-columns:1fr} }
+
+.tut-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.tut-row{display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s}
+.tut-row:hover{background:var(--bg-shade,#F1EEE3)}
+.tut-num{font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--accent)}
+.tut-title{font-family:'Poppins',sans-serif;font-size:15.5px;font-weight:500}
+.tut-desc{font-size:12.5px;color:var(--text-sub);margin-top:4px}
+.tut-cat{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);white-space:nowrap}
+.tut-row[data-hidden="true"]{display:none}
+
+.cta-band{background:var(--ink);color:var(--paper);padding:100px 0;text-align:center}
+.cta-band h2{color:#fff;font-size:36px;max-width:640px;margin:0 auto}
+.cta-band p{color:rgba(250,248,243,0.6);font-size:15.5px;margin:16px auto 0;max-width:460px}
+.cta-band .hero-cta{display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+.store-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink);border-radius:2px}
+.store-badge:hover{background:var(--ink);color:var(--paper)}
+.nav-stores{display:flex;gap:8px}
+.nav-stores .store-badge{padding:6px 10px;font-size:10.5px;border-width:1px}
+@media (max-width:1140px){ .nav-stores{display:none} }
+.nav-item{position:relative;padding-bottom:26px;margin-bottom:-26px}
+.nav-trigger{background:none;border:none;font:inherit;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-sub);cursor:pointer;padding:4px 0}
+.nav-trigger:hover{color:var(--ink)}
+.mega-panel{position:fixed;top:74px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 24px 50px rgba(15,20,30,0.12);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:60}
+.nav-item.open .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+@media (min-width:941px){ .nav-item:hover .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none} }
+.mega-inner{max-width:1180px;margin:0 auto;padding:36px 32px;display:grid;grid-template-columns:1fr 1fr 340px;gap:36px}
+.mega-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text-mute);margin-bottom:16px}
+.mega-col a{display:block;font-size:14px;color:var(--text);margin-bottom:14px}
+.mega-col a span{display:block;font-size:11.5px;color:var(--text-sub);margin-top:2px;font-family:'Inter',sans-serif}
+.mega-col a:hover{color:var(--accent)}
+.mega-img{position:relative;padding:10px}
+@media (max-width:940px){ .mega-inner{grid-template-columns:1fr;padding:24px} .mega-img{max-width:320px} }
+</style>
+</head>
+<body>
+<header class="site">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item" id="productNavItem">
+        <button class="nav-trigger" id="productTrigger" aria-expanded="false" aria-controls="productMega">Product</button>
+        <div class="mega-panel" id="productMega">
+          <div class="mega-inner">
+            <div class="mega-col">
+              <h5>MODULES</h5>
+              <a href="product-bank-sync.html">Bank Sync<span>One ledger across every bank</span></a>
+              <a href="product-payroll.html">Payroll<span>Run payroll in minutes, not days</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="product-time-tracking.html">Time Tracking<span>Clock ins, shifts and attendance</span></a>
+              <a href="product-remittance-compliance.html">Remittance &amp; Compliance<span>PAYE, pension, NHF filed automatically</span></a>
+            </div>
+            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
+              <image-slot id="nav-mega-shot" style="width:100%;height:180px" shape="rect" placeholder="Drop a product screenshot"></image-slot>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="businessNavItem">
+        <button class="nav-trigger" id="businessTrigger" aria-expanded="false" aria-controls="businessMega">For Businesses</button>
+        <div class="mega-panel" id="businessMega">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr">
+            <div class="mega-col">
+              <h5>BY SIZE</h5>
+              <a href="solutions-small-business.html">Small Businesses<span>1 to 20 employees, free to start</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="solutions-growing-business.html">Growing Businesses<span>20 to 200 employees, scaling operations</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="solutions-enterprise.html">Enterprise<span>200+ employees, multi entity, custom controls</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="resourcesNavItem">
+        <button class="nav-trigger" id="resourcesTrigger" aria-expanded="false" aria-controls="resourcesMega">Resources</button>
+        <div class="mega-panel" id="resourcesMega">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr">
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="about.html">About Us<span>Our mission and story</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="blog.html">Blog<span>Product news and founder stories</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="industries.html">Industries<span>Built for how you actually work</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="guides.html">Guides<span>Step by step tutorials</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">Pricing</a>
+    </div>
+    <div class="nav-actions">
+      <div class="nav-stores">
+        <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.19 7.31c1.35.07 2.29.74 3.08.8.94-.19 1.85-.87 2.86-.72 1.22.11 2.15.65 2.77 1.6-2.63 1.61-2.06 5.17.35 6.16-.5 1.36-1.16 2.71-1.2 2.71M12.03 7.25c-.15-2.23 1.66-4.09 3.74-4.25.29 2.32-2.02 4.06-3.74 4.25z"/></svg>App Store</a>
+        <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.3.3-.5.7-.5 1.2v16.4c0 .5.2.9.5 1.2l.1.1L13 12 3.7 2.5z"/><path d="M16.3 14.8L13 11.5l-9.3 9.3.1.1c.5.3 1.1.2 1.6-.1zm3-6.1L16.3 6.6 5.4 1.6c-.6-.3-1.3-.2-1.7.2z"/><path d="M19.3 8.7l-3 1.7 3 1.7c.6-.4.9-1 .9-1.7s-.3-1.3-.9-1.7z"/><path d="M16.3 11.5l3-1.7-3-1.7-3.3 3.4z"/></svg>Google Play</a>
+      </div>
+      <a href="https://hex-software-frontend.vercel.app/login" class="login">Log in</a>
+      <a href="https://hex-software-frontend.vercel.app/signup" class="btn btn-primary">Get started</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<section class="guides-hero gridpaper">
+  <div class="wrap">
+    <div class="tag">GUIDES</div>
+    <h1>Everything you need to run HexPay well.</h1>
+    <p>Step by step tutorials for getting set up, running payroll, tracking time and staying compliant.</p>
+    <div class="search-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="guideSearch" placeholder="Search guides, e.g. connect a bank account"/>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cat-grid" id="catGrid">
+      <div class="cat-tile active" data-cat="all">
+        <div class="cat-num">ALL GUIDES</div>
+        <h4>Browse everything</h4>
+        <div class="cat-count" id="countAll">16 guides</div>
+      </div>
+      <div class="cat-tile" data-cat="getting-started">
+        <div class="cat-num">01</div>
+        <h4>Getting Started</h4>
+        <div class="cat-count">4 guides</div>
+      </div>
+      <div class="cat-tile" data-cat="payroll">
+        <div class="cat-num">02</div>
+        <h4>Running Payroll</h4>
+        <div class="cat-count">4 guides</div>
+      </div>
+      <div class="cat-tile" data-cat="time">
+        <div class="cat-num">03</div>
+        <h4>Time Tracking</h4>
+        <div class="cat-count">4 guides</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">TUTORIALS</div>
+      <h2>Step by step, no jargon.</h2>
+    </div>
+    <div class="tut-list" id="tutList">
+      <div class="tut-row" data-cat="getting-started" data-title="create your hexpay account and company profile">
+        <div class="tut-num">01</div>
+        <div><div class="tut-title">Create your HexPay account and company profile</div><div class="tut-desc">Sign up, verify your email and set up your company details in under five minutes.</div></div>
+        <div class="tut-cat">GETTING STARTED</div>
+      </div>
+      <div class="tut-row" data-cat="getting-started" data-title="connect your first bank account">
+        <div class="tut-num">02</div>
+        <div><div class="tut-title">Connect your first bank account</div><div class="tut-desc">Link GTBank, Access, Zenith, UBA or Kuda securely, in under two minutes.</div></div>
+        <div class="tut-cat">GETTING STARTED</div>
+      </div>
+      <div class="tut-row" data-cat="getting-started" data-title="add your first employees">
+        <div class="tut-num">03</div>
+        <div><div class="tut-title">Add your first employees</div><div class="tut-desc">Enter employee details manually or import a spreadsheet of your whole team.</div></div>
+        <div class="tut-cat">GETTING STARTED</div>
+      </div>
+      <div class="tut-row" data-cat="getting-started" data-title="invite a co-admin to your account">
+        <div class="tut-num">04</div>
+        <div><div class="tut-title">Invite a co admin to your account</div><div class="tut-desc">Give a colleague access to run payroll or manage employees alongside you.</div></div>
+        <div class="tut-cat">GETTING STARTED</div>
+      </div>
+      <div class="tut-row" data-cat="payroll" data-title="set your pay cycle and payday">
+        <div class="tut-num">05</div>
+        <div><div class="tut-title">Set your pay cycle and payday</div><div class="tut-desc">Choose weekly, biweekly or monthly, and lock in your default payday.</div></div>
+        <div class="tut-cat">RUNNING PAYROLL</div>
+      </div>
+      <div class="tut-row" data-cat="payroll" data-title="run your first payroll cycle">
+        <div class="tut-num">06</div>
+        <div><div class="tut-title">Run your first payroll cycle</div><div class="tut-desc">Review, approve and disburse pay to your whole team in one sitting.</div></div>
+        <div class="tut-cat">RUNNING PAYROLL</div>
+      </div>
+      <div class="tut-row" data-cat="payroll" data-title="add a bonus or one-off deduction">
+        <div class="tut-num">07</div>
+        <div><div class="tut-title">Add a bonus or one off deduction</div><div class="tut-desc">Apply a one time adjustment to a single employee's next payslip.</div></div>
+        <div class="tut-cat">RUNNING PAYROLL</div>
+      </div>
+      <div class="tut-row" data-cat="payroll" data-title="review past payroll runs and payslips">
+        <div class="tut-num">08</div>
+        <div><div class="tut-title">Review past payroll runs and payslips</div><div class="tut-desc">Find and export any historical run or individual payslip.</div></div>
+        <div class="tut-cat">RUNNING PAYROLL</div>
+      </div>
+      <div class="tut-row" data-cat="time" data-title="set up shift schedules">
+        <div class="tut-num">09</div>
+        <div><div class="tut-title">Set up shift schedules</div><div class="tut-desc">Build rotas and assign shifts across teams and locations.</div></div>
+        <div class="tut-cat">TIME TRACKING</div>
+      </div>
+      <div class="tut-row" data-cat="time" data-title="enable mobile clock in for your team">
+        <div class="tut-num">10</div>
+        <div><div class="tut-title">Enable mobile clock in for your team</div><div class="tut-desc">Let employees clock in and out from the HexPay app.</div></div>
+        <div class="tut-cat">TIME TRACKING</div>
+      </div>
+      <div class="tut-row" data-cat="time" data-title="set overtime and lateness rules">
+        <div class="tut-num">11</div>
+        <div><div class="tut-title">Set overtime and lateness rules</div><div class="tut-desc">Configure policies once, and let HexPay calculate overtime pay automatically.</div></div>
+        <div class="tut-cat">TIME TRACKING</div>
+      </div>
+      <div class="tut-row" data-cat="time" data-title="export attendance reports">
+        <div class="tut-num">12</div>
+        <div><div class="tut-title">Export attendance reports</div><div class="tut-desc">Pull attendance history by employee, team or location, for any date range.</div></div>
+        <div class="tut-cat">TIME TRACKING</div>
+      </div>
+      <div class="tut-row" data-cat="compliance" data-title="understand your paye, pension and nhf filings">
+        <div class="tut-num">13</div>
+        <div><div class="tut-title">Understand your PAYE, pension and NHF filings</div><div class="tut-desc">What gets calculated, remitted and filed on your behalf, every cycle.</div></div>
+        <div class="tut-cat">COMPLIANCE</div>
+      </div>
+      <div class="tut-row" data-cat="compliance" data-title="download a filing receipt">
+        <div class="tut-num">14</div>
+        <div><div class="tut-title">Download a filing receipt</div><div class="tut-desc">Find proof of remittance for any past filing, ready for an audit.</div></div>
+        <div class="tut-cat">COMPLIANCE</div>
+      </div>
+      <div class="tut-row" data-cat="compliance" data-title="set up multi-state paye">
+        <div class="tut-num">15</div>
+        <div><div class="tut-title">Set up multi state PAYE</div><div class="tut-desc">Configure state specific tax rules for a team spread across Nigeria.</div></div>
+        <div class="tut-cat">COMPLIANCE</div>
+      </div>
+      <div class="tut-row" data-cat="compliance" data-title="respond to a missed filing alert">
+        <div class="tut-num">16</div>
+        <div><div class="tut-title">Respond to a missed filing alert</div><div class="tut-desc">What to do if HexPay flags a deadline you haven't confirmed.</div></div>
+        <div class="tut-cat">COMPLIANCE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Still stuck? Talk to our team.</h2>
+    <p>Support replies in under an hour, from a team that understands Nigerian payroll.</p>
+    <div class="hero-cta">
+      <a href="https://hex-software-frontend.vercel.app/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
+      <a href="about.html" class="btn btn-on-dark">Learn our story</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
+        <p>The operating system for African businesses, payroll, sales, finance and operations, in one intelligent platform.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="product-bank-sync.html">Bank Sync</a>
+        <a href="product-payroll.html">Payroll</a>
+        <a href="product-time-tracking.html">Time Tracking</a>
+        <a href="product-remittance-compliance.html">Remittance &amp; Compliance</a>
+        <a href="solutions-small-business.html">Small Businesses</a>
+        <a href="solutions-growing-business.html">Growing Businesses</a>
+        <a href="solutions-enterprise.html">Enterprise</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="about.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="industries.html">Industries</a>
+        <a href="guides.html">Guides</a>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms of service</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 HexPay Africa. All rights reserved.</span>
+      <div class="foot-social"><a href="#">X</a><a href="#">LinkedIn</a><a href="#">Instagram</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("navBurger").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("mobile-open"));
+const productNavItem=document.getElementById("productNavItem"), productTrigger=document.getElementById("productTrigger");
+productTrigger.addEventListener("click",(e)=>{ e.stopPropagation(); const isOpen=productNavItem.classList.toggle("open"); productTrigger.setAttribute("aria-expanded",isOpen?"true":"false"); });
+document.addEventListener("click",(e)=>{ if(!productNavItem.contains(e.target)){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+const businessNavItem=document.getElementById("businessNavItem"), businessTrigger=document.getElementById("businessTrigger");
+businessTrigger.addEventListener("click",(e)=>{ e.stopPropagation(); const isOpen=businessNavItem.classList.toggle("open"); businessTrigger.setAttribute("aria-expanded",isOpen?"true":"false"); });
+document.addEventListener("click",(e)=>{ if(!businessNavItem.contains(e.target)){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
+const resourcesNavItem=document.getElementById("resourcesNavItem"), resourcesTrigger=document.getElementById("resourcesTrigger");
+resourcesTrigger.addEventListener("click",(e)=>{ e.stopPropagation(); const isOpen=resourcesNavItem.classList.toggle("open"); resourcesTrigger.setAttribute("aria-expanded",isOpen?"true":"false"); });
+document.addEventListener("click",(e)=>{ if(!resourcesNavItem.contains(e.target)){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
+
+const catTiles=document.querySelectorAll(".cat-tile");
+const tutRows=document.querySelectorAll(".tut-row");
+const searchInput=document.getElementById("guideSearch");
+let activeCat="all";
+
+function applyFilters(){
+  const q=searchInput.value.trim().toLowerCase();
+  tutRows.forEach(row=>{
+    const matchesCat = activeCat==="all" || row.dataset.cat===activeCat;
+    const matchesSearch = !q || row.dataset.title.includes(q);
+    row.dataset.hidden = (matchesCat && matchesSearch) ? "false" : "true";
+  });
+}
+catTiles.forEach(tile=>{
+  tile.addEventListener("click",()=>{
+    catTiles.forEach(t=>t.classList.remove("active"));
+    tile.classList.add("active");
+    activeCat=tile.dataset.cat;
+    applyFilters();
+  });
+});
+searchInput.addEventListener("input",applyFilters);
+</script>
+</body>
+</html>

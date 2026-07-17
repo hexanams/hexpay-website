@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Pricing | HexPay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="landing.css"/>
+<script src="image-slot.js"></script>
+<style>
+.hero{padding:64px 0 56px;text-align:center;background:var(--ink);color:var(--paper)}
+.hero .tag{justify-content:center;color:#5FD1E0}
+.hero h1{color:#fff}
+.hero p.lede{color:rgba(250,248,243,0.62)}
+.hero h1{font-size:clamp(34px,4.6vw,50px);line-height:1.15;margin-top:20px;max-width:760px;margin-left:auto;margin-right:auto}
+.hero p.lede{font-size:17px;color:var(--text-sub);line-height:1.7;max-width:560px;margin:24px auto 0}
+.toggle-row{display:inline-flex;align-items:center;gap:0;margin-top:36px;border:1.5px solid rgba(250,248,243,0.4);border-radius:2px}
+.toggle-btn{font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:11px 22px;background:none;border:none;cursor:pointer;color:rgba(250,248,243,0.6);display:flex;align-items:center;gap:8px}
+.toggle-btn.active{background:var(--paper);color:var(--ink)}
+.toggle-btn .save{font-size:10px;padding:2px 7px;border:1px solid currentColor}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--ink);border-left:1.5px solid var(--ink);max-width:1100px;margin:0 auto}
+.plan-card{border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:32px 28px;display:flex;flex-direction:column;position:relative;background:var(--panel)}
+.plan-card.highlight{background:var(--ink);color:var(--paper)}
+.plan-badge{position:absolute;top:0;right:0;background:var(--accent);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;padding:5px 12px}
+.plan-name{font-family:'Poppins',sans-serif;font-size:19px;font-weight:600}
+.plan-card.highlight .plan-name{color:#fff}
+.plan-tag{font-size:12.5px;color:var(--text-sub);margin-top:8px;line-height:1.55;min-height:52px}
+.plan-card.highlight .plan-tag{color:rgba(250,248,243,0.62)}
+.plan-price{font-family:'Poppins',sans-serif;font-size:32px;font-weight:600;margin-top:22px}
+.plan-card.highlight .plan-price{color:#fff}
+.plan-sub{font-size:12px;color:var(--text-mute);margin-top:6px;line-height:1.5;min-height:32px}
+.plan-card.highlight .plan-sub{color:rgba(250,248,243,0.5)}
+.plan-card .btn{margin-top:20px;justify-content:center}
+.plan-feats{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:11px;flex:1}
+.plan-card.highlight .plan-feats{border-top-color:rgba(250,248,243,0.16)}
+.plan-feats div{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--text-sub);line-height:1.45}
+.plan-card.highlight .plan-feats div{color:rgba(250,248,243,0.78)}
+.plan-feats .chk{font-family:'IBM Plex Mono',monospace;color:var(--accent);flex-shrink:0}
+.plan-card.highlight .plan-feats .chk{color:#5FD1E0}
+@media (max-width:900px){ .plan-grid{grid-template-columns:1fr} }
+
+.example-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.example-item{padding:22px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.example-item:last-child{border-right:none}
+.example-item b{display:block;font-family:'Poppins',sans-serif;font-size:20px;color:var(--text)}
+.example-item span{display:block;font-size:11.5px;color:var(--text-mute);margin-top:6px}
+@media (max-width:700px){ .example-row{grid-template-columns:1fr 1fr} }
+
+.calc-box{background:var(--panel);border:1.5px solid var(--line);max-width:680px;margin:0 auto;padding:0}
+.calc-head{display:flex;justify-content:space-between;align-items:center;padding:20px 26px;border-bottom:1px dashed var(--line)}
+.calc-head b{font-family:'Poppins',sans-serif;font-size:16px}
+.calc-head span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)}
+.calc-body{padding:26px}
+.calc-slider-row{display:flex;align-items:center;gap:18px}
+input[type=range]{-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer;flex:1}
+input[type=range]::-webkit-slider-runnable-track{height:3px;background:var(--line)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);margin-top:-6.5px}
+.calc-count{width:120px;text-align:center;background:var(--accent-soft);border:1px solid var(--line);padding:10px 0;flex-shrink:0}
+.calc-count b{display:block;font-family:'IBM Plex Mono',monospace;font-size:19px;color:var(--accent)}
+.calc-count span{display:block;font-size:10.5px;color:var(--text-sub);margin-top:2px}
+.calc-results{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.calc-result{border:1px solid var(--line);padding:14px 16px}
+.calc-result .k{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:6px}
+.calc-result .v{font-family:'Poppins',sans-serif;font-size:19px;color:var(--text)}
+.calc-result .save{font-size:10.5px;color:var(--accent);margin-top:4px}
+
+.svc-table{border-top:1px solid var(--line);max-width:800px;margin:0 auto}
+.svc-row{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+.svc-row .name{font-family:'Poppins',sans-serif;font-size:15px;font-weight:500}
+.svc-row .desc{font-size:12.5px;color:var(--text-sub);margin-top:4px}
+.svc-row .price{font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:var(--accent);white-space:nowrap}
+
+.cta-band{background:var(--ink);color:var(--paper);padding:100px 0;text-align:center}
+.cta-band h2{color:#fff;font-size:36px;max-width:640px;margin:0 auto}
+.cta-band p{color:rgba(250,248,243,0.6);font-size:15.5px;margin:16px auto 0;max-width:460px}
+.cta-band .hero-cta{display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+.store-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink);border-radius:2px}
+.store-badge:hover{background:var(--ink);color:var(--paper)}
+.nav-stores{display:flex;gap:8px}
+.nav-stores .store-badge{padding:6px 10px;font-size:10.5px;border-width:1px}
+@media (max-width:1140px){ .nav-stores{display:none} }
+.nav-item{position:relative;padding-bottom:26px;margin-bottom:-26px}
+.nav-trigger{background:none;border:none;font:inherit;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-sub);cursor:pointer;padding:4px 0}
+.nav-trigger:hover{color:var(--ink)}
+.mega-panel{position:fixed;top:74px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 24px 50px rgba(15,20,30,0.12);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:60}
+.nav-item.open .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+@media (min-width:941px){ .nav-item:hover .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none} }
+.mega-inner{max-width:1180px;margin:0 auto;padding:36px 32px;display:grid;grid-template-columns:1fr 1fr 340px;gap:36px}
+.mega-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text-mute);margin-bottom:16px}
+.mega-col a{display:block;font-size:14px;color:var(--text);margin-bottom:14px}
+.mega-col a span{display:block;font-size:11.5px;color:var(--text-sub);margin-top:2px;font-family:'Inter',sans-serif}
+.mega-col a:hover{color:var(--accent)}
+.mega-img{position:relative;padding:10px}
+@media (max-width:940px){ .mega-inner{grid-template-columns:1fr;padding:24px} .mega-img{max-width:320px} }
+</style>
+</head>
+<body>
+<header class="site">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item" id="productNavItem">
+        <button class="nav-trigger" id="productTrigger" aria-expanded="false" aria-controls="productMega">Product</button>
+        <div class="mega-panel" id="productMega">
+          <div class="mega-inner">
+            <div class="mega-col">
+              <h5>MODULES</h5>
+              <a href="product-bank-sync.html">Bank Sync<span>One ledger across every bank</span></a>
+              <a href="product-payroll.html">Payroll<span>Run payroll in minutes, not days</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="product-time-tracking.html">Time Tracking<span>Clock ins, shifts and attendance</span></a>
+              <a href="product-remittance-compliance.html">Remittance &amp; Compliance<span>PAYE, pension, NHF filed automatically</span></a>
+            </div>
+            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
+              <image-slot id="nav-mega-shot" style="width:100%;height:180px" shape="rect" placeholder="Drop a product screenshot"></image-slot>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="businessNavItem">
+        <button class="nav-trigger" id="businessTrigger" aria-expanded="false" aria-controls="businessMega">For Businesses</button>
+        <div class="mega-panel" id="businessMega">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr">
+            <div class="mega-col">
+              <h5>BY SIZE</h5>
+              <a href="solutions-small-business.html">Small Businesses<span>1 to 20 employees, free to start</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="solutions-growing-business.html">Growing Businesses<span>20 to 200 employees, scaling operations</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="solutions-enterprise.html">Enterprise<span>200+ employees, multi entity, custom controls</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="resourcesNavItem">
+        <button class="nav-trigger" id="resourcesTrigger" aria-expanded="false" aria-controls="resourcesMega">Resources</button>
+        <div class="mega-panel" id="resourcesMega">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr">
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="about.html">About Us<span>Our mission and story</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="blog.html">Blog<span>Product news and founder stories</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="industries.html">Industries<span>Built for how you actually work</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="guides.html">Guides<span>Step by step tutorials</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">Pricing</a>
+    </div>
+    <div class="nav-actions">
+      <div class="nav-stores">
+        <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.19 7.31c1.35.07 2.29.74 3.08.8.94-.19 1.85-.87 2.86-.72 1.22.11 2.15.65 2.77 1.6-2.63 1.61-2.06 5.17.35 6.16-.5 1.36-1.16 2.71-1.2 2.71M12.03 7.25c-.15-2.23 1.66-4.09 3.74-4.25.29 2.32-2.02 4.06-3.74 4.25z"/></svg>App Store</a>
+        <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.3.3-.5.7-.5 1.2v16.4c0 .5.2.9.5 1.2l.1.1L13 12 3.7 2.5z"/><path d="M16.3 14.8L13 11.5l-9.3 9.3.1.1c.5.3 1.1.2 1.6-.1zm3-6.1L16.3 6.6 5.4 1.6c-.6-.3-1.3-.2-1.7.2z"/><path d="M19.3 8.7l-3 1.7 3 1.7c.6-.4.9-1 .9-1.7s-.3-1.3-.9-1.7z"/><path d="M16.3 11.5l3-1.7-3-1.7-3.3 3.4z"/></svg>Google Play</a>
+      </div>
+      <a href="https://hex-software-frontend.vercel.app/login" class="login">Log in</a>
+      <a href="https://hex-software-frontend.vercel.app/signup" class="btn btn-primary">Get started</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero gridpaper">
+  <div class="wrap">
+    <div class="tag">PRICING</div>
+    <h1>Simple, transparent, scalable pricing.</h1>
+    <p class="lede">A low monthly platform fee plus a per active employee rate. Grow your team, and your bill only grows with it, no surprise tiers.</p>
+    <div class="toggle-row">
+      <button class="toggle-btn active" id="btnMonthly">Monthly</button>
+      <button class="toggle-btn" id="btnAnnual">Annual <span class="save">2 MONTHS FREE</span></button>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="plan-grid">
+    <div class="plan-card">
+      <div class="plan-name">Starter</div>
+      <div class="plan-tag">Best for startups and small businesses getting payroll right from day one.</div>
+      <div class="plan-price"><span id="starterPrice">₦7,500</span></div>
+      <div class="plan-sub">per <span class="period">month</span> + <b style="color:var(--text)">₦750</b> per active employee</div>
+      <a href="https://hex-software-frontend.vercel.app/signup" class="btn btn-primary">Start with Starter</a>
+      <div class="plan-feats">
+        <div><span class="chk">✓</span>Unlimited payroll runs</div>
+        <div><span class="chk">✓</span>Employee management and digital payslips</div>
+        <div><span class="chk">✓</span>Leave management</div>
+        <div><span class="chk">✓</span>PAYE, pension and statutory deductions</div>
+        <div><span class="chk">✓</span>Employee self service app</div>
+        <div><span class="chk">✓</span>Up to 2 administrators</div>
+        <div><span class="chk">✓</span>Email support</div>
+      </div>
+    </div>
+    <div class="plan-card highlight">
+      <div class="plan-badge">MOST POPULAR</div>
+      <div class="plan-name">Payroll Pro</div>
+      <div class="plan-tag">For growing teams that need attendance, expenses and approvals in one place.</div>
+      <div class="plan-price"><span id="proPrice">₦7,500</span></div>
+      <div class="plan-sub">per <span class="period">month</span> + <b style="color:#fff">₦1,050</b> per active employee</div>
+      <a href="https://hex-software-frontend.vercel.app/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Upgrade to Pro</a>
+      <div class="plan-feats">
+        <div><span class="chk">✓</span>Everything in Starter</div>
+        <div><span class="chk">✓</span>Time and attendance tracking</div>
+        <div><span class="chk">✓</span>Expense management</div>
+        <div><span class="chk">✓</span>Approval workflows</div>
+        <div><span class="chk">✓</span>Accounting integrations</div>
+        <div><span class="chk">✓</span>Priority support</div>
+      </div>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Enterprise</div>
+      <div class="plan-tag">For large or multi entity organisations with custom requirements.</div>
+      <div class="plan-price">Custom</div>
+      <div class="plan-sub">Tailored pricing based on team size, entities and integrations.</div>
+      <a href="solutions-enterprise.html" class="btn btn-ghost">Talk to sales</a>
+      <div class="plan-feats">
+        <div><span class="chk">✓</span>Everything in Payroll Pro</div>
+        <div><span class="chk">✓</span>Single sign on (SSO)</div>
+        <div><span class="chk">✓</span>Dedicated account manager</div>
+        <div><span class="chk">✓</span>Multi entity support</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-tint">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center;max-width:520px;margin:0 auto 40px">
+      <div class="tag" style="justify-content:center">STARTER PLAN EXAMPLES</div>
+      <h2>What it costs, by team size.</h2>
+      <p style="margin:14px auto 0">₦7,500 platform fee + ₦750 per active employee, monthly.</p>
+    </div>
+    <div class="example-row">
+      <div class="example-item"><b>₦11,250</b><span>5 EMPLOYEES</span></div>
+      <div class="example-item"><b>₦15,000</b><span>10 EMPLOYEES</span></div>
+      <div class="example-item"><b>₦22,500</b><span>20 EMPLOYEES</span></div>
+      <div class="example-item"><b>₦45,000</b><span>50 EMPLOYEES</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head" style="text-align:center;max-width:520px;margin:0 auto 40px">
+      <div class="tag" style="justify-content:center">CALCULATOR</div>
+      <h2>What will it cost my business?</h2>
+    </div>
+    <div class="calc-box">
+      <div class="calc-head"><b>Drag to your team size</b><span id="calcEmpLabel">10 EMPLOYEES</span></div>
+      <div class="calc-body">
+        <div class="calc-slider-row">
+          <input type="range" min="1" max="200" value="10" id="empSlider"/>
+          <div class="calc-count"><b id="empCount">10</b><span>active employees</span></div>
+        </div>
+        <div class="calc-results">
+          <div class="calc-result"><div class="k">STARTER</div><div class="v" id="calcStarter">₦15,000 /mo</div><div class="save" id="calcStarterSave"></div></div>
+          <div class="calc-result"><div class="k">PAYROLL PRO</div><div class="v" id="calcPro">₦18,000 /mo</div><div class="save" id="calcProSave"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-tint">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center;max-width:520px;margin:0 auto 40px">
+      <div class="tag" style="justify-content:center">OPTIONAL SERVICES</div>
+      <h2>One time services to get you moving fast.</h2>
+    </div>
+    <div class="svc-table">
+      <div class="svc-row"><div><div class="name">Payroll migration</div><div class="desc">We move your full payroll history and settings over for you.</div></div><div class="price">From ₦100,000</div></div>
+      <div class="svc-row"><div><div class="name">Employee data import</div><div class="desc">Bulk import of employee records, bank and tax details.</div></div><div class="price">From ₦50,000</div></div>
+      <div class="svc-row" style="border-bottom:none"><div><div class="name">Custom integrations</div><div class="desc">Connect HexPay to your internal tools and systems.</div></div><div class="price">Quoted per scope</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Simple. Transparent. Scalable.</h2>
+    <p>A low monthly platform fee plus per active employee pricing, your cost only grows when your team does.</p>
+    <div class="hero-cta">
+      <a href="https://hex-software-frontend.vercel.app/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
+      <a href="about.html" class="btn btn-on-dark">Learn our story</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
+        <p>The operating system for African businesses, payroll, sales, finance and operations, in one intelligent platform.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="product-bank-sync.html">Bank Sync</a>
+        <a href="product-payroll.html">Payroll</a>
+        <a href="product-time-tracking.html">Time Tracking</a>
+        <a href="product-remittance-compliance.html">Remittance &amp; Compliance</a>
+        <a href="solutions-small-business.html">Small Businesses</a>
+        <a href="solutions-growing-business.html">Growing Businesses</a>
+        <a href="solutions-enterprise.html">Enterprise</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="about.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="industries.html">Industries</a>
+        <a href="guides.html">Guides</a>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms of service</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 HexPay Africa. All rights reserved.</span>
+      <div class="foot-social"><a href="#">X</a><a href="#">LinkedIn</a><a href="#">Instagram</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("navBurger").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("mobile-open"));
+const productNavItem=document.getElementById("productNavItem"), productTrigger=document.getElementById("productTrigger");
+productTrigger.addEventListener("click",(e)=>{ e.stopPropagation(); const isOpen=productNavItem.classList.toggle("open"); productTrigger.setAttribute("aria-expanded",isOpen?"true":"false"); });
+document.addEventListener("click",(e)=>{ if(!productNavItem.contains(e.target)){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+const businessNavItem=document.getElementById("businessNavItem"), businessTrigger=document.getElementById("businessTrigger");
+businessTrigger.addEventListener("click",(e)=>{ e.stopPropagation(); const isOpen=businessNavItem.classList.toggle("open"); businessTrigger.setAttribute("aria-expanded",isOpen?"true":"false"); });
+document.addEventListener("click",(e)=>{ if(!businessNavItem.contains(e.target)){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
+const resourcesNavItem=document.getElementById("resourcesNavItem"), resourcesTrigger=document.getElementById("resourcesTrigger");
+resourcesTrigger.addEventListener("click",(e)=>{ e.stopPropagation(); const isOpen=resourcesNavItem.classList.toggle("open"); resourcesTrigger.setAttribute("aria-expanded",isOpen?"true":"false"); });
+document.addEventListener("click",(e)=>{ if(!resourcesNavItem.contains(e.target)){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
+
+const fmt=n=>"₦"+Math.round(n).toLocaleString();
+let annual=false;
+const btnMonthly=document.getElementById("btnMonthly"), btnAnnual=document.getElementById("btnAnnual");
+const periods=document.querySelectorAll(".period");
+function updatePlanCards(){
+  const starterBase=7500, proBase=7500;
+  const sPrice = annual? starterBase*10 : starterBase;
+  const pPrice = annual? proBase*10 : proBase;
+  document.getElementById("starterPrice").textContent = fmt(sPrice);
+  document.getElementById("proPrice").textContent = fmt(pPrice);
+  periods.forEach(p=>p.textContent = annual?"year":"month");
+}
+btnMonthly.addEventListener("click",()=>{ annual=false; btnMonthly.classList.add("active"); btnAnnual.classList.remove("active"); updatePlanCards(); updateCalc(); });
+btnAnnual.addEventListener("click",()=>{ annual=true; btnAnnual.classList.add("active"); btnMonthly.classList.remove("active"); updatePlanCards(); updateCalc(); });
+
+const empSlider=document.getElementById("empSlider");
+function updateCalc(){
+  const emp=Number(empSlider.value);
+  document.getElementById("empCount").textContent=emp;
+  document.getElementById("calcEmpLabel").textContent=emp+" EMPLOYEE"+(emp!==1?"S":"");
+  const starterM = 7500 + emp*750;
+  const proM = 7500 + emp*1050;
+  const starter = annual? starterM*10 : starterM;
+  const pro = annual? proM*10 : proM;
+  document.getElementById("calcStarter").textContent = fmt(starter)+" /"+(annual?"yr":"mo");
+  document.getElementById("calcPro").textContent = fmt(pro)+" /"+(annual?"yr":"mo");
+  document.getElementById("calcStarterSave").textContent = annual? "2 months free (saved "+fmt(starterM*2)+")" : "";
+  document.getElementById("calcProSave").textContent = annual? "2 months free (saved "+fmt(proM*2)+")" : "";
+}
+empSlider.addEventListener("input",updateCalc);
+updateCalc();
+</script>
+</body>
+</html>

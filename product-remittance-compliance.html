@@ -3,55 +3,60 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>About | HexPay</title>
+<title>Remittance & Compliance | HexPay</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="landing.css"/>
 <script src="image-slot.js"></script>
 <style>
-.a-hero{padding:96px 0 80px}
-.a-hero h1{font-size:clamp(34px,5vw,52px);line-height:1.18;max-width:780px;margin-top:20px}
-.a-hero p{font-size:17px;color:var(--text-sub);max-width:560px;margin-top:22px;line-height:1.7}
-
-.mv-row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.mv-cell{padding:40px;border-right:1px solid var(--line)}
-.mv-cell:last-child{border-right:none}
-.mv-cell .tag{margin-bottom:16px}
-.mv-cell h3{font-size:23px;margin-bottom:12px}
-.mv-cell p{font-size:14.5px;color:var(--text-sub);line-height:1.75;max-width:400px}
-
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.story-shot{position:relative;padding:16px}
-.story-text p{font-size:15px;color:var(--text-sub);line-height:1.85;margin-bottom:18px}
-.story-text p.lead{font-family:'Poppins',sans-serif;font-style:italic;font-size:21px;color:var(--text);line-height:1.5}
-
-.pillar-row{display:grid;grid-template-columns:100px 1fr;gap:28px;padding:34px 0;border-top:1px solid var(--line)}
-.pillar-row:last-child{border-bottom:1px solid var(--line)}
-.pillar-row .pn{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)}
-.pillar-row h4{font-family:'Poppins',sans-serif;font-size:20px;font-weight:500;margin-bottom:8px}
-.pillar-row p{font-size:14px;color:var(--text-sub);line-height:1.7;max-width:540px}
-
-.val-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.val-card{padding:28px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.val-card h4{font-family:'Poppins',sans-serif;font-size:16px;font-weight:600;margin-bottom:10px}
-.val-card p{font-size:12.5px;color:var(--text-sub);line-height:1.65}
-
+.hero{padding:64px 0 72px}
+.hero-grid{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center;max-width:1040px}
+.hero-portrait{position:relative;padding:12px;align-self:stretch}
+.hero-portrait .fig-label{position:absolute;bottom:-24px;left:12px}
+@media (max-width:860px){ .hero-grid{grid-template-columns:1fr} .hero-portrait{order:-1;max-width:220px;margin:0 auto} }
+.hero h1{font-size:clamp(34px,4.6vw,52px);line-height:1.15;margin-top:20px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p.lede{font-size:17px;color:var(--text-sub);line-height:1.7;max-width:560px;margin-top:24px}
+.hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.fig-label{position:absolute;bottom:-28px;left:22px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)}
+.hero-filing{padding:72px 0 0;text-align:center}
+.hero-filing-inner{max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.hero-filing .tag{justify-content:center}
+.hero-filing .lede{text-align:center}
+.hero-filing .hero-cta{justify-content:center}
+.filing-doc{margin-top:56px;max-width:520px;width:100%;background:var(--panel);border:1.5px solid var(--line);padding:0;text-align:left;position:relative}
+.filing-doc::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 20px)}
+.filing-doc-head{display:flex;justify-content:space-between;align-items:center;padding:20px 26px;border-bottom:1px dashed var(--line)}
+.filing-doc-head b{font-family:'Poppins',sans-serif;font-size:15px}
+.filing-stamp{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--accent);border:1.5px solid var(--accent);padding:4px 10px;transform:rotate(-4deg)}
+.filing-doc-rows{padding:6px 26px 22px}
+.filing-doc-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line-soft);font-size:13px}
+.filing-doc-row span:first-child{color:var(--text-sub)}
+.filing-doc-row span:last-child{font-family:'IBM Plex Mono',monospace;color:var(--text)}
+.benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0}
+.benefit-row.rev .b-img{order:2}
+.benefit-row.rev .b-text{order:1}
+.b-img{position:relative;padding:14px;min-width:0}
+.b-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
+.b-text{min-width:0}
+.b-text ul{margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.b-text li{font-size:13.5px;color:var(--text-sub);display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.b-text li b{color:var(--text)}
+.b-text li .chk{font-family:'IBM Plex Mono',monospace;color:var(--accent);flex-shrink:0}
+@media (max-width:900px){ .benefit-row{grid-template-columns:1fr} .benefit-row.rev .b-img,.benefit-row.rev .b-text{order:initial} }
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.feat-card{padding:32px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feat-card .num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:14px}
+.feat-card h4{font-family:'Poppins',sans-serif;font-size:17px;font-weight:500;margin-bottom:8px}
+.feat-card p{font-size:13px;color:var(--text-sub);line-height:1.6}
+@media (max-width:900px){ .feat-grid{grid-template-columns:1fr} }
 .cta-band{background:var(--ink);color:var(--paper);padding:100px 0;text-align:center}
 .cta-band h2{color:#fff;font-size:36px;max-width:640px;margin:0 auto}
 .cta-band p{color:rgba(250,248,243,0.6);font-size:15.5px;margin:16px auto 0;max-width:460px}
-.cta-band .hero-cta{display:flex;justify-content:center;gap:14px;margin-top:32px}
-
-@media (max-width:900px){
-  .mv-row,.story-grid,.val-grid{grid-template-columns:1fr}
-  .mv-cell{border-right:none;border-bottom:1px solid var(--line)}
-}
-.photo-band{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.photo-item{position:relative;padding:14px}
-.photo-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
-@media (max-width:800px){ .photo-band{grid-template-columns:1fr} }
-.nav-stores{display:flex;gap:8px}
+.cta-band .hero-cta{justify-content:center;margin-top:32px}
 .store-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink);border-radius:2px}
 .store-badge:hover{background:var(--ink);color:var(--paper)}
+.nav-stores{display:flex;gap:8px}
 .nav-stores .store-badge{padding:6px 10px;font-size:10.5px;border-width:1px}
 @media (max-width:1140px){ .nav-stores{display:none} }
 .nav-item{position:relative;padding-bottom:26px;margin-bottom:-26px}
@@ -70,7 +75,6 @@
 </style>
 </head>
 <body>
-
 <header class="site">
   <nav class="nav">
     <a href="index.html" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
@@ -151,93 +155,60 @@
   </nav>
 </header>
 
-<section class="a-hero gridpaper">
-  <div class="wrap">
-    <div class="tag">ABOUT HEXPAY</div>
-    <h1>We're building the operating system for African businesses.</h1>
-    <p>Not another point solution. A single, intelligent platform that grows from payroll into everything a small or mid-sized business needs to run, without the cost or chaos of stitching five tools together.</p>
-  </div>
-</section>
-
-<section id="mission" style="padding-top:0;padding-bottom:0">
-  <div class="wrap">
-    <div class="mv-row">
-      <div class="mv-cell">
-        <div class="tag">OUR VISION</div>
-        <h3>The single platform African businesses run on.</h3>
-        <p>From their first hire to their hundredth, one account, one connected system, growing with the business instead of getting replaced by it.</p>
-      </div>
-      <div class="mv-cell">
-        <div class="tag">OUR MISSION</div>
-        <h3>Fewer tools. Better decisions.</h3>
-        <p>To help businesses manage people, sales, payroll, finance and operations from one intelligent platform, so founders spend less time reconciling tools and more time growing.</p>
+<section class="hero-filing gridpaper">
+  <div class="wrap hero-filing-inner">
+    <div class="tag">PRODUCT, REMITTANCE &amp; COMPLIANCE</div>
+    <h1>PAYE, pension, NHF. <em>Filed automatically.</em></h1>
+    <p class="lede">HexPay calculates and remits statutory deductions directly to FIRS, PenCom-registered PFAs and the NHF, with filing receipts stored for every cycle.</p>
+    <div class="hero-cta">
+      <a href="https://hex-software-frontend.vercel.app/signup" class="btn btn-primary">Get started free</a>
+      <a href="#features" class="btn btn-ghost">See how it works</a>
+    </div>
+    <div class="filing-doc">
+      <div class="filing-doc-head"><b>Remittance receipt</b><span class="filing-stamp">FILED</span></div>
+      <div class="filing-doc-rows">
+        <div class="filing-doc-row"><span>PAYE, Lagos IRS</span><span>₦412,000.00</span></div>
+        <div class="filing-doc-row"><span>Pension, PenCom PFA</span><span>₦268,500.00</span></div>
+        <div class="filing-doc-row"><span>NHF contribution</span><span>₦54,200.00</span></div>
+        <div class="filing-doc-row" style="border-bottom:none"><span>Filed</span><span>15 Jul 2026, 09:14 AM</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap story-grid">
-    <div class="story-shot bracketed">
-      <span class="bl"></span><span class="br"></span>
-      <image-slot id="story-shot" src="https://images.unsplash.com/photo-1758873269317-51888e824b28?q=80&w=1200&auto=format&fit=crop" credit="Photo by Vitaly Gariev on Unsplash" credit-href="https://unsplash.com/@silverkblack" style="width:100%;height:460px" shape="rect" placeholder="Drop a team or office photo"></image-slot>
-    </div>
-    <div class="story-text">
-      <div class="tag" style="margin-bottom:20px">WHERE WE STARTED</div>
-      <p class="lead">Payroll was never the whole point.</p>
-      <p>HexPay began as a way to solve one very specific, very painful problem for Nigerian businesses: paying people correctly, on time, and in line with tax law, without a finance team of ten.</p>
-      <p>But the deeper we went, the clearer it became. Payroll was never isolated. It touches hiring, leave, cash flow, sales performance and compliance all at once. Businesses weren't looking for a better payroll tool. They were looking for a better way to run the business.</p>
-      <p>So we kept building. Payroll became the entry point to something bigger: a connected operating system for how African businesses actually work.</p>
-    </div>
-  </div>
-</section>
 
-<section style="border-top:1px solid var(--line-soft)">
+<section id="features">
   <div class="wrap">
     <div class="section-head">
-      <div class="tag">HOW WE BUILD</div>
-      <h2>Our approach</h2>
-      <p>Three principles guide every module we ship.</p>
+      <div class="tag">HOW IT WORKS</div>
+      <h2>Compliance that runs itself.</h2>
+      <p>Every payroll cycle automatically calculates what's owed to tax authorities, pension funds and the NHF, then remits it and files the paperwork.</p>
     </div>
-    <div>
-      <div class="pillar-row"><div class="pn">01</div><div><h4>Simple start</h4><p>Every business starts with payroll, the module that's most urgent, most regulated, and hardest to get wrong. No forced onboarding into modules you don't need yet.</p></div></div>
-      <div class="pillar-row"><div class="pn">02</div><div><h4>Modular growth</h4><p>Sales, finance and inventory switch on when you're ready for them, same account, same data, no migration, no re-implementation.</p></div></div>
-      <div class="pillar-row"><div class="pn">03</div><div><h4>Workflows, not features</h4><p>We don't chase feature-list parity with the last tool you tried. We connect the workflows between modules, because that's where the real value is.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section style="border-top:1px solid var(--line-soft)">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="tag">WHAT WE BELIEVE</div>
-      <h2>Our values</h2>
-      <p>The standard we hold ourselves to as we build for African businesses.</p>
-    </div>
-    <div class="val-grid">
-      <div class="val-card"><h4>Built here, for here</h4><p>Nigerian business realities come first, not an afterthought bolted onto a global product.</p></div>
-      <div class="val-card"><h4>Trust is earned in Naira</h4><p>Payroll and money touch real livelihoods. We treat accuracy and compliance as non-negotiable.</p></div>
-      <div class="val-card"><h4>Small businesses deserve better tools</h4><p>Enterprise-grade software shouldn't require an enterprise budget or an enterprise IT team.</p></div>
-      <div class="val-card"><h4>Growth shouldn't mean more chaos</h4><p>As a business scales, its tools should get simpler to manage, not more fragmented.</p></div>
+    <div class="feat-grid">
+      <div class="feat-card"><div class="num">01</div><h4>PAYE remittance</h4><p>State tax authority filings calculated and submitted each cycle.</p></div>
+      <div class="feat-card"><div class="num">02</div><h4>Pension (PenCom)</h4><p>Employer and employee contributions routed to registered PFAs.</p></div>
+      <div class="feat-card"><div class="num">03</div><h4>NHF contributions</h4><p>National Housing Fund deductions calculated and remitted on schedule.</p></div>
+      <div class="feat-card"><div class="num">04</div><h4>Filing receipts</h4><p>Every remittance stored with proof of filing for audits and inspections.</p></div>
+      <div class="feat-card"><div class="num">05</div><h4>Deadline reminders</h4><p>Never miss a statutory filing date. HexPay tracks every deadline.</p></div>
+      <div class="feat-card"><div class="num">06</div><h4>Multi-state support</h4><p>Handles varying state tax rules for teams spread across Nigeria.</p></div>
     </div>
   </div>
 </section>
-
-<section style="border-top:1px solid var(--line-soft)">
+<section class="bg-tint">
   <div class="wrap">
-    <div class="tag" style="margin-bottom:24px">THE BUSINESSES WE BUILD FOR</div>
-    <div class="photo-band">
-      <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="a-photo-1" src="https://images.unsplash.com/photo-1778550579010-cb0d00cd94e6?q=80&w=1200&auto=format&fit=crop" credit="Photo by Bill Fairs on Unsplash" credit-href="https://unsplash.com/@moonboyz" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo, Nigerian retail shop"></image-slot>
-        <div class="photo-cap">FIG. 06, KANO, RETAIL</div>
+    <div class="benefit-row rev">
+      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="remit-shot" style="width:100%;height:340px" shape="rect" placeholder="Drop a screenshot, remittance filing history"></image-slot>
+        <div class="b-cap">FIG. 02, FILING HISTORY</div>
       </div>
-      <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="a-photo-2" src="https://images.unsplash.com/photo-1573496527892-904f897eb744?q=80&w=1200&auto=format&fit=crop" credit="Photo by Christina @ wocintechchat.com M on Unsplash" credit-href="https://unsplash.com/@wocintechchat" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo, small team meeting"></image-slot>
-        <div class="photo-cap">FIG. 07, IBADAN, TEAM</div>
-      </div>
-      <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="a-photo-3" src="https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?q=80&w=1200&auto=format&fit=crop" credit="Photo by Nupo Deyon Daniel on Unsplash" credit-href="https://unsplash.com/@thewallpaperguy_" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo, logistics or warehouse"></image-slot>
-        <div class="photo-cap">FIG. 08, LAGOS, LOGISTICS</div>
+      <div class="b-text">
+        <div class="tag">WHY IT MATTERS</div>
+        <h2>Compliance without the paperwork.</h2>
+        <ul>
+          <li><span class="chk">✓</span><div><b>No more missed filing deadlines</b> or late penalties.</div></li>
+          <li><span class="chk">✓</span><div><b>No more chasing receipts</b> for audits, they're stored automatically.</div></li>
+          <li><span class="chk">✓</span><div><b>No more manual PAYE math</b> across different states.</div></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -245,11 +216,11 @@
 
 <section class="cta-band">
   <div class="wrap">
-    <h2>Come run your business on HexPay.</h2>
-    <p>Start with payroll today, free. Expand into sales, finance and inventory whenever you're ready.</p>
+    <h2>Stay compliant, automatically.</h2>
+    <p>Every remittance calculated, filed and receipted, every cycle.</p>
     <div class="hero-cta">
       <a href="https://hex-software-frontend.vercel.app/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
-      <a href="index.html" class="btn btn-on-dark">Explore the product</a>
+      <a href="about.html" class="btn btn-on-dark">Learn our story</a>
     </div>
   </div>
 </section>
@@ -267,10 +238,6 @@
         <a href="product-payroll.html">Payroll</a>
         <a href="product-time-tracking.html">Time Tracking</a>
         <a href="product-remittance-compliance.html">Remittance &amp; Compliance</a>
-        <a href="solutions-small-business.html">Small Businesses</a>
-        <a href="solutions-growing-business.html">Growing Businesses</a>
-        <a href="solutions-enterprise.html">Enterprise</a>
-        <a href="pricing.html">Pricing</a>
       </div>
       <div class="foot-col">
         <h4>Company</h4>

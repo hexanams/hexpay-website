@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>HexPay for Small Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="landing.css"/>
+<script src="image-slot.js"></script>
+<style>
+.hero{padding:64px 0 72px}
+.hero-grid{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center;max-width:1040px}
+.hero-portrait{position:relative;padding:12px;align-self:stretch}
+.hero-portrait .fig-label{position:absolute;bottom:-24px;left:12px}
+@media (max-width:860px){ .hero-grid{grid-template-columns:1fr} .hero-portrait{order:-1;max-width:220px;margin:0 auto} }
+.hero h1{font-size:clamp(34px,4.6vw,52px);line-height:1.15;margin-top:20px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p.lede{font-size:17px;color:var(--text-sub);line-height:1.7;max-width:560px;margin-top:24px}
+.hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.fig-label{position:absolute;bottom:-28px;left:22px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)}
+.hero-smb{position:relative;min-height:600px;display:flex;align-items:center;padding:0}
+.hero-smb .bg-slot{position:absolute;inset:0;z-index:0}
+.hero-smb .bg-slot image-slot{width:100%;height:100%}
+.hero-smb::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(250,248,243,0.97) 0%,rgba(250,248,243,0.88) 38%,rgba(250,248,243,0.15) 68%,transparent 100%);z-index:1}
+.hero-smb-inner{position:relative;z-index:2;max-width:560px;padding:80px 0}
+.badge-free{display:inline-flex;align-items:center;gap:8px;background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber);font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:6px 12px;margin-bottom:18px}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat-item{padding:32px 24px;border-right:1px solid var(--line)}
+.stat-item:last-child{border-right:none}
+.stat-item b{display:block;font-family:'Poppins',sans-serif;font-size:32px;color:var(--accent)}
+.stat-item span{display:block;font-size:12.5px;color:var(--text-sub);margin-top:8px;line-height:1.5}
+@media (max-width:900px){ .stat-row{grid-template-columns:1fr 1fr} .stat-item{border-bottom:1px solid var(--line)} }
+.benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0}
+.benefit-row.rev .b-img{order:2}
+.benefit-row.rev .b-text{order:1}
+.b-img{position:relative;padding:14px;min-width:0}
+.b-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
+.b-text{min-width:0}
+.b-text ul{margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.b-text li{font-size:13.5px;color:var(--text-sub);display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.b-text li b{color:var(--text)}
+.b-text li .chk{font-family:'IBM Plex Mono',monospace;color:var(--accent);flex-shrink:0}
+@media (max-width:900px){ .benefit-row{grid-template-columns:1fr} .benefit-row.rev .b-img,.benefit-row.rev .b-text{order:initial} }
+.mod-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.mod-track::before{content:"";position:absolute;top:44px;left:5%;right:5%;height:1px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 16px);z-index:0}
+.mod-panel{position:relative;z-index:1;background:var(--panel);padding:26px 20px;margin:0 8px;min-width:0}
+.mod-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:20px}
+.mod-panel h4{font-family:'Poppins',sans-serif;font-size:19px;font-weight:500;margin-bottom:10px}
+.mod-panel p{font-size:12.5px;color:var(--text-sub);line-height:1.6}
+@media (max-width:940px){ .mod-track{grid-template-columns:1fr} .mod-track::before{display:none} .mod-panel{margin:0 0 16px} }
+.testi{max-width:760px;margin:0 auto;text-align:center}
+.testi blockquote{font-family:'Poppins',sans-serif;font-size:26px;line-height:1.45;font-weight:500}
+.testi cite{display:block;font-style:normal;margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-mute)}
+.logo-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px;padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.logo-row span{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-mute);letter-spacing:.02em}
+.step-track2{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
+.step-card{position:relative;padding-top:20px}
+.step-card::before{counter-increment:step;content:counter(step);font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);border:1.5px solid var(--accent);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.step-card h4{font-family:'Poppins',sans-serif;font-size:16.5px;font-weight:500;margin-bottom:8px}
+.step-card p{font-size:13px;color:var(--text-sub);line-height:1.6}
+@media (max-width:900px){ .step-track2{grid-template-columns:1fr 1fr} }
+@media (max-width:560px){ .step-track2{grid-template-columns:1fr} }
+.price-table{border-top:1px solid var(--line)}
+.price-row{display:grid;grid-template-columns:1fr auto;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:center}
+.price-row .label{font-size:14.5px;color:var(--text)}
+.price-row .val{font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--accent);white-space:nowrap}
+.setup-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.setup-list{display:flex;flex-direction:column;gap:0}
+.setup-list li{list-style:none;display:flex;gap:12px;padding:16px 0;border-bottom:1px solid var(--line-soft);font-size:14px;color:var(--text-sub)}
+.setup-list li b{color:var(--text);font-family:'IBM Plex Mono',monospace;font-size:12px;flex-shrink:0;width:24px}
+@media (max-width:900px){ .setup-grid{grid-template-columns:1fr} }
+.cta-band{background:var(--ink);color:var(--paper);padding:100px 0;text-align:center}
+.cta-band h2{color:#fff;font-size:36px;max-width:640px;margin:0 auto}
+.cta-band p{color:rgba(250,248,243,0.6);font-size:15.5px;margin:16px auto 0;max-width:460px}
+.cta-band .hero-cta{justify-content:center;margin-top:32px}
+.store-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink);border-radius:2px}
+.store-badge:hover{background:var(--ink);color:var(--paper)}
+.nav-stores{display:flex;gap:8px}
+.nav-stores .store-badge{padding:6px 10px;font-size:10.5px;border-width:1px}
+@media (max-width:1140px){ .nav-stores{display:none} }
+.nav-item{position:relative;padding-bottom:26px;margin-bottom:-26px}
+.nav-trigger{background:none;border:none;font:inherit;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-sub);cursor:pointer;padding:4px 0}
+.nav-trigger:hover{color:var(--ink)}
+.mega-panel{position:fixed;top:74px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 24px 50px rgba(15,20,30,0.12);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:60}
+.nav-item.open .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+@media (min-width:941px){ .nav-item:hover .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none} }
+.mega-inner{max-width:1180px;margin:0 auto;padding:36px 32px;display:grid;grid-template-columns:1fr 1fr 340px;gap:36px}
+.mega-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text-mute);margin-bottom:16px}
+.mega-col a{display:block;font-size:14px;color:var(--text);margin-bottom:14px}
+.mega-col a span{display:block;font-size:11.5px;color:var(--text-sub);margin-top:2px;font-family:'Inter',sans-serif}
+.mega-col a:hover{color:var(--accent)}
+.mega-img{position:relative;padding:10px}
+@media (max-width:940px){ .mega-inner{grid-template-columns:1fr;padding:24px} .mega-img{max-width:320px} }
+</style>
+</head>
+<body>
+<header class="site">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item" id="productNavItem">
+        <button class="nav-trigger" id="productTrigger" aria-expanded="false" aria-controls="productMega">Product</button>
+        <div class="mega-panel" id="productMega">
+          <div class="mega-inner">
+            <div class="mega-col">
+              <h5>MODULES</h5>
+              <a href="product-bank-sync.html">Bank Sync<span>One ledger across every bank</span></a>
+              <a href="product-payroll.html">Payroll<span>Run payroll in minutes, not days</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="product-time-tracking.html">Time Tracking<span>Clock-ins, shifts and attendance</span></a>
+              <a href="product-remittance-compliance.html">Remittance &amp; Compliance<span>PAYE, pension, NHF filed automatically</span></a>
+            </div>
+            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
+              <image-slot id="nav-mega-shot" style="width:100%;height:180px" shape="rect" placeholder="Drop a product screenshot"></image-slot>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="businessNavItem">
+        <button class="nav-trigger" id="businessTrigger" aria-expanded="false" aria-controls="businessMega">For Businesses</button>
+        <div class="mega-panel" id="businessMega">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr">
+            <div class="mega-col">
+              <h5>BY SIZE</h5>
+              <a href="solutions-small-business.html">Small Businesses<span>1 to 20 employees, free to start</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="solutions-growing-business.html">Growing Businesses<span>20 to 200 employees, scaling operations</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="solutions-enterprise.html">Enterprise<span>200+ employees, multi entity, custom controls</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" id="resourcesNavItem">
+        <button class="nav-trigger" id="resourcesTrigger" aria-expanded="false" aria-controls="resourcesMega">Resources</button>
+        <div class="mega-panel" id="resourcesMega">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr">
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="about.html">About Us<span>Our mission and story</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="blog.html">Blog<span>Product news and founder stories</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="industries.html">Industries<span>Built for how you actually work</span></a>
+            </div>
+            <div class="mega-col">
+              <h5>&nbsp;</h5>
+              <a href="guides.html">Guides<span>Step by step tutorials</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">Pricing</a>
+    </div>
+    <div class="nav-actions">
+      <div class="nav-stores">
+        <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.19 7.31c1.35.07 2.29.74 3.08.8.94-.19 1.85-.87 2.86-.72 1.22.11 2.15.65 2.77 1.6-2.63 1.61-2.06 5.17.35 6.16-.5 1.36-1.16 2.71-1.2 2.71M12.03 7.25c-.15-2.23 1.66-4.09 3.74-4.25.29 2.32-2.02 4.06-3.74 4.25z"/></svg>App Store</a>
+        <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.3.3-.5.7-.5 1.2v16.4c0 .5.2.9.5 1.2l.1.1L13 12 3.7 2.5z"/><path d="M16.3 14.8L13 11.5l-9.3 9.3.1.1c.5.3 1.1.2 1.6-.1zm3-6.1L16.3 6.6 5.4 1.6c-.6-.3-1.3-.2-1.7.2z"/><path d="M19.3 8.7l-3 1.7 3 1.7c.6-.4.9-1 .9-1.7s-.3-1.3-.9-1.7z"/><path d="M16.3 11.5l3-1.7-3-1.7-3.3 3.4z"/></svg>Google Play</a>
+      </div>
+      <a href="https://hex-software-frontend.vercel.app/login" class="login">Log in</a>
+      <a href="https://hex-software-frontend.vercel.app/signup" class="btn btn-primary">Get started</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero-smb">
+  <div class="bg-slot"><image-slot id="hero-smb-bg" style="width:100%;height:100%" shape="rect" placeholder="Drop a full-bleed photo, small business owner or shop"></image-slot></div>
+  <div class="wrap">
+    <div class="hero-smb-inner">
+      <div class="badge-free">FREE FOR YOUR FIRST 5 EMPLOYEES</div>
+      <div class="tag">FOR SMALL BUSINESSES</div>
+      <h1>Payroll built for teams of <em>5, not 500.</em></h1>
+      <p class="lede">Bank sync, payroll, time tracking and compliance, everything a small Nigerian business needs to pay its people right, without hiring an HR team.</p>
+      <div class="hero-cta">
+        <a href="https://hex-software-frontend.vercel.app/signup" class="btn btn-primary">Get started free</a>
+        <a href="#modules" class="btn btn-ghost">See what's included</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:32px 0 0">
+  <div class="wrap">
+    <div class="logo-row">
+      <span>WORKS WITH GTBANK</span><span>ACCESS BANK</span><span>ZENITH BANK</span><span>UBA</span><span>KUDA</span><span>PAYSTACK</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0">
+  <div class="wrap">
+    <div class="stat-row">
+      <div class="stat-item"><b>5</b><span>employees free, forever</span></div>
+      <div class="stat-item"><b>&lt;1 day</b><span>average time to first payroll run</span></div>
+      <div class="stat-item"><b>6</b><span>bank rails connected out of the box</span></div>
+      <div class="stat-item"><b>₦0</b><span>setup fees, cancel anytime</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="modules">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">WHAT'S INCLUDED</div>
+      <h2>Four modules. One small business plan.</h2>
+      <p>No bundles to negotiate, no modules to unlock later. Every small business account includes all four from day one.</p>
+    </div>
+    <div class="mod-track">
+      <div class="mod-panel"><div class="mod-tag">01 / BANK SYNC</div><h4>Bank Sync</h4><p>Connect every business account and reconcile automatically, no spreadsheets.</p><a href="product-bank-sync.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">02 / PAYROLL</div><h4>Payroll</h4><p>Calculate and pay salaries, deductions and bonuses in one approved run.</p><a href="product-payroll.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">03 / TIME TRACKING</div><h4>Time Tracking</h4><p>Clock-ins from the app feed straight into the next payroll cycle.</p><a href="product-time-tracking.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">04 / COMPLIANCE</div><h4>Remittance &amp; Compliance</h4><p>PAYE, pension and NHF calculated, filed and receipted automatically.</p><a href="product-remittance-compliance.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">HOW IT WORKS</div>
+      <h2>Live in an afternoon, not a quarter.</h2>
+      <p>No new bank accounts, no data migration. Connect what you already use and start running payroll the same day.</p>
+    </div>
+    <div class="step-track2">
+      <div class="step-card"><h4>Add your team</h4><p>Enter employee details or import from a spreadsheet in minutes.</p></div>
+      <div class="step-card"><h4>Connect your bank</h4><p>Link GTBank, Access, Zenith, UBA or Kuda, securely, read-only.</p></div>
+      <div class="step-card"><h4>Set your schedule</h4><p>Choose a pay cycle; HexPay calculates deductions automatically.</p></div>
+      <div class="step-card"><h4>Run payroll</h4><p>Approve the run, pay lands, payslips send, filings happen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-tint">
+  <div class="wrap">
+    <div class="benefit-row">
+      <div class="b-text">
+        <div class="tag">WHY OWNERS SWITCH</div>
+        <h2>You shouldn't need an HR team to run payroll.</h2>
+        <ul>
+          <li><span class="chk">✓</span><div><b>No accountant required</b> for tax and pension calculations.</div></li>
+          <li><span class="chk">✓</span><div><b>No missed payday</b>, payroll runs on the schedule you set.</div></li>
+          <li><span class="chk">✓</span><div><b>No spreadsheets</b> to track hours, deductions or filings.</div></li>
+          <li><span class="chk">✓</span><div><b>No growing pains</b>, the same account scales as you hire.</div></li>
+        </ul>
+      </div>
+      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="smb-shot" style="width:100%;height:340px" shape="rect" placeholder="Drop a photo, small retail or logistics team"></image-slot>
+        <div class="b-cap">FIG. 02, SMALL TEAM, ON THE GROUND</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">PRICING &amp; COSTS</div>
+      <h2>Transparent pricing, no hidden fees.</h2>
+      <p>One small business plan, all four modules included.</p>
+    </div>
+    <div class="price-table">
+      <div class="price-row"><div class="label">Up to 5 employees</div><div class="val">₦0 / month</div></div>
+      <div class="price-row"><div class="label">Additional employees</div><div class="val">₦1,500 / employee / month</div></div>
+      <div class="price-row"><div class="label">Bank sync &amp; reconciliation</div><div class="val">Included</div></div>
+      <div class="price-row"><div class="label">Time tracking &amp; scheduling</div><div class="val">Included</div></div>
+      <div class="price-row"><div class="label">PAYE, pension &amp; NHF remittance</div><div class="val">Included</div></div>
+      <div class="price-row"><div class="label">Employee self-service app</div><div class="val">Included</div></div>
+      <div class="price-row"><div class="label">Setup fees</div><div class="val">₦0</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-tint">
+  <div class="wrap testi">
+    <div class="tag" style="margin-bottom:24px">CUSTOMER STORY</div>
+    <blockquote>"I used to spend a whole Saturday every month on payroll and remittances. Now it's twenty minutes on my phone."</blockquote>
+    <cite>OWNER, 8-PERSON LOGISTICS BUSINESS, LAGOS</cite>
+  </div>
+</section>
+
+<section>
+  <div class="wrap setup-grid">
+    <div>
+      <div class="tag">QUICK SETUP</div>
+      <h2 style="margin-top:14px;font-size:30px">What you'll need to get started.</h2>
+      <p style="font-size:15px;color:var(--text-sub);margin-top:14px;line-height:1.65">No existing payroll provider required. HexPay replaces the spreadsheet entirely.</p>
+    </div>
+    <ul class="setup-list">
+      <li><b>01</b>Business name and CAC registration number</li>
+      <li><b>02</b>Employee names, roles and salaries</li>
+      <li><b>03</b>Bank account details for payroll funding</li>
+      <li><b>04</b>Your preferred pay cycle and payday</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Free for your first 5 employees.</h2>
+    <p>Set up bank sync, payroll, time tracking and compliance in one afternoon, no card required.</p>
+    <div class="hero-cta">
+      <a href="https://hex-software-frontend.vercel.app/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
+      <a href="pricing.html" class="btn btn-on-dark">See pricing</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
+        <p>The operating system for African businesses, payroll, sales, finance and operations, in one intelligent platform.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="product-bank-sync.html">Bank Sync</a>
+        <a href="product-payroll.html">Payroll</a>
+        <a href="product-time-tracking.html">Time Tracking</a>
+        <a href="product-remittance-compliance.html">Remittance &amp; Compliance</a>
+        <a href="solutions-small-business.html">Small Businesses</a>
+        <a href="solutions-growing-business.html">Growing Businesses</a>
+        <a href="solutions-enterprise.html">Enterprise</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="about.html#mission">Our mission</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms of service</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 HexPay Africa. All rights reserved.</span>
+      <div class="foot-social"><a href="#">X</a><a href="#">LinkedIn</a><a href="#">Instagram</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("navBurger").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("mobile-open"));
+const productNavItem=document.getElementById("productNavItem"), productTrigger=document.getElementById("productTrigger");
+productTrigger.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  const isOpen=productNavItem.classList.toggle("open");
+  productTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
+});
+document.addEventListener("click",(e)=>{ if(!productNavItem.contains(e.target)){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+const businessNavItem=document.getElementById("businessNavItem"), businessTrigger=document.getElementById("businessTrigger");
+businessTrigger.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  const isOpen=businessNavItem.classList.toggle("open");
+  businessTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
+});
+document.addEventListener("click",(e)=>{ if(!businessNavItem.contains(e.target)){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
+const resourcesNavItem=document.getElementById("resourcesNavItem"), resourcesTrigger=document.getElementById("resourcesTrigger");
+resourcesTrigger.addEventListener("click",(e)=>{ e.stopPropagation(); const isOpen=resourcesNavItem.classList.toggle("open"); resourcesTrigger.setAttribute("aria-expanded",isOpen?"true":"false"); });
+document.addEventListener("click",(e)=>{ if(!resourcesNavItem.contains(e.target)){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
+</script>
+</body>
+</html>
