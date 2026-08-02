@@ -9,20 +9,34 @@
 <link rel="stylesheet" href="landing.css"/>
 <script src="image-slot.js"></script>
 <style>
-.hero-grow{position:relative;padding:80px 0 0;overflow:hidden}
-.hero-grow-inner{max-width:640px;position:relative;z-index:2}
-.hero-grow h1{font-size:clamp(34px,4.6vw,52px);line-height:1.15;margin-top:20px}
-.hero-grow h1 em{font-style:italic;color:var(--accent)}
-.hero-grow .lede{font-size:17px;color:var(--text-sub);line-height:1.7;max-width:560px;margin-top:24px}
+.hero-grow{position:relative;padding:88px 0;overflow:hidden;background:var(--ink);color:var(--paper)}
+.hero-grow::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(250,248,243,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(250,248,243,0.06) 1px,transparent 1px);background-size:44px 44px;animation:gridshift 22s linear infinite}
+@keyframes gridshift{ from{background-position:0 0,0 0} to{background-position:44px 44px,44px 44px} }
+@media (prefers-reduced-motion:reduce){ .hero-grow::before{animation:none} }
+.hero-grow .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.hero-grow-inner{max-width:560px}
+.hero-grow .tag{color:#5FD1E0}
+.hero-grow h1{color:#fff;font-size:clamp(34px,4.6vw,52px);line-height:1.15;margin-top:20px}
+.hero-grow h1 em{font-style:italic;color:#5FD1E0}
+.hero-grow .lede{color:rgba(250,248,243,0.72);font-size:17px;line-height:1.7;max-width:560px;margin-top:24px}
 .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
-.growth-chart{position:relative;height:220px;margin-top:64px;display:flex;align-items:flex-end;gap:14px;border-bottom:1px solid var(--line);padding-bottom:0}
-.growth-bar{flex:1;background:var(--accent-soft);border:1px solid var(--accent);position:relative;display:flex;align-items:flex-start;justify-content:center;padding-top:10px}
-.growth-bar span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent)}
-.growth-bar.now{background:var(--ink);border-color:var(--ink)}
-.growth-bar.now span{color:#5FD1E0}
-.growth-labels{display:flex;gap:14px;margin-top:10px}
-.growth-labels div{flex:1;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
-.stat-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.grow-proof{display:flex;flex-direction:column;gap:12px;margin-top:36px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:rgba(250,248,243,0.85)}
+.grow-proof div{display:flex;align-items:center;gap:10px}
+.grow-proof .chk{color:#5FD1E0}
+.org-diagram{background:#171F2C;border:1px solid rgba(255,255,255,0.16);padding:28px}
+.org-root{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px}
+.org-root b{font-family:'Poppins',sans-serif;font-size:16px;color:#5FD1E0}
+.org-root span{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(250,248,243,0.55)}
+.org-stem{width:1px;height:20px;background:rgba(255,255,255,0.2);margin-left:20px}
+.org-node{display:flex;justify-content:space-between;align-items:center;padding:14px 0 14px 20px;border-left:1px solid rgba(255,255,255,0.2)}
+.org-node .name{font-size:13.5px;color:rgba(250,248,243,0.9)}
+.org-node .count{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(250,248,243,0.5);display:block;margin-top:3px}
+.org-status{font-family:'IBM Plex Mono',monospace;font-size:10.5px;padding:4px 9px;white-space:nowrap}
+.org-status.approved{color:#5FD1E0;border:1px solid rgba(95,209,224,0.4)}
+.org-status.waiting{color:var(--amber);border:1px solid var(--amber)}
+.org-hiring{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.14);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(250,248,243,0.8);letter-spacing:.02em}
+@media (max-width:900px){ .hero-grow .wrap{grid-template-columns:1fr} }
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .stat-item{padding:32px 24px;border-right:1px solid var(--line)}
 .stat-item:last-child{border-right:none}
 .stat-item b{display:block;font-family:'Poppins',sans-serif;font-size:32px;color:var(--accent)}
@@ -39,13 +53,31 @@
 .b-text li b{color:var(--text)}
 .b-text li .chk{font-family:'IBM Plex Mono',monospace;color:var(--accent);flex-shrink:0}
 @media (max-width:900px){ .benefit-row{grid-template-columns:1fr} .benefit-row.rev .b-img,.benefit-row.rev .b-text{order:initial} }
-.mod-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-.mod-track::before{content:"";position:absolute;top:44px;left:5%;right:5%;height:1px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 16px);z-index:0}
-.mod-panel{position:relative;z-index:1;background:var(--panel);padding:26px 20px;margin:0 8px;min-width:0}
-.mod-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:20px}
+.mod-track{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mod-panel{background:var(--panel);border:1px solid var(--line);padding:26px 20px;min-width:0}
+.mod-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-sub);margin-bottom:20px}
 .mod-panel h4{font-family:'Poppins',sans-serif;font-size:19px;font-weight:500;margin-bottom:10px}
 .mod-panel p{font-size:12.5px;color:var(--text-sub);line-height:1.6}
-@media (max-width:940px){ .mod-track{grid-template-columns:1fr} .mod-track::before{display:none} .mod-panel{margin:0 0 16px} }
+@media (max-width:940px){ .mod-track{grid-template-columns:1fr} }
+.hiring-pipeline-panel{background:var(--panel);border:1px solid var(--line);padding:28px;min-width:0}
+.hpp-head{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid var(--line-soft)}
+.hpp-eyebrow{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.04em;color:var(--text-sub)}
+.hpp-head b{display:block;font-family:'Poppins',sans-serif;font-size:20px;margin-top:6px}
+.hpp-pill{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);border:1px solid var(--accent);padding:4px 10px;white-space:nowrap;border-radius:999px}
+.hpp-stages{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;padding:22px 0;border-bottom:1px solid var(--line-soft)}
+.hpp-stage{border-left:2px solid var(--line);padding-left:10px}
+.hpp-stage .n{display:block;font-family:'Poppins',sans-serif;font-size:24px;font-weight:600}
+.hpp-stage .l{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-sub);margin-top:4px}
+.hpp-stage.accent{border-left-color:var(--accent)}
+.hpp-stage.accent .n{color:var(--accent)}
+.hpp-moving{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--text-sub);margin:18px 0 4px}
+.hpp-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line-soft);gap:12px}
+.hpp-row:last-child{border-bottom:none}
+.hpp-row .who b{display:block;font-size:13.5px;color:var(--text)}
+.hpp-row .who span{display:block;font-size:11.5px;color:var(--text-sub);margin-top:2px}
+.hpp-row .what{text-align:right;font-size:12.5px;color:var(--text)}
+.hpp-row .what span{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-sub);margin-top:3px}
+@media (max-width:560px){ .hpp-stages{grid-template-columns:repeat(3,1fr)} }
 .testi{max-width:760px;margin:0 auto;text-align:center}
 .testi blockquote{font-family:'Poppins',sans-serif;font-size:26px;line-height:1.45;font-weight:500}
 .testi cite{display:block;font-style:normal;margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-mute)}
@@ -103,22 +135,18 @@
       <div class="nav-item" id="businessNavItem">
         <button class="nav-trigger" id="businessTrigger" aria-expanded="false" aria-controls="businessMega">For Businesses</button>
         <div class="mega-panel" id="businessMega">
-          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 260px">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr">
             <div class="mega-col">
               <h5>BY SIZE</h5>
               <a href="solutions-small-business.html">Small Businesses<span>1 to 20 employees, free to start</span></a>
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
-              <a href="solutions-growing-business.html">Growing Businesses<span>20 to 200 employees, scaling operations</span></a>
+              <a href="solutions-growing-business.html">Growing Businesses<span>20 to 500 employees, scaling operations</span></a>
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
-              <a href="solutions-enterprise.html">Enterprise<span>200+ employees, multi entity, custom controls</span></a>
-            </div>
-          
-            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot-business" style="width:100%;height:180px" shape="rect" placeholder="Drop a businesses photo"></image-slot>
+              <a href="solutions-enterprise.html">Enterprise<span>500+ employees, multi entity, custom controls</span></a>
             </div>
           </div>
         </div>
@@ -126,9 +154,9 @@
       <div class="nav-item" id="resourcesNavItem">
         <button class="nav-trigger" id="resourcesTrigger" aria-expanded="false" aria-controls="resourcesMega">Resources</button>
         <div class="mega-panel" id="resourcesMega">
-          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr 260px">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr">
             <div class="mega-col">
-              <h5>&nbsp;</h5>
+              <h5>COMPANY</h5>
               <a href="about.html">About Us<span>Our mission and story</span></a>
             </div>
             <div class="mega-col">
@@ -142,10 +170,6 @@
             <div class="mega-col">
               <h5>&nbsp;</h5>
               <a href="guides.html">Guides<span>Step by step tutorials</span></a>
-            </div>
-          
-            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot-resources" style="width:100%;height:180px" shape="rect" placeholder="Drop a resources photo"></image-slot>
             </div>
           </div>
         </div>
@@ -164,26 +188,29 @@
   </nav>
 </header>
 
-<section class="hero-grow gridpaper">
+<section class="hero-grow">
   <div class="wrap">
     <div class="hero-grow-inner">
       <div class="tag">FOR GROWING BUSINESSES</div>
-      <h1>You outgrew spreadsheets. <em>Don't outgrow HexPay.</em></h1>
-      <p class="lede">From 20 to 200 employees, across departments, branches and pay grades, HexPay scales with your headcount without adding headcount to run it.</p>
+      <h1>Run five teams <em>without five systems.</em></h1>
+      <p class="lede">Set up departments, give managers approval rights, and hire into the same platform that pays everyone. No new tools, no new admin.</p>
       <div class="hero-cta">
         <a href="https://app.hexpayr.com/auth/signup" class="btn btn-primary">Get started free</a>
-        <a href="#modules" class="btn btn-ghost">See what scales with you</a>
+        <a href="#modules" class="btn btn-on-dark">See what scales with you</a>
+      </div>
+      <div class="grow-proof">
+        <div><span class="chk">✓</span>20 to 500 people, one platform</div>
+        <div><span class="chk">✓</span>4 levels of approval supported</div>
+        <div><span class="chk">✓</span>No migration as you grow</div>
       </div>
     </div>
-    <div class="growth-chart">
-      <div class="growth-bar" style="height:30%"><span>18</span></div>
-      <div class="growth-bar" style="height:45%"><span>34</span></div>
-      <div class="growth-bar" style="height:62%"><span>58</span></div>
-      <div class="growth-bar" style="height:80%"><span>91</span></div>
-      <div class="growth-bar now" style="height:100%"><span>140</span></div>
-    </div>
-    <div class="growth-labels">
-      <div>YEAR 1</div><div>YEAR 2</div><div>YEAR 3</div><div>YEAR 4</div><div>TODAY</div>
+    <div class="org-diagram">
+      <div class="org-root"><b>Finance</b><span>Signs off every run</span></div>
+      <div class="org-stem"></div>
+      <div class="org-node"><div class="name">Operations<span class="count">18 people</span></div><div class="org-status approved">Approved</div></div>
+      <div class="org-node"><div class="name">Retail<span class="count">21 people</span></div><div class="org-status waiting">Waiting</div></div>
+      <div class="org-node"><div class="name">Finance team<span class="count">9 people</span></div><div class="org-status approved">Approved</div></div>
+      <div class="org-hiring">HIRING NOW: 7 open roles across 4 departments</div>
     </div>
   </div>
 </section>
@@ -191,9 +218,8 @@
 <section style="padding:0;margin-top:64px">
   <div class="wrap">
     <div class="stat-row">
-      <div class="stat-item"><b>20 to 200</b><span>employees, one platform, no migration</span></div>
-      <div class="stat-item"><b>Multi-branch</b><span>pay grades, departments and locations</span></div>
-      <div class="stat-item"><b>Role-based</b><span>approvals for finance, HR and managers</span></div>
+      <div class="stat-item"><b>20 to 500</b><span>employees, one platform, no migration</span></div>
+      <div class="stat-item"><b>Role based</b><span>approvals for finance, HR and managers</span></div>
       <div class="stat-item"><b>1 dashboard</b><span>replacing five disconnected tools</span></div>
     </div>
   </div>
@@ -203,14 +229,16 @@
   <div class="wrap">
     <div class="section-head">
       <div class="tag">WHAT SCALES WITH YOU</div>
-      <h2>The same four modules, built for structure.</h2>
-      <p>As you add branches, departments and pay grades, HexPay adds the controls to manage them without adding complexity to your day.</p>
+      <h2>Teams, approvals and hiring, built for structure.</h2>
+      <p>As you add departments, approval chains and open roles, HexPay adds the controls to manage them without adding complexity to your day.</p>
     </div>
     <div class="mod-track">
-      <div class="mod-panel"><div class="mod-tag">01 / BANK SYNC</div><h4>Bank Sync</h4><p>Reconcile across multiple business accounts and branches from one ledger.</p><a href="product-bank-sync.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
-      <div class="mod-panel"><div class="mod-tag">02 / PAYROLL</div><h4>Payroll</h4><p>Pay grades, departments and multi-level approvals, all in one run.</p><a href="product-payroll.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
-      <div class="mod-panel"><div class="mod-tag">03 / TIME TRACKING</div><h4>Time Tracking</h4><p>Track attendance across branches and roll it into payroll automatically.</p><a href="product-time-tracking.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
-      <div class="mod-panel"><div class="mod-tag">04 / COMPLIANCE</div><h4>Remittance &amp; Compliance</h4><p>Multi-state PAYE, pension and NHF filings, managed centrally.</p><a href="product-remittance-compliance.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">01 / DEPARTMENTS &amp; TEAMS</div><h4>Departments &amp; Teams</h4><p>Structure headcount into departments and branches with real owners.</p><a href="product-payroll.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">02 / APPROVAL WORKFLOWS</div><h4>Approval Workflows</h4><p>Multi-level approvals for payroll, leave and salary advances.</p><a href="product-payroll.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">03 / HIRING PIPELINE</div><h4>Hiring Pipeline</h4><p>A hiring pipeline the whole team shares, from applied to onboarded.</p><a href="product-hiring-staffing.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">04 / TIME &amp; ATTENDANCE</div><h4>Time &amp; Attendance</h4><p>Track attendance across branches and roll it into payroll automatically.</p><a href="product-time-tracking.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">05 / MULTI-ACCOUNT FUNDING</div><h4>Multi-Account Funding</h4><p>Reconcile across multiple business accounts and branches from one ledger.</p><a href="product-bank-sync.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">06 / REMITTANCE &amp; COMPLIANCE</div><h4>Remittance &amp; Compliance</h4><p>Multi-state PAYE, pension and NHF filings, managed centrally.</p><a href="product-remittance-compliance.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
     </div>
   </div>
 </section>
@@ -222,15 +250,29 @@
         <div class="tag">WHY BUSINESSES SWITCH AT THIS STAGE</div>
         <h2>Structure, without the bureaucracy.</h2>
         <ul>
-          <li><span class="chk">✓</span><div><b>Department &amp; branch reporting</b>, see payroll cost by unit, not just totals.</div></li>
-          <li><span class="chk">✓</span><div><b>Approval chains</b>, route payroll through managers before finance signs off.</div></li>
-          <li><span class="chk">✓</span><div><b>Custom pay grades</b>, bands, allowances and bonuses that match your structure.</div></li>
-          <li><span class="chk">✓</span><div><b>No re-platforming</b>, the account you started with grows into this one.</div></li>
+          <li><span class="chk">✓</span><div><b>Teams with real owners</b>, departments and branches, each with a manager who signs off.</div></li>
+          <li><span class="chk">✓</span><div><b>Multi-level approvals</b>, for payroll, leave and salary advances.</div></li>
+          <li><span class="chk">✓</span><div><b>A hiring pipeline the team shares</b>, from applied to onboarded.</div></li>
+          <li><span class="chk">✓</span><div><b>New hires land on the right pay grade</b>, straight into payroll.</div></li>
         </ul>
       </div>
-      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="grow-shot" style="width:100%;height:340px" shape="rect" placeholder="Drop a photo, office team meeting or ops floor"></image-slot>
-        <div class="b-cap">FIG. 02, MULTI-DEPARTMENT PAYROLL VIEW</div>
+      <div class="hiring-pipeline-panel">
+        <div class="hpp-head">
+          <div><span class="hpp-eyebrow">HIRING PIPELINE, ALL DEPARTMENTS</span><b>142 candidates</b></div>
+          <div class="hpp-pill">7 OPEN ROLES</div>
+        </div>
+        <div class="hpp-stages">
+          <div class="hpp-stage"><span class="n">68</span><span class="l">Applied</span></div>
+          <div class="hpp-stage"><span class="n">38</span><span class="l">Screening</span></div>
+          <div class="hpp-stage"><span class="n">12</span><span class="l">Interview</span></div>
+          <div class="hpp-stage accent"><span class="n">3</span><span class="l">Offer</span></div>
+          <div class="hpp-stage accent"><span class="n">2</span><span class="l">Onboarding</span></div>
+        </div>
+        <div class="hpp-moving">MOVING THIS WEEK</div>
+        <div class="hpp-row"><div class="who"><b>Ada Okoye</b><span>Operations Associate</span></div><div class="what">Interview Thu 2pm<span>Careers page</span></div></div>
+        <div class="hpp-row"><div class="who"><b>Tunde Bakare</b><span>Finance Analyst</span></div><div class="what">Offer sent<span>LinkedIn</span></div></div>
+        <div class="hpp-row"><div class="who"><b>Ngozi Eze</b><span>Support Lead</span></div><div class="what">Awaiting screen<span>Jobberman</span></div></div>
+        <div class="hpp-row"><div class="who"><b>Chidi Obi</b><span>Delivery Rider</span></div><div class="what">Onboarding into payroll<span>Careers page</span></div></div>
       </div>
     </div>
   </div>
@@ -247,7 +289,7 @@
 <section class="cta-band">
   <div class="wrap">
     <h2>Built to scale with your headcount.</h2>
-    <p>Add branches, departments and pay grades as you grow, on the same account, the same data.</p>
+    <p>Add departments, approval chains and open roles as you grow, on the same account, the same data.</p>
     <div class="hero-cta">
       <a href="https://app.hexpayr.com/auth/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
       <a href="pricing.html" class="btn btn-on-dark">See pricing</a>

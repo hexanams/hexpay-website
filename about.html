@@ -27,7 +27,7 @@
 
 .pillar-row{display:grid;grid-template-columns:100px 1fr;gap:28px;padding:34px 0;border-top:1px solid var(--line)}
 .pillar-row:last-child{border-bottom:1px solid var(--line)}
-.pillar-row .pn{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)}
+.pillar-row .pn{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-sub)}
 .pillar-row h4{font-family:'Poppins',sans-serif;font-size:20px;font-weight:500;margin-bottom:8px}
 .pillar-row p{font-size:14px;color:var(--text-sub);line-height:1.7;max-width:540px}
 
@@ -45,10 +45,6 @@
   .mv-row,.story-grid,.val-grid{grid-template-columns:1fr}
   .mv-cell{border-right:none;border-bottom:1px solid var(--line)}
 }
-.photo-band{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.photo-item{position:relative;padding:14px}
-.photo-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
-@media (max-width:800px){ .photo-band{grid-template-columns:1fr} }
 .nav-stores{display:flex;gap:8px}
 .store-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink);border-radius:2px}
 .store-badge:hover{background:var(--ink);color:var(--paper)}
@@ -100,22 +96,18 @@
       <div class="nav-item" id="businessNavItem">
         <button class="nav-trigger" id="businessTrigger" aria-expanded="false" aria-controls="businessMega">For Businesses</button>
         <div class="mega-panel" id="businessMega">
-          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 260px">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr">
             <div class="mega-col">
               <h5>BY SIZE</h5>
               <a href="solutions-small-business.html">Small Businesses<span>1 to 20 employees, free to start</span></a>
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
-              <a href="solutions-growing-business.html">Growing Businesses<span>20 to 200 employees, scaling operations</span></a>
+              <a href="solutions-growing-business.html">Growing Businesses<span>20 to 500 employees, scaling operations</span></a>
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
-              <a href="solutions-enterprise.html">Enterprise<span>200+ employees, multi entity, custom controls</span></a>
-            </div>
-          
-            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot-business" style="width:100%;height:180px" shape="rect" placeholder="Drop a businesses photo"></image-slot>
+              <a href="solutions-enterprise.html">Enterprise<span>500+ employees, multi entity, custom controls</span></a>
             </div>
           </div>
         </div>
@@ -123,9 +115,9 @@
       <div class="nav-item" id="resourcesNavItem">
         <button class="nav-trigger" id="resourcesTrigger" aria-expanded="false" aria-controls="resourcesMega">Resources</button>
         <div class="mega-panel" id="resourcesMega">
-          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr 260px">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr">
             <div class="mega-col">
-              <h5>&nbsp;</h5>
+              <h5>COMPANY</h5>
               <a href="about.html">About Us<span>Our mission and story</span></a>
             </div>
             <div class="mega-col">
@@ -139,10 +131,6 @@
             <div class="mega-col">
               <h5>&nbsp;</h5>
               <a href="guides.html">Guides<span>Step by step tutorials</span></a>
-            </div>
-          
-            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot-resources" style="width:100%;height:180px" shape="rect" placeholder="Drop a resources photo"></image-slot>
             </div>
           </div>
         </div>
@@ -174,8 +162,8 @@
     <div class="mv-row">
       <div class="mv-cell">
         <div class="tag">OUR VISION</div>
-        <h3>The single platform African businesses run on.</h3>
-        <p>From their first hire to their hundredth, one account, one connected system, growing with the business instead of getting replaced by it.</p>
+        <h3>Digitalize how African businesses are run.</h3>
+        <p>Our vision is to digitalize the way African businesses are run, and make them competitive. From a first hire to a hundredth, one account and one connected system that grows with the business instead of getting replaced by it.</p>
       </div>
       <div class="mv-cell">
         <div class="tag">OUR MISSION</div>
@@ -186,7 +174,7 @@
   </div>
 </section>
 
-<section>
+<section class="bg-tint">
   <div class="wrap story-grid">
     <div class="story-shot bracketed">
       <span class="bl"></span><span class="br"></span>
@@ -195,14 +183,14 @@
     <div class="story-text">
       <div class="tag" style="margin-bottom:20px">WHERE WE STARTED</div>
       <p class="lead">Payroll was never the whole point.</p>
-      <p>HexPay began as a way to solve one very specific, very painful problem for Nigerian businesses: paying people correctly, on time, and in line with tax law, without a finance team of ten.</p>
+      <p>HexPay began as a way to solve one very specific, very painful problem for African businesses: paying people correctly, on time, and in line with tax law, without a finance team of ten.</p>
       <p>But the deeper we went, the clearer it became. Payroll was never isolated. It touches hiring, leave, cash flow, sales performance and compliance all at once. Businesses weren't looking for a better payroll tool. They were looking for a better way to run the business.</p>
       <p>So we kept building. Payroll became the entry point to something bigger: a connected operating system for how African businesses actually work.</p>
     </div>
   </div>
 </section>
 
-<section style="border-top:1px solid var(--line-soft)">
+<section class="bg-shade" style="border-top:1px solid var(--line-soft)">
   <div class="wrap">
     <div class="section-head">
       <div class="tag">HOW WE BUILD</div>
@@ -225,30 +213,10 @@
       <p>The standard we hold ourselves to as we build for African businesses.</p>
     </div>
     <div class="val-grid">
-      <div class="val-card"><h4>Built here, for here</h4><p>Nigerian business realities come first, not an afterthought bolted onto a global product.</p></div>
-      <div class="val-card"><h4>Trust is earned in Naira</h4><p>Payroll and money touch real livelihoods. We treat accuracy and compliance as non-negotiable.</p></div>
+      <div class="val-card"><h4>Built here, for here</h4><p>African business realities come first, not an afterthought bolted onto a global product.</p></div>
+      <div class="val-card"><h4>Trust is earned in payday</h4><p>Payroll and money touch real livelihoods. We treat accuracy and compliance as non-negotiable.</p></div>
       <div class="val-card"><h4>Small businesses deserve better tools</h4><p>Enterprise-grade software shouldn't require an enterprise budget or an enterprise IT team.</p></div>
       <div class="val-card"><h4>Growth shouldn't mean more chaos</h4><p>As a business scales, its tools should get simpler to manage, not more fragmented.</p></div>
-    </div>
-  </div>
-</section>
-
-<section style="border-top:1px solid var(--line-soft)">
-  <div class="wrap">
-    <div class="tag" style="margin-bottom:24px">THE BUSINESSES WE BUILD FOR</div>
-    <div class="photo-band">
-      <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="a-photo-1" src="https://images.unsplash.com/photo-1778550579010-cb0d00cd94e6?q=80&w=1200&auto=format&fit=crop" credit="Photo by Bill Fairs on Unsplash" credit-href="https://unsplash.com/@moonboyz" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo, Nigerian retail shop"></image-slot>
-        <div class="photo-cap">FIG. 06, KANO, RETAIL</div>
-      </div>
-      <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="a-photo-2" src="https://images.unsplash.com/photo-1573496527892-904f897eb744?q=80&w=1200&auto=format&fit=crop" credit="Photo by Christina @ wocintechchat.com M on Unsplash" credit-href="https://unsplash.com/@wocintechchat" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo, small team meeting"></image-slot>
-        <div class="photo-cap">FIG. 07, IBADAN, TEAM</div>
-      </div>
-      <div class="photo-item bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="a-photo-3" src="https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?q=80&w=1200&auto=format&fit=crop" credit="Photo by Nupo Deyon Daniel on Unsplash" credit-href="https://unsplash.com/@thewallpaperguy_" style="width:100%;height:260px" shape="rect" placeholder="Drop a photo, logistics or warehouse"></image-slot>
-        <div class="photo-cap">FIG. 08, LAGOS, LOGISTICS</div>
-      </div>
     </div>
   </div>
 </section>

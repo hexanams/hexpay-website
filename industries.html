@@ -9,38 +9,34 @@
 <link rel="stylesheet" href="landing.css"/>
 <script src="image-slot.js"></script>
 <style>
-.ind-hero{position:relative;min-height:460px;display:flex;align-items:center}
-.ind-hero .bg-slot{position:absolute;inset:0;z-index:0}
-.ind-hero .bg-slot image-slot{width:100%;height:100%}
-.ind-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,24,31,0.92) 0%,rgba(18,24,31,0.6) 55%,rgba(18,24,31,0.15) 100%);z-index:1}
-.ind-hero-inner{position:relative;z-index:2;max-width:600px;padding:64px 0}
-.ind-hero .tag{color:#5FD1E0}
-.ind-hero h1{color:#fff;font-size:clamp(34px,4.6vw,50px);line-height:1.15;margin-top:20px}
-.ind-hero p{color:rgba(250,248,243,0.72);font-size:17px;line-height:1.7;margin-top:22px}
-
-.tab-row{display:flex;gap:4px;flex-wrap:wrap;border-bottom:1.5px solid var(--ink);margin-bottom:0}
-.tab-btn{font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:14px 20px;background:none;border:none;border-bottom:2px solid transparent;color:var(--text-sub);cursor:pointer;margin-bottom:-1.5px;transition:all .15s}
-.tab-btn:hover{color:var(--ink)}
-.tab-btn.active{color:var(--ink);border-bottom-color:var(--accent)}
-
-.tab-panel{display:none;padding:56px 0}
-.tab-panel.active{display:block}
-.ind-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.ind-img{position:relative;padding:14px;min-width:0}
-.ind-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
-.ind-text h2{font-size:28px;line-height:1.25;margin-bottom:16px}
-.ind-text p{font-size:14.5px;color:var(--text-sub);line-height:1.75;margin-bottom:28px}
-.ind-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
-.ind-stat{padding:18px 0;border-right:1px solid var(--line)}
-.ind-stat:last-child{border-right:none}
-.ind-stat b{display:block;font-family:'Poppins',sans-serif;font-size:22px;color:var(--accent)}
-.ind-stat span{display:block;font-size:11px;color:var(--text-mute);margin-top:5px}
-@media (max-width:900px){ .ind-grid{grid-template-columns:1fr} .ind-stats{grid-template-columns:1fr} .ind-stat{border-right:none;border-bottom:1px solid var(--line)} }
-
+.hero-ind{position:relative;padding:0;min-height:480px;display:flex;align-items:flex-end}
+.hero-ind .bg-slot{position:absolute;inset:0;z-index:0}
+.hero-ind .bg-slot image-slot{width:100%;height:100%}
+.hero-ind::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(18,24,31,0.9) 15%,rgba(18,24,31,0.25) 70%);z-index:1}
+.hero-ind-inner{position:relative;z-index:2;padding:60px 0 48px;max-width:640px}
+.hero-ind .tag{color:#5FD1E0}
+.hero-ind h1{color:#fff;font-size:clamp(34px,4.6vw,50px);line-height:1.15;margin-top:20px}
+.hero-ind .lede{color:rgba(250,248,243,0.72);font-size:16.5px;line-height:1.7;margin-top:20px}
+.ind-tabs{display:flex;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:32px;margin-bottom:0}
+.ind-tab{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:9px 16px;border:1px solid var(--line);color:var(--text-sub)}
+.ind-tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ind-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0;border-bottom:1px solid var(--line)}
+.ind-row:last-child{border-bottom:none}
+.ind-row.rev .b-img{order:2}
+.ind-row.rev .b-text{order:1}
+.b-img{position:relative;padding:14px;min-width:0}
+.b-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-sub)}
+.ind-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-sub);margin-bottom:10px}
+.ind-row h3{font-size:26px}
+.ind-row p.desc{font-size:14.5px;color:var(--text-sub);margin-top:16px;line-height:1.7}
+.ind-stats{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap}
+.ind-stats div b{display:block;font-family:'Poppins',sans-serif;font-size:22px;color:var(--accent)}
+.ind-stats div span{display:block;font-size:11px;color:var(--text-sub);margin-top:4px}
+@media (max-width:900px){ .ind-row{grid-template-columns:1fr} .ind-row.rev .b-img,.ind-row.rev .b-text{order:initial} }
 .cta-band{background:var(--ink);color:var(--paper);padding:100px 0;text-align:center}
 .cta-band h2{color:#fff;font-size:36px;max-width:640px;margin:0 auto}
 .cta-band p{color:rgba(250,248,243,0.6);font-size:15.5px;margin:16px auto 0;max-width:460px}
-.cta-band .hero-cta{display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+.cta-band .hero-cta{display:flex;justify-content:center;gap:14px;margin-top:32px;flex-wrap:wrap}
 .store-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink);border-radius:2px}
 .store-badge:hover{background:var(--ink);color:var(--paper)}
 .nav-stores{display:flex;gap:8px}
@@ -51,7 +47,7 @@
 .nav-trigger:hover{color:var(--ink)}
 .mega-panel{position:fixed;top:74px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 24px 50px rgba(15,20,30,0.12);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:60}
 .nav-item.open .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none}
-
+@media (min-width:941px){ .nav-item:hover .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none} }
 .mega-inner{max-width:1180px;margin:0 auto;padding:36px 32px;display:grid;grid-template-columns:1fr 1fr 340px;gap:36px}
 .mega-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text-mute);margin-bottom:16px}
 .mega-col a{display:block;font-size:14px;color:var(--text);margin-bottom:14px}
@@ -91,22 +87,18 @@
       <div class="nav-item" id="businessNavItem">
         <button class="nav-trigger" id="businessTrigger" aria-expanded="false" aria-controls="businessMega">For Businesses</button>
         <div class="mega-panel" id="businessMega">
-          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 260px">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr">
             <div class="mega-col">
               <h5>BY SIZE</h5>
               <a href="solutions-small-business.html">Small Businesses<span>1 to 20 employees, free to start</span></a>
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
-              <a href="solutions-growing-business.html">Growing Businesses<span>20 to 200 employees, scaling operations</span></a>
+              <a href="solutions-growing-business.html">Growing Businesses<span>20 to 500 employees, scaling operations</span></a>
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
-              <a href="solutions-enterprise.html">Enterprise<span>200+ employees, multi entity, custom controls</span></a>
-            </div>
-          
-            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot-business" style="width:100%;height:180px" shape="rect" placeholder="Drop a businesses photo"></image-slot>
+              <a href="solutions-enterprise.html">Enterprise<span>500+ employees, multi entity, custom controls</span></a>
             </div>
           </div>
         </div>
@@ -114,9 +106,9 @@
       <div class="nav-item" id="resourcesNavItem">
         <button class="nav-trigger" id="resourcesTrigger" aria-expanded="false" aria-controls="resourcesMega">Resources</button>
         <div class="mega-panel" id="resourcesMega">
-          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr 260px">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr">
             <div class="mega-col">
-              <h5>&nbsp;</h5>
+              <h5>COMPANY</h5>
               <a href="about.html">About Us<span>Our mission and story</span></a>
             </div>
             <div class="mega-col">
@@ -125,15 +117,11 @@
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
-              <a href="industries.html">Industries<span>Built for how you actually work</span></a>
+              <a href="industries.html">Industries<span>Who runs on HexPay, and how</span></a>
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
               <a href="guides.html">Guides<span>Step by step tutorials</span></a>
-            </div>
-          
-            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot-resources" style="width:100%;height:180px" shape="rect" placeholder="Drop a resources photo"></image-slot>
             </div>
           </div>
         </div>
@@ -152,129 +140,122 @@
   </nav>
 </header>
 
-<section class="ind-hero">
-  <div class="bg-slot"><image-slot id="ind-hero-bg" style="width:100%;height:100%" shape="rect" placeholder="Drop a full-bleed photo representing Nigerian industry"></image-slot></div>
+<section class="hero-ind">
+  <div class="bg-slot"><image-slot id="ind-hero-bg" src="assets/photos/africa-map.jpg" style="width:100%;height:100%" shape="rect" placeholder="Drop a full-bleed photo, mixed industries collage or workplace"></image-slot></div>
   <div class="wrap">
-    <div class="ind-hero-inner">
+    <div class="hero-ind-inner">
       <div class="tag">INDUSTRIES</div>
-      <h1>Built for how you actually work.</h1>
-      <p>Every business runs payroll differently. HexPay adapts to shift patterns, commission structures and compliance needs across the industries we serve most.</p>
+      <h1>Built for how African businesses actually operate.</h1>
+      <p class="lede">Shift workers, riders, factory floors, hotel teams and lean professional firms. See how each one hires, tracks time, pays people and stays compliant on HexPay.</p>
     </div>
   </div>
 </section>
 
-<section style="padding-top:56px">
+<section>
   <div class="wrap">
-    <div class="tab-row" id="tabRow">
-      <button class="tab-btn active" data-tab="retail">Retail</button>
-      <button class="tab-btn" data-tab="logistics">Logistics</button>
-      <button class="tab-btn" data-tab="manufacturing">Manufacturing</button>
-      <button class="tab-btn" data-tab="hospitality">Hospitality</button>
-      <button class="tab-btn" data-tab="professional">Professional Services</button>
+    <div class="ind-tabs">
+      <div class="ind-tab active">Retail</div>
+      <div class="ind-tab">Logistics</div>
+      <div class="ind-tab">Manufacturing</div>
+      <div class="ind-tab">Hospitality</div>
+      <div class="ind-tab">Professional Services</div>
     </div>
 
-    <div class="tab-panel active" id="panel-retail">
-      <div class="ind-grid">
-        <div>
-          <div class="tag">RETAIL</div>
-          <div class="ind-text">
-            <h2>Shift based pay, multiple outlets, one payroll run.</h2>
-            <p>Retail teams work rotating shifts across one or many outlets, often with a mix of fixed pay and sales commission. HexPay tracks hours per outlet, applies commission rules automatically, and rolls everything into a single payroll cycle, so store managers stop reconciling till reports by hand.</p>
-            <div class="ind-stats">
-              <div class="ind-stat"><b>3 to 40</b><span>outlets on one account</span></div>
-              <div class="ind-stat"><b>Shift based</b><span>and commission pay, combined</span></div>
-              <div class="ind-stat"><b>Same day</b><span>payroll after shift close</span></div>
-            </div>
-          </div>
+    <div class="ind-row">
+      <div class="b-text">
+        <div class="ind-num">01 / RETAIL</div>
+        <h3>Multi-branch retail, one payroll dashboard.</h3>
+        <p class="desc">Shop staff clock in from the app, hours roll into shift-based pay, and every branch reconciles into one ledger, no more branch managers running payroll on their own spreadsheets.</p>
+        <div class="ind-stats">
+          <div><b>40+</b><span>retail chains on HexPay</span></div>
+          <div><b>3,200+</b><span>shop-floor employees paid monthly</span></div>
         </div>
-        <div class="ind-img bracketed"><span class="bl"></span><span class="br"></span>
-          <image-slot id="ind-retail-shot" style="width:100%;height:380px" shape="rect" placeholder="Drop a photo, Nigerian retail shop floor"></image-slot>
-          <div class="ind-cap">FIG. 02, RETAIL, SHOP FLOOR</div>
+      </div>
+      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="ind-retail" src="assets/photos/boutique-owner.jpg" style="width:100%;height:340px" shape="rect" placeholder="Drop a photo, retail shop floor or cashier"></image-slot>
+        <div class="b-cap">FIG. 01, RETAIL SHOP FLOOR</div>
+      </div>
+    </div>
+
+    <div class="ind-row rev">
+      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="ind-logistics" src="assets/photos/logistics.avif" style="width:100%;height:340px" shape="rect" placeholder="Drop a photo, delivery rider or logistics team"></image-slot>
+        <div class="b-cap">FIG. 02, LOGISTICS FLEET</div>
+      </div>
+      <div class="b-text">
+        <div class="ind-num">02 / LOGISTICS</div>
+        <h3>Riders and drivers, paid on time, every time.</h3>
+        <p class="desc">Field teams clock in with location checks, overtime and mileage allowances calculate automatically, and payouts land the same day payroll runs, across every bank your riders use.</p>
+        <div class="ind-stats">
+          <div><b>18</b><span>logistics companies on HexPay</span></div>
+          <div><b>&lt;2 min</b><span>average payout time per rider</span></div>
         </div>
       </div>
     </div>
 
-    <div class="tab-panel" id="panel-logistics">
-      <div class="ind-grid">
-        <div>
-          <div class="tag">LOGISTICS</div>
-          <div class="ind-text">
-            <h2>Field teams, mobile clock ins, pay that follows the route.</h2>
-            <p>Drivers and riders rarely sit at a desk. HexPay's mobile clock in tracks location and hours from the field, so overtime and route allowances calculate themselves instead of arriving as a dispute at month end.</p>
-            <div class="ind-stats">
-              <div class="ind-stat"><b>Mobile</b><span>clock in from any location</span></div>
-              <div class="ind-stat"><b>Route</b><span>and overtime allowances, automated</span></div>
-              <div class="ind-stat"><b>Zero</b><span>paper sign in sheets</span></div>
-            </div>
-          </div>
+    <div class="ind-row">
+      <div class="b-text">
+        <div class="ind-num">03 / MANUFACTURING</div>
+        <h3>Shift-based pay for factory floors.</h3>
+        <p class="desc">Track shift patterns, overtime and hazard allowances across production lines, with PAYE, pension and NHF calculated correctly for every worker classification.</p>
+        <div class="ind-stats">
+          <div><b>12</b><span>manufacturers on HexPay</span></div>
+          <div><b>4</b><span>shift patterns supported out of the box</span></div>
         </div>
-        <div class="ind-img bracketed"><span class="bl"></span><span class="br"></span>
-          <image-slot id="ind-logistics-shot" style="width:100%;height:380px" shape="rect" placeholder="Drop a photo, logistics or delivery team"></image-slot>
-          <div class="ind-cap">FIG. 03, LOGISTICS, ON THE ROAD</div>
+      </div>
+      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="ind-manuf" src="assets/photos/manufacturing.avif" style="width:100%;height:340px" shape="rect" placeholder="Drop a photo, factory floor or production line"></image-slot>
+        <div class="b-cap">FIG. 03, PRODUCTION FLOOR</div>
+      </div>
+    </div>
+
+    <div class="ind-row rev">
+      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="ind-hosp" src="assets/photos/restaurant.avif" style="width:100%;height:340px" shape="rect" placeholder="Drop a photo, hotel or restaurant staff"></image-slot>
+        <div class="b-cap">FIG. 04, HOSPITALITY TEAM</div>
+      </div>
+      <div class="b-text">
+        <div class="ind-num">04 / HOSPITALITY</div>
+        <h3>Hotels and restaurants, staffed around the clock.</h3>
+        <p class="desc">Rotating shifts, service charge distribution and high staff turnover, handled with fast onboarding and self-service payslips employees can check from any phone.</p>
+        <div class="ind-stats">
+          <div><b>25</b><span>hotels &amp; restaurants on HexPay</span></div>
+          <div><b>68%</b><span>faster new-hire onboarding</span></div>
         </div>
       </div>
     </div>
 
-    <div class="tab-panel" id="panel-manufacturing">
-      <div class="ind-grid">
-        <div>
-          <div class="tag">MANUFACTURING</div>
-          <div class="ind-text">
-            <h2>Production shifts, overtime rules, factory floor payroll.</h2>
-            <p>Manufacturing teams run multiple shifts with overtime rules that vary by role and line. HexPay applies your shift and overtime policies consistently, so factory floor pay is accurate every cycle, not just when someone remembers to check the timesheet.</p>
-            <div class="ind-stats">
-              <div class="ind-stat"><b>Multi shift</b><span>scheduling by line or role</span></div>
-              <div class="ind-stat"><b>Rule based</b><span>overtime, applied automatically</span></div>
-              <div class="ind-stat"><b>Full audit</b><span>trail for every pay decision</span></div>
-            </div>
-          </div>
+    <div class="ind-row">
+      <div class="b-text">
+        <div class="ind-num">05 / PROFESSIONAL SERVICES</div>
+        <h3>Consultancies and agencies with lean teams, real complexity.</h3>
+        <p class="desc">Salaried staff, contractor payments and client-billable hours in one place, with the approval workflows a growing firm needs without slowing anyone down.</p>
+        <div class="ind-stats">
+          <div><b>60+</b><span>firms on HexPay</span></div>
+          <div><b>1 dashboard</b><span>for payroll, contractors and approvals</span></div>
         </div>
-        <div class="ind-img bracketed"><span class="bl"></span><span class="br"></span>
-          <image-slot id="ind-manufacturing-shot" style="width:100%;height:380px" shape="rect" placeholder="Drop a photo, factory floor or production line"></image-slot>
-          <div class="ind-cap">FIG. 04, MANUFACTURING, PRODUCTION FLOOR</div>
-        </div>
+      </div>
+      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="ind-prof" src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1200&auto=format&fit=crop" credit="Photo on Unsplash" credit-href="https://unsplash.com" style="width:100%;height:340px" shape="rect" placeholder="Drop a photo, office team or consultancy"></image-slot>
+        <div class="b-cap">FIG. 05, PROFESSIONAL SERVICES OFFICE</div>
       </div>
     </div>
 
-    <div class="tab-panel" id="panel-hospitality">
-      <div class="ind-grid">
-        <div>
-          <div class="tag">HOSPITALITY</div>
-          <div class="ind-text">
-            <h2>Tips, split shifts and a team that changes every week.</h2>
-            <p>Restaurants and hotels deal with irregular shifts, service charge splits and high staff turnover. HexPay makes it fast to onboard a new hire, track split shifts, and keep payroll accurate even when your roster changes weekly.</p>
-            <div class="ind-stats">
-              <div class="ind-stat"><b>Fast</b><span>onboarding for high turnover teams</span></div>
-              <div class="ind-stat"><b>Split shift</b><span>and service charge support</span></div>
-              <div class="ind-stat"><b>Weekly</b><span>or biweekly pay cycles</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="ind-img bracketed"><span class="bl"></span><span class="br"></span>
-          <image-slot id="ind-hospitality-shot" style="width:100%;height:380px" shape="rect" placeholder="Drop a photo, restaurant or hotel team"></image-slot>
-          <div class="ind-cap">FIG. 05, HOSPITALITY, FRONT OF HOUSE</div>
-        </div>
+    <div class="ind-row rev">
+      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
+        <image-slot id="ind-health" src="assets/photos/healthcare-worker.jpg" style="width:100%;height:340px" shape="rect" placeholder="Drop a photo, clinic or care team"></image-slot>
+        <div class="b-cap">FIG. 06, HEALTHCARE, ON SHIFT</div>
       </div>
-    </div>
-
-    <div class="tab-panel" id="panel-professional">
-      <div class="ind-grid">
-        <div>
-          <div class="tag">PROFESSIONAL SERVICES</div>
-          <div class="ind-text">
-            <h2>Salaried teams, clean compliance, no surprises at audit time.</h2>
-            <p>Consultancies, agencies and firms need payroll that just works quietly in the background, with clean statutory filings and records ready whenever an auditor asks. HexPay keeps every PAYE, pension and NHF filing receipted and searchable.</p>
-            <div class="ind-stats">
-              <div class="ind-stat"><b>Audit ready</b><span>filing history, always available</span></div>
-              <div class="ind-stat"><b>Salaried</b><span>pay structures, simplified</span></div>
-              <div class="ind-stat"><b>Multi state</b><span>PAYE support built in</span></div>
-            </div>
-          </div>
+      <div class="b-text">
+        <div class="ind-num">06 / HEALTHCARE</div>
+        <h3>Clinics and care teams that never close.</h3>
+        <p class="desc">Night shifts, weekend rotas and locum cover, tracked from the app and rolled into pay without a coordinator rebuilding the rota in a spreadsheet every month.</p>
+        <div class="ind-stats">
+          <div><b>24/7</b><span>rota patterns supported</span></div>
+          <div><b>Same day</b><span>locum payouts</span></div>
+          <div><b>1 record</b><span>per clinician, across sites</span></div>
         </div>
-        <div class="ind-img bracketed"><span class="bl"></span><span class="br"></span>
-          <image-slot id="ind-professional-shot" style="width:100%;height:380px" shape="rect" placeholder="Drop a photo, professional services office"></image-slot>
-          <div class="ind-cap">FIG. 06, PROFESSIONAL SERVICES, OFFICE TEAM</div>
-        </div>
+        <a href="https://app.hexpayr.com/auth/signup" class="tag" style="display:inline-block;margin-top:20px">Get started free →</a>
       </div>
     </div>
   </div>
@@ -282,11 +263,11 @@
 
 <section class="cta-band">
   <div class="wrap">
-    <h2>Whatever you run, HexPay fits how you pay people.</h2>
-    <p>Start free, connect your bank and run your first payroll cycle today.</p>
+    <h2>Not sure where your business fits?</h2>
+    <p>HexPay adapts to how you actually run your team, talk to us and we'll show you.</p>
     <div class="hero-cta">
       <a href="https://app.hexpayr.com/auth/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
-      <a href="pricing.html" class="btn btn-on-dark">See pricing</a>
+      <a href="solutions-enterprise.html" class="btn btn-on-dark">Talk to sales</a>
     </div>
   </div>
 </section>
@@ -350,17 +331,7 @@ function wireMegaMenu(itemId,triggerId){
 wireMegaMenu("productNavItem","productTrigger");
 wireMegaMenu("businessNavItem","businessTrigger");
 wireMegaMenu("resourcesNavItem","resourcesTrigger");
-
-const tabBtns=document.querySelectorAll(".tab-btn");
-const tabPanels=document.querySelectorAll(".tab-panel");
-tabBtns.forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    tabBtns.forEach(b=>b.classList.remove("active"));
-    tabPanels.forEach(p=>p.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById("panel-"+btn.dataset.tab).classList.add("active");
-  });
-});
+document.querySelectorAll(".ind-tab").forEach(tab=>tab.addEventListener("click",()=>{ document.querySelectorAll(".ind-tab").forEach(t=>t.classList.remove("active")); tab.classList.add("active"); }));
 </script>
 <script id="yr-script">document.querySelectorAll(".yr").forEach(e=>e.textContent=new Date().getFullYear());</script>
 </body>

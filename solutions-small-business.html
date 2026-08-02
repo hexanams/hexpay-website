@@ -19,18 +19,27 @@
 .hero p.lede{font-size:17px;color:var(--text-sub);line-height:1.7;max-width:560px;margin-top:24px}
 .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
 .fig-label{position:absolute;bottom:-28px;left:22px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)}
-.hero-smb{position:relative;min-height:600px;display:flex;align-items:center;padding:0}
+.hero-smb{position:relative;height:560px;overflow:hidden;display:flex;align-items:center;padding:0}
 .hero-smb .bg-slot{position:absolute;inset:0;z-index:0}
-.hero-smb .bg-slot image-slot{width:100%;height:100%}
-.hero-smb::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(250,248,243,0.97) 0%,rgba(250,248,243,0.88) 38%,rgba(250,248,243,0.15) 68%,transparent 100%);z-index:1}
-.hero-smb-inner{position:relative;z-index:2;max-width:560px;padding:80px 0}
-.badge-free{display:inline-flex;align-items:center;gap:8px;background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber);font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:6px 12px;margin-bottom:18px}
+.hero-smb .bg-slot image-slot{width:100%;height:100%;object-position:right center}
+.hero-smb::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.9) 30%,rgba(0,0,0,.62) 46%,rgba(0,0,0,.18) 60%,transparent 72%);z-index:1}
+.hero-smb-wrap{position:relative;z-index:2;width:100%;padding-left:clamp(24px,5vw,72px)}
+.hero-smb-inner{max-width:480px;text-align:left}
+.hero-smb .tag{color:#5FD1E0}
+.hero-smb h1{color:#fff}
+.hero-smb h1 em{color:#5FD1E0}
+.hero-smb p.lede{color:rgba(250,248,243,0.82)}
+.hero-smb .hero-cta{justify-content:flex-start}
+.smb-proof{display:flex;gap:48px;margin-top:40px;text-align:left}
+.smb-proof div b{display:block;font-family:'Poppins',sans-serif;font-size:26px;color:#5FD1E0}
+.smb-proof div span{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(250,248,243,0.85);margin-top:6px;letter-spacing:.02em}
 .stat-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .stat-item{padding:32px 24px;border-right:1px solid var(--line)}
 .stat-item:last-child{border-right:none}
 .stat-item b{display:block;font-family:'Poppins',sans-serif;font-size:32px;color:var(--accent)}
 .stat-item span{display:block;font-size:12.5px;color:var(--text-sub);margin-top:8px;line-height:1.5}
 @media (max-width:900px){ .stat-row{grid-template-columns:1fr 1fr} .stat-item{border-bottom:1px solid var(--line)} }
+@media (max-width:560px){ .smb-proof{flex-direction:column;gap:20px} }
 .benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0}
 .benefit-row.rev .b-img{order:2}
 .benefit-row.rev .b-text{order:1}
@@ -42,18 +51,15 @@
 .b-text li b{color:var(--text)}
 .b-text li .chk{font-family:'IBM Plex Mono',monospace;color:var(--accent);flex-shrink:0}
 @media (max-width:900px){ .benefit-row{grid-template-columns:1fr} .benefit-row.rev .b-img,.benefit-row.rev .b-text{order:initial} }
-.mod-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-.mod-track::before{content:"";position:absolute;top:44px;left:5%;right:5%;height:1px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 16px);z-index:0}
-.mod-panel{position:relative;z-index:1;background:var(--panel);padding:26px 20px;margin:0 8px;min-width:0}
-.mod-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:20px}
+.mod-track{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mod-panel{background:var(--panel);border:1px solid var(--line);padding:26px 20px;min-width:0}
+.mod-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-sub);margin-bottom:20px}
 .mod-panel h4{font-family:'Poppins',sans-serif;font-size:19px;font-weight:500;margin-bottom:10px}
 .mod-panel p{font-size:12.5px;color:var(--text-sub);line-height:1.6}
-@media (max-width:940px){ .mod-track{grid-template-columns:1fr} .mod-track::before{display:none} .mod-panel{margin:0 0 16px} }
+@media (max-width:940px){ .mod-track{grid-template-columns:1fr} }
 .testi{max-width:760px;margin:0 auto;text-align:center}
 .testi blockquote{font-family:'Poppins',sans-serif;font-size:26px;line-height:1.45;font-weight:500}
 .testi cite{display:block;font-style:normal;margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-mute)}
-.logo-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px;padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.logo-row span{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--text-mute);letter-spacing:.02em}
 .step-track2{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
 .step-card{position:relative;padding-top:20px}
 .step-card::before{counter-increment:step;content:counter(step);font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--accent);border:1.5px solid var(--accent);width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
@@ -124,22 +130,18 @@
       <div class="nav-item" id="businessNavItem">
         <button class="nav-trigger" id="businessTrigger" aria-expanded="false" aria-controls="businessMega">For Businesses</button>
         <div class="mega-panel" id="businessMega">
-          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 260px">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr">
             <div class="mega-col">
               <h5>BY SIZE</h5>
               <a href="solutions-small-business.html">Small Businesses<span>1 to 20 employees, free to start</span></a>
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
-              <a href="solutions-growing-business.html">Growing Businesses<span>20 to 200 employees, scaling operations</span></a>
+              <a href="solutions-growing-business.html">Growing Businesses<span>20 to 500 employees, scaling operations</span></a>
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
-              <a href="solutions-enterprise.html">Enterprise<span>200+ employees, multi entity, custom controls</span></a>
-            </div>
-          
-            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot-business" style="width:100%;height:180px" shape="rect" placeholder="Drop a businesses photo"></image-slot>
+              <a href="solutions-enterprise.html">Enterprise<span>500+ employees, multi entity, custom controls</span></a>
             </div>
           </div>
         </div>
@@ -147,9 +149,9 @@
       <div class="nav-item" id="resourcesNavItem">
         <button class="nav-trigger" id="resourcesTrigger" aria-expanded="false" aria-controls="resourcesMega">Resources</button>
         <div class="mega-panel" id="resourcesMega">
-          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr 260px">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr">
             <div class="mega-col">
-              <h5>&nbsp;</h5>
+              <h5>COMPANY</h5>
               <a href="about.html">About Us<span>Our mission and story</span></a>
             </div>
             <div class="mega-col">
@@ -163,10 +165,6 @@
             <div class="mega-col">
               <h5>&nbsp;</h5>
               <a href="guides.html">Guides<span>Step by step tutorials</span></a>
-            </div>
-          
-            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot-resources" style="width:100%;height:180px" shape="rect" placeholder="Drop a resources photo"></image-slot>
             </div>
           </div>
         </div>
@@ -186,25 +184,20 @@
 </header>
 
 <section class="hero-smb">
-  <div class="bg-slot"><image-slot id="hero-smb-bg" style="width:100%;height:100%" shape="rect" placeholder="Drop a full-bleed photo, small business owner or shop"></image-slot></div>
-  <div class="wrap">
+  <div class="bg-slot"><image-slot id="hero-smb-bg" src="assets/photos/small-business.avif" style="width:100%;height:100%" shape="rect" placeholder="Drop a full-bleed photo, small business owner or shop"></image-slot></div>
+  <div class="hero-smb-wrap">
     <div class="hero-smb-inner">
-      <div class="badge-free">FREE FOR YOUR FIRST 5 EMPLOYEES</div>
       <div class="tag">FOR SMALL BUSINESSES</div>
       <h1>Payroll built for teams of <em>5, not 500.</em></h1>
-      <p class="lede">Bank sync, payroll, time tracking and compliance, everything a small Nigerian business needs to pay its people right, without hiring an HR team.</p>
+      <p class="lede">Payroll, bank sync, time tracking and compliance, everything a small business needs to pay its people right, without hiring an HR team.</p>
       <div class="hero-cta">
         <a href="https://app.hexpayr.com/auth/signup" class="btn btn-primary">Get started free</a>
-        <a href="#modules" class="btn btn-ghost">See what's included</a>
+        <a href="#modules" class="btn btn-on-dark">See what's included</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<section style="padding:32px 0 0">
-  <div class="wrap">
-    <div class="logo-row">
-      <span>WORKS WITH GTBANK</span><span>ACCESS BANK</span><span>ZENITH BANK</span><span>UBA</span><span>KUDA</span><span>PAYSTACK</span>
+      <div class="smb-proof">
+        <div><b>1 afternoon</b><span>TYPICAL SETUP TIME</span></div>
+        <div><b>No card</b><span>REQUIRED TO START</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -212,7 +205,7 @@
 <section style="padding:0">
   <div class="wrap">
     <div class="stat-row">
-      <div class="stat-item"><b>5</b><span>employees free, forever</span></div>
+      <div class="stat-item"><b>5 to 20</b><span>typical team size on this plan</span></div>
       <div class="stat-item"><b>&lt;1 day</b><span>average time to first payroll run</span></div>
       <div class="stat-item"><b>6</b><span>bank rails connected out of the box</span></div>
       <div class="stat-item"><b>₦0</b><span>setup fees, cancel anytime</span></div>
@@ -224,14 +217,16 @@
   <div class="wrap">
     <div class="section-head">
       <div class="tag">WHAT'S INCLUDED</div>
-      <h2>Four modules. One small business plan.</h2>
-      <p>No bundles to negotiate, no modules to unlock later. Every small business account includes all four from day one.</p>
+      <h2>Six modules. One small business plan.</h2>
+      <p>No bundles to negotiate, no modules to unlock later. Every small business account includes all six from day one.</p>
     </div>
-    <div class="mod-track">
-      <div class="mod-panel"><div class="mod-tag">01 / BANK SYNC</div><h4>Bank Sync</h4><p>Connect every business account and reconcile automatically, no spreadsheets.</p><a href="product-bank-sync.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
-      <div class="mod-panel"><div class="mod-tag">02 / PAYROLL</div><h4>Payroll</h4><p>Calculate and pay salaries, deductions and bonuses in one approved run.</p><a href="product-payroll.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
-      <div class="mod-panel"><div class="mod-tag">03 / TIME TRACKING</div><h4>Time Tracking</h4><p>Clock-ins from the app feed straight into the next payroll cycle.</p><a href="product-time-tracking.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
-      <div class="mod-panel"><div class="mod-tag">04 / COMPLIANCE</div><h4>Remittance &amp; Compliance</h4><p>PAYE, pension and NHF calculated, filed and receipted automatically.</p><a href="product-remittance-compliance.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+    <div class="mod-track" style="grid-template-columns:repeat(3,1fr)">
+      <div class="mod-panel"><div class="mod-tag">01 / PAYROLL</div><h4>Payroll</h4><p>Calculate and pay salaries, deductions and bonuses in one approved run.</p><a href="product-payroll.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">02 / BANK SYNC</div><h4>Bank Sync</h4><p>Connect every business account and reconcile automatically, no spreadsheets.</p><a href="product-bank-sync.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">03 / HIRING &amp; STAFFING</div><h4>Hiring &amp; Staffing</h4><p>Post roles, screen candidates and onboard new hires straight into payroll.</p><a href="product-hiring-staffing.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">04 / TIME TRACKING</div><h4>Time Tracking</h4><p>Clock-ins from the app feed straight into the next payroll cycle.</p><a href="product-time-tracking.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">05 / REMITTANCE &amp; COMPLIANCE</div><h4>Remittance &amp; Compliance</h4><p>PAYE, pension and NHF calculated, filed and receipted automatically.</p><a href="product-remittance-compliance.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
+      <div class="mod-panel"><div class="mod-tag">06 / SALARY ADVANCE</div><h4>Salary Advance</h4><p>Employees draw earned wages any day, free for employers to offer.</p><a href="product-salary-advance.html" class="tag" style="display:inline-block;margin-top:6px">Learn more →</a></div>
     </div>
   </div>
 </section>
@@ -266,7 +261,7 @@
         </ul>
       </div>
       <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="smb-shot" style="width:100%;height:340px" shape="rect" placeholder="Drop a photo, small retail or logistics team"></image-slot>
+        <image-slot id="smb-shot" src="assets/photos/bar-owner-phone.jpg" style="width:100%;height:340px" shape="rect" placeholder="Drop a photo, small retail or logistics team"></image-slot>
         <div class="b-cap">FIG. 02, SMALL TEAM, ON THE GROUND</div>
       </div>
     </div>
@@ -286,6 +281,7 @@
       <div class="price-row"><div class="label">Bank sync &amp; reconciliation</div><div class="val">Included</div></div>
       <div class="price-row"><div class="label">Time tracking &amp; scheduling</div><div class="val">Included</div></div>
       <div class="price-row"><div class="label">PAYE, pension &amp; NHF remittance</div><div class="val">Included</div></div>
+      <div class="price-row"><div class="label">Hiring &amp; staffing, careers page</div><div class="val">Included</div></div>
       <div class="price-row"><div class="label">Employee self-service app</div><div class="val">Included</div></div>
       <div class="price-row"><div class="label">Setup fees</div><div class="val">₦0</div></div>
     </div>
@@ -295,7 +291,7 @@
 <section class="bg-tint">
   <div class="wrap testi">
     <div class="tag" style="margin-bottom:24px">CUSTOMER STORY</div>
-    <blockquote>"I used to spend a whole Saturday every month on payroll and remittances. Now it's twenty minutes on my phone."</blockquote>
+    <blockquote>"I used to spend a whole Saturday every month on payroll and remittances. Now it's 5 minutes on my phone."</blockquote>
     <cite>OWNER, 8-PERSON LOGISTICS BUSINESS, LAGOS</cite>
   </div>
 </section>
@@ -304,21 +300,20 @@
   <div class="wrap setup-grid">
     <div>
       <div class="tag">QUICK SETUP</div>
-      <h2 style="margin-top:14px;font-size:30px">What you'll need to get started.</h2>
-      <p style="font-size:15px;color:var(--text-sub);margin-top:14px;line-height:1.65">No existing payroll provider required. HexPay replaces the spreadsheet entirely.</p>
+      <h2 style="margin-top:14px;font-size:30px">Three things and you're running.</h2>
+      <p style="font-size:15px;color:var(--text-sub);margin-top:14px;line-height:1.65">No payroll provider to leave, nothing to migrate.</p>
     </div>
     <ul class="setup-list">
-      <li><b>01</b>Business name and CAC registration number</li>
-      <li><b>02</b>Employee names, roles and salaries</li>
-      <li><b>03</b>Bank account details for payroll funding</li>
-      <li><b>04</b>Your preferred pay cycle and payday</li>
+      <li><b>01</b>Your staff list, names and salaries</li>
+      <li><b>02</b>A business bank account</li>
+      <li><b>03</b>The day you want people paid</li>
     </ul>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="wrap">
-    <h2>Free for your first 5 employees.</h2>
+    <h2>Set up your whole team this week.</h2>
     <p>Set up bank sync, payroll, time tracking and compliance in one afternoon, no card required.</p>
     <div class="hero-cta">
       <a href="https://app.hexpayr.com/auth/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
