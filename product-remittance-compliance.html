@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Remittance & Compliance | HexPay</title>
+<title>Remittance & Compliance, HexPay</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="landing.css"/>
@@ -33,26 +33,56 @@
 .filing-doc-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line-soft);font-size:13px}
 .filing-doc-row span:first-child{color:var(--text-sub)}
 .filing-doc-row span:last-child{font-family:'IBM Plex Mono',monospace;color:var(--text)}
-.benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0}
+.benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:18px 0}
 .benefit-row.rev .b-img{order:2}
 .benefit-row.rev .b-text{order:1}
 .b-img{position:relative;padding:14px;min-width:0}
 .b-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
 .b-text{min-width:0}
 .b-text ul{margin-top:20px;display:flex;flex-direction:column;gap:12px}
-.b-text li{font-size:13.5px;color:var(--text-sub);display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.b-text li{font-size:14px;color:var(--text);display:flex;gap:10px;align-items:flex-start;line-height:1.55}
 .b-text li b{color:var(--text)}
 .b-text li .chk{font-family:'IBM Plex Mono',monospace;color:var(--accent);flex-shrink:0}
 @media (max-width:900px){ .benefit-row{grid-template-columns:1fr} .benefit-row.rev .b-img,.benefit-row.rev .b-text{order:initial} }
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.feat-card{padding:32px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rm-ui{background:#fff;border:1px solid var(--line);padding:18px 20px 16px}
+.rm-score{display:flex;align-items:center;gap:12px;min-width:0;padding-bottom:12px;border-bottom:1px solid var(--line-soft)}
+.rm-ring{width:56px;height:56px;flex-shrink:0}
+.rm-pct{font-family:'Poppins',sans-serif;font-size:19px;font-weight:600;fill:var(--ink)}
+.rm-score b{display:block;font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;color:var(--ink)}
+.rm-score em{display:block;font-style:normal;font-size:9.5px;color:var(--text-mute);margin-top:3px;line-height:1.45}
+.rm-kpis{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line-soft)}
+.rm-kpi+.rm-kpi{border-left:1px solid var(--line-soft);padding-left:14px}
+.rm-kpi span{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.1em;color:var(--text-mute)}
+.rm-kpi b{display:block;font-family:'Poppins',sans-serif;font-size:20px;font-weight:600;color:var(--ink);margin-top:4px}
+.rm-kpi b.warn{color:var(--amber)}
+.rm-kpi em{display:block;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:var(--text-mute);margin-top:3px}
+.rm-alert{margin-top:14px;background:#FBF1E4;color:#7A4A17;font-size:11px;line-height:1.5;padding:9px 12px}
+.rm-alert b{font-weight:600}
+.rm-rows{display:flex;flex-direction:column;margin-top:10px;border-top:1px solid var(--line)}
+.rm-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line-soft)}
+.rm-n{font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:500;color:var(--ink);min-width:0}
+.rm-n em{display:block;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--text-mute);margin-top:2px}
+.rm-row b{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;color:var(--ink);white-space:nowrap}
+.rm-st{grid-column:1/-1;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.06em;color:var(--text-mute)}
+.rm-st.over{color:var(--amber)}
+.rm-st.due{color:var(--accent)}
+.rm-sh{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--text-mute);margin:14px 0 9px}
+.rm-lrow{display:flex;gap:9px;align-items:flex-start;margin-top:8px}
+.rm-dot{width:7px;height:7px;border-radius:50%;background:var(--line);flex-shrink:0;margin-top:5px}
+.rm-dot.ok{background:var(--accent)}
+.rm-lrow b{display:block;font-size:11.5px;font-weight:500;color:var(--ink)}
+.rm-lrow em{display:block;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--text-mute);margin-top:2px}
+@media (max-width:640px){.rm-ui{padding:14px}.rm-kpi+.rm-kpi{border-left:none;padding-left:0}.rm-kpis{grid-template-columns:1fr}}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feat-card{padding:28px 26px;background:#fff;border:1px solid var(--line-soft);transition:box-shadow .18s ease,transform .18s ease}
+.feat-card:hover{box-shadow:0 14px 34px rgba(18,24,31,.08);transform:translateY(-2px)}
 .feat-card .num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:14px}
 .feat-card h4{font-family:'Poppins',sans-serif;font-size:17px;font-weight:500;margin-bottom:8px}
 .feat-card p{font-size:13px;color:var(--text-sub);line-height:1.6}
 @media (max-width:900px){ .feat-grid{grid-template-columns:1fr} }
 .cta-band{background:var(--ink);color:var(--paper);padding:100px 0;text-align:center}
 .cta-band h2{color:#fff;font-size:36px;max-width:640px;margin:0 auto}
-.cta-band p{color:rgba(250,248,243,0.6);font-size:15.5px;margin:16px auto 0;max-width:460px}
+.cta-band p{color:rgba(250,248,243,0.9);font-size:15.5px;margin:16px auto 0;max-width:460px}
 .cta-band .hero-cta{justify-content:center;margin-top:32px}
 .store-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink);border-radius:2px}
 .store-badge:hover{background:var(--ink);color:var(--paper)}
@@ -64,7 +94,7 @@
 .nav-trigger:hover{color:var(--ink)}
 .mega-panel{position:fixed;top:74px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 24px 50px rgba(15,20,30,0.12);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:60}
 .nav-item.open .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none}
-
+@media (min-width:941px){ .nav-item:hover .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none} }
 .mega-inner{max-width:1180px;margin:0 auto;padding:36px 32px;display:grid;grid-template-columns:1fr 1fr 340px;gap:36px}
 .mega-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text-mute);margin-bottom:16px}
 .mega-col a{display:block;font-size:14px;color:var(--text);margin-bottom:14px}
@@ -85,16 +115,18 @@
           <div class="mega-inner">
             <div class="mega-col">
               <h5>MODULES</h5>
-              <a href="product-bank-sync.html">Bank Sync<span>One ledger across every bank</span></a>
               <a href="product-payroll.html">Payroll<span>Run payroll in minutes, not days</span></a>
+              <a href="product-bank-sync.html">Bank Sync<span>One ledger across every bank</span></a>
+              <a href="product-hiring-staffing.html">Hiring &amp; Staffing<span>Recruit, screen and onboard in one place</span></a>
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
               <a href="product-time-tracking.html">Time Tracking<span>Clock-ins, shifts and attendance</span></a>
-              <a href="product-remittance-compliance.html">Remittance &amp; Compliance<span>PAYE, pension, NHF filed automatically</span></a>
+              <a href="product-remittance-compliance.html">Remittance &amp; Compliance<span>PAYE, pension, NHF, calculated and ready to file</span></a>
+              <a href="product-salary-advance.html">Salary Advance<span>Earned wages, any day, free for employers</span></a>
             </div>
             <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot" style="width:100%;height:180px" shape="rect" placeholder="Drop a product screenshot"></image-slot>
+              <image-slot id="nav-mega-shot" src="assets/photos/team-laughing.avif" style="width:100%;height:180px" shape="rect" placeholder="Drop a photo, happy employer"></image-slot>
             </div>
           </div>
         </div>
@@ -102,7 +134,7 @@
       <div class="nav-item" id="businessNavItem">
         <button class="nav-trigger" id="businessTrigger" aria-expanded="false" aria-controls="businessMega">For Businesses</button>
         <div class="mega-panel" id="businessMega">
-          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 260px">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr">
             <div class="mega-col">
               <h5>BY SIZE</h5>
               <a href="solutions-small-business.html">Small Businesses<span>1 to 20 employees, free to start</span></a>
@@ -115,19 +147,15 @@
               <h5>&nbsp;</h5>
               <a href="solutions-enterprise.html">Enterprise<span>200+ employees, multi entity, custom controls</span></a>
             </div>
-          
-            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot-business" style="width:100%;height:180px" shape="rect" placeholder="Drop a businesses photo"></image-slot>
-            </div>
           </div>
         </div>
       </div>
       <div class="nav-item" id="resourcesNavItem">
         <button class="nav-trigger" id="resourcesTrigger" aria-expanded="false" aria-controls="resourcesMega">Resources</button>
         <div class="mega-panel" id="resourcesMega">
-          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr 260px">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr">
             <div class="mega-col">
-              <h5>&nbsp;</h5>
+              <h5>COMPANY</h5>
               <a href="about.html">About Us<span>Our mission and story</span></a>
             </div>
             <div class="mega-col">
@@ -142,10 +170,6 @@
               <h5>&nbsp;</h5>
               <a href="guides.html">Guides<span>Step by step tutorials</span></a>
             </div>
-          
-            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot-resources" style="width:100%;height:180px" shape="rect" placeholder="Drop a resources photo"></image-slot>
-            </div>
           </div>
         </div>
       </div>
@@ -156,8 +180,8 @@
         <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.19 7.31c1.35.07 2.29.74 3.08.8.94-.19 1.85-.87 2.86-.72 1.22.11 2.15.65 2.77 1.6-2.63 1.61-2.06 5.17.35 6.16-.5 1.36-1.16 2.71-1.2 2.71M12.03 7.25c-.15-2.23 1.66-4.09 3.74-4.25.29 2.32-2.02 4.06-3.74 4.25z"/></svg>App Store</a>
         <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.3.3-.5.7-.5 1.2v16.4c0 .5.2.9.5 1.2l.1.1L13 12 3.7 2.5z"/><path d="M16.3 14.8L13 11.5l-9.3 9.3.1.1c.5.3 1.1.2 1.6-.1zm3-6.1L16.3 6.6 5.4 1.6c-.6-.3-1.3-.2-1.7.2z"/><path d="M19.3 8.7l-3 1.7 3 1.7c.6-.4.9-1 .9-1.7s-.3-1.3-.9-1.7z"/><path d="M16.3 11.5l3-1.7-3-1.7-3.3 3.4z"/></svg>Google Play</a>
       </div>
-      <a href="https://hex-software-frontend.vercel.app/login" class="login">Log in</a>
-      <a href="https://hex-software-frontend.vercel.app/signup" class="btn btn-primary">Get started</a>
+      <a href="https://app.hexpayr.com/auth/login" class="login">Log in</a>
+      <a href="https://app.hexpayr.com/auth/signup" class="btn btn-primary">Get started</a>
       <button class="nav-burger" id="navBurger" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     </div>
   </nav>
@@ -166,55 +190,75 @@
 <section class="hero-filing gridpaper">
   <div class="wrap hero-filing-inner">
     <div class="tag">PRODUCT, REMITTANCE &amp; COMPLIANCE</div>
-    <h1>PAYE, pension, NHF. <em>Filed automatically.</em></h1>
-    <p class="lede">HexPay calculates and remits statutory deductions directly to FIRS, PenCom-registered PFAs and the NHF, with filing receipts stored for every cycle.</p>
+    <h1>PAYE, pension, NHF, <em>calculated to the naira.</em></h1>
+    <p class="lede">HexPay works out exactly what is owed to FIRS, your employees' PFAs and the NHF on every payroll run, prepares the schedules, and keeps a record of every remittance you make.</p>
     <div class="hero-cta">
-      <a href="https://hex-software-frontend.vercel.app/signup" class="btn btn-primary">Get started free</a>
+      <a href="https://app.hexpayr.com/auth/signup" class="btn btn-primary">Get started free</a>
       <a href="#features" class="btn btn-ghost">See how it works</a>
     </div>
     <div class="filing-doc">
-      <div class="filing-doc-head"><b>Remittance receipt</b><span class="filing-stamp">FILED</span></div>
+      <div class="filing-doc-head"><b>Remittance receipt</b><span class="filing-stamp">RECORDED</span></div>
       <div class="filing-doc-rows">
         <div class="filing-doc-row"><span>PAYE, Lagos IRS</span><span>₦412,000.00</span></div>
         <div class="filing-doc-row"><span>Pension, PenCom PFA</span><span>₦268,500.00</span></div>
         <div class="filing-doc-row"><span>NHF contribution</span><span>₦54,200.00</span></div>
-        <div class="filing-doc-row" style="border-bottom:none"><span>Filed</span><span>15 Jul 2026, 09:14 AM</span></div>
+        <div class="filing-doc-row" style="border-bottom:none"><span>Recorded</span><span>Just now</span></div>
       </div>
     </div>
   </div>
 </section>
 
-
-<section id="features">
+<section id="features" style="padding:36px 0">
   <div class="wrap">
     <div class="section-head">
       <div class="tag">HOW IT WORKS</div>
-      <h2>Compliance that runs itself.</h2>
-      <p>Every payroll cycle automatically calculates what's owed to tax authorities, pension funds and the NHF, then remits it and files the paperwork.</p>
+      <h2>Compliance without the guesswork.</h2>
+      <p>Every payroll cycle works out what is owed to tax authorities, pension funds and the NHF, produces the schedules to submit, and tracks what has been paid.</p>
     </div>
     <div class="feat-grid">
-      <div class="feat-card"><div class="num">01</div><h4>PAYE remittance</h4><p>State tax authority filings calculated and submitted each cycle.</p></div>
+      <div class="feat-card"><div class="num">01</div><h4>PAYE remittance</h4><p>State tax authority amounts calculated and scheduled each cycle.</p></div>
       <div class="feat-card"><div class="num">02</div><h4>Pension (PenCom)</h4><p>Employer and employee contributions routed to registered PFAs.</p></div>
-      <div class="feat-card"><div class="num">03</div><h4>NHF contributions</h4><p>National Housing Fund deductions calculated and remitted on schedule.</p></div>
-      <div class="feat-card"><div class="num">04</div><h4>Filing receipts</h4><p>Every remittance stored with proof of filing for audits and inspections.</p></div>
-      <div class="feat-card"><div class="num">05</div><h4>Deadline reminders</h4><p>Never miss a statutory filing date. HexPay tracks every deadline.</p></div>
+      <div class="feat-card"><div class="num">03</div><h4>NHF contributions</h4><p>National Housing Fund deductions calculated and scheduled for remittance.</p></div>
+      <div class="feat-card"><div class="num">04</div><h4>Remittance evidence</h4><p>Every remittance you make stored with its evidence for audits and inspections.</p></div>
+      <div class="feat-card"><div class="num">05</div><h4>Deadline reminders</h4><p>Never miss a statutory due date, HexPay tracks every deadline.</p></div>
       <div class="feat-card"><div class="num">06</div><h4>Multi-state support</h4><p>Handles varying state tax rules for teams spread across Nigeria.</p></div>
     </div>
   </div>
 </section>
-<section class="bg-tint">
+<section class="bg-tint" style="padding:18px 0">
   <div class="wrap">
     <div class="benefit-row rev">
-      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="remit-shot" style="width:100%;height:340px" shape="rect" placeholder="Drop a screenshot, remittance filing history"></image-slot>
-        <div class="b-cap">FIG. 02, FILING HISTORY</div>
+      <div class="b-img">
+        <div class="rm-ui">
+          <div class="rm-score">
+            <svg viewBox="0 0 80 80" class="rm-ring"><circle cx="40" cy="40" r="34" fill="none" stroke="#E7E5E0" stroke-width="7"/><circle cx="40" cy="40" r="34" fill="none" stroke="#0F7C93" stroke-width="7" stroke-linecap="round" stroke-dasharray="214" stroke-dashoffset="30" transform="rotate(-90 40 40)"/><text x="40" y="45" text-anchor="middle" class="rm-pct">86%</text></svg>
+            <div><b>Compliance score</b><em>12 of 14 obligations remitted on time in the last 3 periods</em></div>
+          </div>
+          <div class="rm-kpis">
+            <div class="rm-kpi"><span>OVERDUE</span><b class="warn">1</b><em>₦137.2k outstanding</em></div>
+            <div class="rm-kpi"><span>DUE SOON</span><b>2</b><em>₦2.68M this cycle</em></div>
+          </div>
+          <div class="rm-alert"><b>1 obligation overdue.</b> Late statutory remittances attract penalties and interest.</div>
+          <div class="rm-rows">
+            <div class="rm-row"><div class="rm-n">PAYE<em>Lagos State IRS, current period, 15 employees</em></div><b>₦1,184,000</b><span class="rm-st due">Due in 8 days</span></div>
+            <div class="rm-row"><div class="rm-n">Pension<em>6 PFAs via PenCom, current period</em></div><b>₦1,495,000</b><span class="rm-st due">Due in 6 days</span></div>
+            <div class="rm-row"><div class="rm-n">NHF<em>Federal Mortgage Bank, last period</em></div><b>₦137,200</b><span class="rm-st over">2 days late</span></div>
+            <div class="rm-row"><div class="rm-n">NSITF<em>Employee Compensation Scheme, current period</em></div><b>₦54,000</b><span class="rm-st">Due in 14 days</span></div>
+          </div>
+          <div class="rm-log">
+            <div class="rm-sh">RECENT ACTIVITY</div>
+            <div class="rm-lrow"><span class="rm-dot ok"></span><div><b>Confirmed paid, PAYE last period</b><em>ref LIRS-88213, evidence attached</em></div></div>
+            <div class="rm-lrow"><span class="rm-dot"></span><div><b>Schedule downloaded, Pension last period</b><em>CSV, 6 PFAs, ₦1,470,000</em></div></div>
+          </div>
+        </div>
+        <div class="b-cap">FIG. 02, OBLIGATIONS AND REMITTANCE RECORD</div>
       </div>
       <div class="b-text">
         <div class="tag">WHY IT MATTERS</div>
         <h2>Compliance without the paperwork.</h2>
         <ul>
-          <li><span class="chk">✓</span><div><b>No more missed filing deadlines</b> or late penalties.</div></li>
-          <li><span class="chk">✓</span><div><b>No more chasing receipts</b> for audits, they're stored automatically.</div></li>
+          <li><span class="chk">✓</span><div><b>No more missed deadlines</b>, every due date is flagged before it lands.</div></li>
+          <li><span class="chk">✓</span><div><b>No more chasing receipts</b> for audits, every remittance record is stored in one place.</div></li>
           <li><span class="chk">✓</span><div><b>No more manual PAYE math</b> across different states.</div></li>
         </ul>
       </div>
@@ -224,10 +268,10 @@
 
 <section class="cta-band">
   <div class="wrap">
-    <h2>Stay compliant, automatically.</h2>
-    <p>Every remittance calculated, filed and receipted, every cycle.</p>
+    <h2>Stay compliant, without the scramble.</h2>
+    <p>Every remittance calculated, scheduled and recorded, every cycle.</p>
     <div class="hero-cta">
-      <a href="https://hex-software-frontend.vercel.app/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
+      <a href="https://app.hexpayr.com/auth/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
       <a href="about.html" class="btn btn-on-dark">Learn our story</a>
     </div>
   </div>
@@ -242,17 +286,19 @@
       </div>
       <div class="foot-col">
         <h4>Product</h4>
-        <a href="product-bank-sync.html">Bank Sync</a>
         <a href="product-payroll.html">Payroll</a>
+        <a href="product-bank-sync.html">Bank Sync</a>
+        <a href="product-hiring-staffing.html">Hiring &amp; Staffing</a>
         <a href="product-time-tracking.html">Time Tracking</a>
         <a href="product-remittance-compliance.html">Remittance &amp; Compliance</a>
+        <a href="product-salary-advance.html">Salary Advance</a>
       </div>
       <div class="foot-col">
-        <h4>Company</h4>
-        <a href="about.html">About</a>
-        <a href="about.html#mission">Our mission</a>
-        <a href="#">Careers</a>
-        <a href="#">Contact</a>
+        <h4>Resources</h4>
+        <a href="about.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="industries.html">Industries</a>
+        <a href="guides.html">Guides</a>
       </div>
       <div class="foot-col">
         <h4>Legal</h4>
@@ -262,7 +308,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 HexPay Africa. All rights reserved.</span>
+      <span>&copy; <span class="yr">2026</span> HexPay Africa. All rights reserved.</span>
       <div class="foot-social"><a href="#">X</a><a href="#">LinkedIn</a><a href="#">Instagram</a></div>
     </div>
   </div>
@@ -270,22 +316,31 @@
 
 <script>
 document.getElementById("navBurger").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("mobile-open"));
-function wireMegaMenu(itemId,triggerId){
-  const item=document.getElementById(itemId), trigger=document.getElementById(triggerId);
-  if(!item||!trigger) return;
-  let closeTimer=null;
-  const open=()=>{ clearTimeout(closeTimer); item.classList.add("open"); trigger.setAttribute("aria-expanded","true"); };
-  const scheduleClose=()=>{ clearTimeout(closeTimer); closeTimer=setTimeout(()=>{ item.classList.remove("open"); trigger.setAttribute("aria-expanded","false"); },250); };
-  const closeNow=()=>{ clearTimeout(closeTimer); item.classList.remove("open"); trigger.setAttribute("aria-expanded","false"); };
-  trigger.addEventListener("click",(e)=>{ e.stopPropagation(); item.classList.contains("open")?closeNow():open(); });
-  item.addEventListener("mouseenter",()=>{ if(window.innerWidth>940) open(); });
-  item.addEventListener("mouseleave",()=>{ if(window.innerWidth>940) scheduleClose(); });
-  document.addEventListener("click",(e)=>{ if(!item.contains(e.target)) closeNow(); });
-  document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closeNow(); });
-}
-wireMegaMenu("productNavItem","productTrigger");
-wireMegaMenu("businessNavItem","businessTrigger");
-wireMegaMenu("resourcesNavItem","resourcesTrigger");
+const productNavItem=document.getElementById("productNavItem"), productTrigger=document.getElementById("productTrigger");
+productTrigger.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  const isOpen=productNavItem.classList.toggle("open");
+  productTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
+});
+document.addEventListener("click",(e)=>{ if(!productNavItem.contains(e.target)){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+const businessNavItem=document.getElementById("businessNavItem"), businessTrigger=document.getElementById("businessTrigger");
+businessTrigger.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  const isOpen=businessNavItem.classList.toggle("open");
+  businessTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
+});
+document.addEventListener("click",(e)=>{ if(!businessNavItem.contains(e.target)){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
+const resourcesNavItem=document.getElementById("resourcesNavItem"), resourcesTrigger=document.getElementById("resourcesTrigger");
+resourcesTrigger.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  const isOpen=resourcesNavItem.classList.toggle("open");
+  resourcesTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
+});
+document.addEventListener("click",(e)=>{ if(!resourcesNavItem.contains(e.target)){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
 </script>
+<script id="yr-script">document.querySelectorAll(".yr").forEach(e=>e.textContent=new Date().getFullYear());</script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Time Tracking | HexPay</title>
+<title>Time Tracking, HexPay</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="landing.css"/>
@@ -19,31 +19,66 @@
 .hero p.lede{font-size:17px;color:var(--text-sub);line-height:1.7;max-width:560px;margin-top:24px}
 .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
 .fig-label{position:absolute;bottom:-28px;left:22px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute)}
-.hero-shift{position:relative;min-height:620px;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero-shift{position:relative;height:560px;min-height:560px;display:flex;align-items:flex-end;justify-content:center;text-align:center;overflow:hidden}
 .hero-shift .bg-slot{position:absolute;inset:0;z-index:0}
 .hero-shift .bg-slot image-slot{width:100%;height:100%}
-.hero-shift::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,31,0.55) 0%,rgba(18,24,31,0.78) 100%);z-index:1}
-.hero-shift-inner{position:relative;z-index:2;max-width:600px;padding:80px 0;display:flex;flex-direction:column;align-items:center}
+.hero-shift::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,0.94) 0%,rgba(0,0,0,0.82) 28%,rgba(0,0,0,0.45) 62%,rgba(0,0,0,0) 100%);z-index:1}
+.hero-shift-inner{position:relative;z-index:2;max-width:600px;padding:64px 0 56px;display:flex;flex-direction:column;align-items:center}
 .hero-shift .tag{color:#5FD1E0}
 .hero-shift h1{color:#fff}
 .hero-shift h1 em{color:#5FD1E0}
-.hero-shift .lede{color:rgba(250,248,243,0.75);text-align:center}
+.hero-shift .lede{color:rgba(250,248,243,0.9);text-align:center}
 .hero-shift .hero-cta{justify-content:center}
-.clock-card{margin-top:36px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(6px);padding:16px 22px;display:flex;align-items:center;gap:14px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:rgba(250,248,243,0.85)}
+.clock-card{margin-top:36px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);backdrop-filter:blur(6px);padding:16px 22px;display:flex;align-items:center;gap:14px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:rgba(250,248,243,0.9)}
 .clock-card b{color:#5FD1E0;font-size:15px}
 .clock-dot{width:8px;height:8px;border-radius:50%;background:#5FD1E0;flex-shrink:0;animation:pulse 1.6s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0}
+.benefit-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:18px 0}
 .benefit-row.rev .b-img{order:2}
 .benefit-row.rev .b-text{order:1}
 .b-img{position:relative;padding:14px;min-width:0}
 .b-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
+.b-img .tt-stage+.b-cap{bottom:-14px}
 .b-text{min-width:0}
 .b-text ul{margin-top:20px;display:flex;flex-direction:column;gap:12px}
-.b-text li{font-size:13.5px;color:var(--text-sub);display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.b-text li{font-size:14px;color:var(--text);display:flex;gap:10px;align-items:flex-start;line-height:1.55}
 .b-text li b{color:var(--text)}
 .b-text li .chk{font-family:'IBM Plex Mono',monospace;color:var(--accent);flex-shrink:0}
 @media (max-width:900px){ .benefit-row{grid-template-columns:1fr} .benefit-row.rev .b-img,.benefit-row.rev .b-text{order:initial} }
+.tt-stage{position:relative;min-height:430px;background:var(--ink);padding:34px 28px;overflow:hidden}
+.tt-stage::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(250,248,243,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(250,248,243,.06) 1px,transparent 1px);background-size:44px 44px;pointer-events:none}
+.tt-stage>*{position:relative;z-index:1}
+.phone{width:238px;height:500px;background:#2C343E;border:1px solid rgba(250,248,243,.28);border-radius:34px;padding:8px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.ph-screen{height:100%;background:var(--paper);border-radius:27px;overflow:hidden;display:flex;flex-direction:column}
+.ph-top{background:#1E2731;padding:10px 15px 16px;color:#fff}
+.ph-status{display:flex;align-items:center;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:rgba(255,255,255,.75)}
+.ph-dots{display:flex;gap:3px}.ph-dots i{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.6)}
+.ph-hi{display:flex;align-items:center;gap:9px;margin-top:12px}
+.ph-av{width:30px;height:30px;border-radius:50%;background:#EFEADC;color:#7A6420;font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.ph-hi b{display:block;font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:500}
+.ph-hi em{display:block;font-style:normal;font-size:9.5px;color:rgba(255,255,255,.55);margin-top:1px}
+.ph-lab{font-size:9.5px;color:rgba(255,255,255,.6);margin-top:14px}
+.ph-big{font-family:'Poppins',sans-serif;font-size:26px;font-weight:600;margin-top:4px}
+.ph-sub{font-size:9.5px;color:rgba(255,255,255,.6);margin-top:4px}
+.ph-sub b{color:#5FD1E0;font-weight:500}
+.ph-bar{height:5px;border-radius:99px;background:rgba(255,255,255,.16);margin-top:12px;overflow:hidden}
+.ph-bar span{display:block;width:82%;height:100%;background:#5FD1E0}
+.ph-body{flex:1;padding:11px;display:flex;flex-direction:column;gap:7px}
+.ph-card{background:#fff;border:1px solid var(--line-soft);padding:9px 11px}
+.pc-k{font-family:'Poppins',sans-serif;font-size:11.5px;font-weight:500;color:var(--ink)}
+.pc-v{font-size:9.5px;color:var(--text-mute);margin-top:3px}
+.ph-btn{margin-top:auto;background:var(--accent);color:#fff;text-align:center;padding:10px 0;border-radius:99px;font-family:'IBM Plex Mono',monospace;font-size:10.5px}
+.snips{position:absolute;left:290px;top:64px;display:flex;flex-direction:column;gap:14px;width:min(220px,calc(100% - 318px))}
+.snip{background:#fff;padding:13px 15px;box-shadow:0 22px 48px rgba(0,0,0,.4)}
+.snip .sn-h{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;color:var(--text-mute);display:flex;align-items:center;gap:7px}
+.sn-dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.sn-big{font-family:'Poppins',sans-serif;font-size:22px;font-weight:600;color:var(--ink);margin-top:6px}
+.sn-s{font-size:10.5px;color:var(--text-mute);margin-top:4px;line-height:1.45}
+.sn-row{display:flex;justify-content:space-between;gap:10px;font-size:11px;color:var(--text-sub);margin-top:7px}
+.sn-row b{font-family:'IBM Plex Mono',monospace;font-weight:500;color:var(--ink)}
+.sn-row.net{border-top:1px solid var(--line-soft);margin-top:9px;padding-top:8px}
+.sn-row.net b{color:var(--accent)}
+@media (max-width:1080px){.tt-stage{min-height:0;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;padding:24px}.snips{position:relative;left:0;top:0;width:220px}}
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .feat-card{padding:32px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .feat-card .num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text-mute);margin-bottom:14px}
@@ -52,7 +87,7 @@
 @media (max-width:900px){ .feat-grid{grid-template-columns:1fr} }
 .cta-band{background:var(--ink);color:var(--paper);padding:100px 0;text-align:center}
 .cta-band h2{color:#fff;font-size:36px;max-width:640px;margin:0 auto}
-.cta-band p{color:rgba(250,248,243,0.6);font-size:15.5px;margin:16px auto 0;max-width:460px}
+.cta-band p{color:rgba(250,248,243,0.9);font-size:15.5px;margin:16px auto 0;max-width:460px}
 .cta-band .hero-cta{justify-content:center;margin-top:32px}
 .store-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink);border-radius:2px}
 .store-badge:hover{background:var(--ink);color:var(--paper)}
@@ -64,7 +99,7 @@
 .nav-trigger:hover{color:var(--ink)}
 .mega-panel{position:fixed;top:74px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 24px 50px rgba(15,20,30,0.12);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:60}
 .nav-item.open .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none}
-
+@media (min-width:941px){ .nav-item:hover .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none} }
 .mega-inner{max-width:1180px;margin:0 auto;padding:36px 32px;display:grid;grid-template-columns:1fr 1fr 340px;gap:36px}
 .mega-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text-mute);margin-bottom:16px}
 .mega-col a{display:block;font-size:14px;color:var(--text);margin-bottom:14px}
@@ -85,16 +120,18 @@
           <div class="mega-inner">
             <div class="mega-col">
               <h5>MODULES</h5>
-              <a href="product-bank-sync.html">Bank Sync<span>One ledger across every bank</span></a>
               <a href="product-payroll.html">Payroll<span>Run payroll in minutes, not days</span></a>
+              <a href="product-bank-sync.html">Bank Sync<span>One ledger across every bank</span></a>
+              <a href="product-hiring-staffing.html">Hiring &amp; Staffing<span>Recruit, screen and onboard in one place</span></a>
             </div>
             <div class="mega-col">
               <h5>&nbsp;</h5>
               <a href="product-time-tracking.html">Time Tracking<span>Clock-ins, shifts and attendance</span></a>
-              <a href="product-remittance-compliance.html">Remittance &amp; Compliance<span>PAYE, pension, NHF filed automatically</span></a>
+              <a href="product-remittance-compliance.html">Remittance &amp; Compliance<span>PAYE, pension, NHF, calculated and ready to file</span></a>
+              <a href="product-salary-advance.html">Salary Advance<span>Earned wages, any day, free for employers</span></a>
             </div>
             <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot" style="width:100%;height:180px" shape="rect" placeholder="Drop a product screenshot"></image-slot>
+              <image-slot id="nav-mega-shot" src="assets/photos/team-laughing.avif" style="width:100%;height:180px" shape="rect" placeholder="Drop a photo, happy employer"></image-slot>
             </div>
           </div>
         </div>
@@ -102,7 +139,7 @@
       <div class="nav-item" id="businessNavItem">
         <button class="nav-trigger" id="businessTrigger" aria-expanded="false" aria-controls="businessMega">For Businesses</button>
         <div class="mega-panel" id="businessMega">
-          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 260px">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr">
             <div class="mega-col">
               <h5>BY SIZE</h5>
               <a href="solutions-small-business.html">Small Businesses<span>1 to 20 employees, free to start</span></a>
@@ -115,19 +152,15 @@
               <h5>&nbsp;</h5>
               <a href="solutions-enterprise.html">Enterprise<span>200+ employees, multi entity, custom controls</span></a>
             </div>
-          
-            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot-business" style="width:100%;height:180px" shape="rect" placeholder="Drop a businesses photo"></image-slot>
-            </div>
           </div>
         </div>
       </div>
       <div class="nav-item" id="resourcesNavItem">
         <button class="nav-trigger" id="resourcesTrigger" aria-expanded="false" aria-controls="resourcesMega">Resources</button>
         <div class="mega-panel" id="resourcesMega">
-          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr 260px">
+          <div class="mega-inner" style="grid-template-columns:1fr 1fr 1fr 1fr">
             <div class="mega-col">
-              <h5>&nbsp;</h5>
+              <h5>COMPANY</h5>
               <a href="about.html">About Us<span>Our mission and story</span></a>
             </div>
             <div class="mega-col">
@@ -142,10 +175,6 @@
               <h5>&nbsp;</h5>
               <a href="guides.html">Guides<span>Step by step tutorials</span></a>
             </div>
-          
-            <div class="mega-img bracketed"><span class="bl"></span><span class="br"></span>
-              <image-slot id="nav-mega-shot-resources" style="width:100%;height:180px" shape="rect" placeholder="Drop a resources photo"></image-slot>
-            </div>
           </div>
         </div>
       </div>
@@ -156,29 +185,28 @@
         <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.19 7.31c1.35.07 2.29.74 3.08.8.94-.19 1.85-.87 2.86-.72 1.22.11 2.15.65 2.77 1.6-2.63 1.61-2.06 5.17.35 6.16-.5 1.36-1.16 2.71-1.2 2.71M12.03 7.25c-.15-2.23 1.66-4.09 3.74-4.25.29 2.32-2.02 4.06-3.74 4.25z"/></svg>App Store</a>
         <a href="#" class="store-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.6c-.3.3-.5.7-.5 1.2v16.4c0 .5.2.9.5 1.2l.1.1L13 12 3.7 2.5z"/><path d="M16.3 14.8L13 11.5l-9.3 9.3.1.1c.5.3 1.1.2 1.6-.1zm3-6.1L16.3 6.6 5.4 1.6c-.6-.3-1.3-.2-1.7.2z"/><path d="M19.3 8.7l-3 1.7 3 1.7c.6-.4.9-1 .9-1.7s-.3-1.3-.9-1.7z"/><path d="M16.3 11.5l3-1.7-3-1.7-3.3 3.4z"/></svg>Google Play</a>
       </div>
-      <a href="https://hex-software-frontend.vercel.app/login" class="login">Log in</a>
-      <a href="https://hex-software-frontend.vercel.app/signup" class="btn btn-primary">Get started</a>
+      <a href="https://app.hexpayr.com/auth/login" class="login">Log in</a>
+      <a href="https://app.hexpayr.com/auth/signup" class="btn btn-primary">Get started</a>
       <button class="nav-burger" id="navBurger" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     </div>
   </nav>
 </header>
 
 <section class="hero-shift">
-  <div class="bg-slot"><image-slot id="hero-time" style="width:100%;height:100%" shape="rect" placeholder="Drop a full-bleed photo, retail or logistics worker on shift"></image-slot></div>
+  <div class="bg-slot"><image-slot id="hero-time" src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=1800&auto=format&fit=crop" credit="Photo by Unsplash on Unsplash" credit-href="https://unsplash.com" style="width:100%;height:100%" shape="rect" placeholder="Drop a full-bleed photo, retail or logistics worker on shift"></image-slot></div>
   <div class="wrap" style="display:flex;justify-content:center">
     <div class="hero-shift-inner">
       <div class="tag">PRODUCT, TIME TRACKING</div>
       <h1>Clock-ins that <em>feed straight into payroll.</em></h1>
-      <p class="lede">Track shifts, attendance and overtime from the HexPay app. Hours flow directly into payroll, no timesheets to chase.</p>
+      <p class="lede">Track shifts and attendance from the HexPay app, hours flow directly into payroll, no timesheets to chase.</p>
       <div class="hero-cta">
-        <a href="https://hex-software-frontend.vercel.app/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
+        <a href="https://app.hexpayr.com/auth/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
         <a href="#features" class="btn btn-on-dark">See how it works</a>
       </div>
-      <div class="clock-card"><span class="clock-dot"></span>Clocked in, <b>08:02 AM</b> · Shift ends 5:00 PM</div>
+      <div class="clock-card"><span class="clock-dot"></span>Clocked in, <b>08:02 AM</b> &middot; Shift ends 5:00 PM</div>
     </div>
   </div>
 </section>
-
 
 <section id="features">
   <div class="wrap">
@@ -190,14 +218,14 @@
     <div class="feat-grid">
       <div class="feat-card"><div class="num">01</div><h4>Mobile clock-in/out</h4><p>Employees log time from the HexPay app, with location checks for field teams.</p></div>
       <div class="feat-card"><div class="num">02</div><h4>Shift scheduling</h4><p>Build rotas and assign shifts across locations and teams.</p></div>
-      <div class="feat-card"><div class="num">03</div><h4>Overtime &amp; lateness rules</h4><p>Set policies once, overtime pay calculates itself.</p></div>
+      <div class="feat-card"><div class="num">03</div><h4>Lateness rules</h4><p>Set attendance policies once, so exceptions are flagged automatically.</p></div>
       <div class="feat-card"><div class="num">04</div><h4>Payroll sync</h4><p>Hours worked flow directly into the next payroll cycle, no re-entry.</p></div>
       <div class="feat-card"><div class="num">05</div><h4>Manager dashboards</h4><p>See who's on shift, who's late, and who's missing right now.</p></div>
       <div class="feat-card"><div class="num">06</div><h4>Exportable reports</h4><p>Attendance history by employee, team or location, any date range.</p></div>
     </div>
   </div>
 </section>
-<section class="bg-tint">
+<section class="bg-tint" style="padding:18px 0">
   <div class="wrap">
     <div class="benefit-row">
       <div class="b-text">
@@ -209,9 +237,41 @@
           <li><span class="chk">✓</span><div><b>No more manual timesheet entry</b> into payroll.</div></li>
         </ul>
       </div>
-      <div class="b-img bracketed"><span class="bl"></span><span class="br"></span>
-        <image-slot id="time-shot" style="width:100%;height:340px" shape="rect" placeholder="Drop a photo, retail or logistics worker clocking in"></image-slot>
-        <div class="b-cap">FIG. 02, MOBILE CLOCK-IN</div>
+      <div class="b-img">
+        <div class="tt-stage">
+          <div class="phone">
+            <div class="ph-screen">
+              <div class="ph-top">
+                <div class="ph-status"><span>9:41</span><span class="ph-dots"><i></i><i></i><i></i></span></div>
+                <div class="ph-hi"><span class="ph-av">AO</span><div><b>Good morning, Ada</b><em>Acme Foods, on shift</em></div></div>
+                <div class="ph-lab">On the clock since 8:56 AM</div>
+                <div class="ph-big">07:12</div>
+                <div class="ph-sub">Day shift, <b>9:00 AM to 5:00 PM</b>, Ikeja depot</div>
+                <div class="ph-bar"><span></span></div>
+              </div>
+              <div class="ph-body">
+                <div class="ph-card"><div class="pc-k">Clocked in 8:56 AM</div><div class="pc-v">4 minutes early, streak protected</div></div>
+                <div class="ph-card"><div class="pc-k">Break taken</div><div class="pc-v">30 minutes, 1:04 PM, unpaid</div></div>
+                <div class="ph-card"><div class="pc-k">This week</div><div class="pc-v">4 shifts complete, 37h 12m logged</div></div>
+                <div class="ph-btn">Clock out</div>
+              </div>
+            </div>
+          </div>
+          <div class="snips">
+            <div class="snip">
+              <div class="sn-h"><span class="sn-dot"></span>SHIFT COMPLETE</div>
+              <div class="sn-big">8h 04m</div>
+              <div class="sn-s">Last shift, approved by Tunde</div>
+            </div>
+            <div class="snip">
+              <div class="sn-h">FEEDS PAYROLL</div>
+              <div class="sn-row"><span>Hours this week</span><b>37h 12m</b></div>
+              <div class="sn-row"><span>Shifts complete</span><b>4 of 5</b></div>
+              <div class="sn-row net"><span>Into next run</span><b>₦118,400</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="b-cap">FIG. 02, MOBILE CLOCK-IN AND SHIFT LOG</div>
       </div>
     </div>
   </div>
@@ -222,7 +282,7 @@
     <h2>Turn attendance into accurate pay.</h2>
     <p>Set up shifts and let hours flow straight into payroll.</p>
     <div class="hero-cta">
-      <a href="https://hex-software-frontend.vercel.app/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
+      <a href="https://app.hexpayr.com/auth/signup" class="btn" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Get started free</a>
       <a href="about.html" class="btn btn-on-dark">Learn our story</a>
     </div>
   </div>
@@ -237,17 +297,19 @@
       </div>
       <div class="foot-col">
         <h4>Product</h4>
-        <a href="product-bank-sync.html">Bank Sync</a>
         <a href="product-payroll.html">Payroll</a>
+        <a href="product-bank-sync.html">Bank Sync</a>
+        <a href="product-hiring-staffing.html">Hiring &amp; Staffing</a>
         <a href="product-time-tracking.html">Time Tracking</a>
         <a href="product-remittance-compliance.html">Remittance &amp; Compliance</a>
+        <a href="product-salary-advance.html">Salary Advance</a>
       </div>
       <div class="foot-col">
-        <h4>Company</h4>
-        <a href="about.html">About</a>
-        <a href="about.html#mission">Our mission</a>
-        <a href="#">Careers</a>
-        <a href="#">Contact</a>
+        <h4>Resources</h4>
+        <a href="about.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="industries.html">Industries</a>
+        <a href="guides.html">Guides</a>
       </div>
       <div class="foot-col">
         <h4>Legal</h4>
@@ -257,7 +319,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 HexPay Africa. All rights reserved.</span>
+      <span>&copy; <span class="yr">2026</span> HexPay Africa. All rights reserved.</span>
       <div class="foot-social"><a href="#">X</a><a href="#">LinkedIn</a><a href="#">Instagram</a></div>
     </div>
   </div>
@@ -265,22 +327,31 @@
 
 <script>
 document.getElementById("navBurger").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("mobile-open"));
-function wireMegaMenu(itemId,triggerId){
-  const item=document.getElementById(itemId), trigger=document.getElementById(triggerId);
-  if(!item||!trigger) return;
-  let closeTimer=null;
-  const open=()=>{ clearTimeout(closeTimer); item.classList.add("open"); trigger.setAttribute("aria-expanded","true"); };
-  const scheduleClose=()=>{ clearTimeout(closeTimer); closeTimer=setTimeout(()=>{ item.classList.remove("open"); trigger.setAttribute("aria-expanded","false"); },250); };
-  const closeNow=()=>{ clearTimeout(closeTimer); item.classList.remove("open"); trigger.setAttribute("aria-expanded","false"); };
-  trigger.addEventListener("click",(e)=>{ e.stopPropagation(); item.classList.contains("open")?closeNow():open(); });
-  item.addEventListener("mouseenter",()=>{ if(window.innerWidth>940) open(); });
-  item.addEventListener("mouseleave",()=>{ if(window.innerWidth>940) scheduleClose(); });
-  document.addEventListener("click",(e)=>{ if(!item.contains(e.target)) closeNow(); });
-  document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closeNow(); });
-}
-wireMegaMenu("productNavItem","productTrigger");
-wireMegaMenu("businessNavItem","businessTrigger");
-wireMegaMenu("resourcesNavItem","resourcesTrigger");
+const productNavItem=document.getElementById("productNavItem"), productTrigger=document.getElementById("productTrigger");
+productTrigger.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  const isOpen=productNavItem.classList.toggle("open");
+  productTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
+});
+document.addEventListener("click",(e)=>{ if(!productNavItem.contains(e.target)){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ productNavItem.classList.remove("open"); productTrigger.setAttribute("aria-expanded","false"); } });
+const businessNavItem=document.getElementById("businessNavItem"), businessTrigger=document.getElementById("businessTrigger");
+businessTrigger.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  const isOpen=businessNavItem.classList.toggle("open");
+  businessTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
+});
+document.addEventListener("click",(e)=>{ if(!businessNavItem.contains(e.target)){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ businessNavItem.classList.remove("open"); businessTrigger.setAttribute("aria-expanded","false"); } });
+const resourcesNavItem=document.getElementById("resourcesNavItem"), resourcesTrigger=document.getElementById("resourcesTrigger");
+resourcesTrigger.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  const isOpen=resourcesNavItem.classList.toggle("open");
+  resourcesTrigger.setAttribute("aria-expanded",isOpen?"true":"false");
+});
+document.addEventListener("click",(e)=>{ if(!resourcesNavItem.contains(e.target)){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
+document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
 </script>
+<script id="yr-script">document.querySelectorAll(".yr").forEach(e=>e.textContent=new Date().getFullYear());</script>
 </body>
 </html>
