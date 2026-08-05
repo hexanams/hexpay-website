@@ -40,7 +40,7 @@ h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:600;letter-spacing:-.01em;
 header.site{position:sticky;top:0;z-index:50;background:rgba(250,248,243,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:1180px;margin:0 auto;padding:0 32px}
 .nav-logo{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;font-size:19px;color:var(--ink)}
-.nav-logo .mark{width:30px;height:30px;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px}
+.nav-logo img{height:28px;width:auto;display:block}
 .nav-links{display:flex;align-items:center;gap:30px}
 .nav-links a{font-family:'IBM Plex Mono',monospace;color:var(--text-sub);font-size:12.5px;letter-spacing:.01em}
 .nav-links a:hover{color:var(--ink)}
@@ -59,7 +59,6 @@ header.site{position:sticky;top:0;z-index:50;background:rgba(250,248,243,0.92);b
 footer.site{background:var(--ink);color:rgba(250,248,243,0.8);padding:60px 0 24px}
 .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(250,248,243,0.14)}
 .foot-brand .nav-logo{color:#fff}
-.foot-brand .mark{border-color:rgba(255,255,255,0.5)}
 .foot-brand p{font-size:13px;color:rgba(250,248,243,0.9);margin-top:14px;line-height:1.7;max-width:270px}
 .foot-col h4{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(250,248,243,0.8);margin-bottom:16px}
 .foot-col a{display:block;font-size:13.5px;color:rgba(250,248,243,0.85);margin-bottom:12px}

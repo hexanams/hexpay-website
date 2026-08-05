@@ -3,7 +3,26 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>HexPay, The Operating System for African Businesses</title>
+<title>HexPay | Payroll, HR & Compliance Software for African Businesses</title>
+<meta name="description" content="Run payroll, sync business bank accounts, hire, and stay compliant with PAYE, pension and NHF, all from one platform built for African businesses."/>
+<meta name="keywords" content="payroll software Africa, HR software Nigeria, payroll software Nigeria, PAYE pension NHF compliance, HR and payroll platform, small business payroll"/>
+<link rel="canonical" href="https://www.hexpayr.com/"/>
+<meta name="robots" content="index, follow"/>
+<link rel="icon" type="image/png" href="/assets/brand/favicon-32.png" sizes="32x32"/>
+<link rel="icon" type="image/png" href="/assets/brand/favicon-16.png" sizes="16x16"/>
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="HexPay"/>
+<meta property="og:title" content="HexPay | Payroll, HR & Compliance Software for African Businesses"/>
+<meta property="og:description" content="Run payroll, sync business bank accounts, hire, and stay compliant with PAYE, pension and NHF, all from one platform built for African businesses."/>
+<meta property="og:url" content="https://www.hexpayr.com/"/>
+<meta property="og:image" content="https://www.hexpayr.com/assets/brand/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="HexPay | Payroll, HR & Compliance Software for African Businesses"/>
+<meta name="twitter:description" content="Run payroll, sync business bank accounts, hire, and stay compliant with PAYE, pension and NHF, all from one platform built for African businesses."/>
+<meta name="twitter:image" content="https://www.hexpayr.com/assets/brand/og-image.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="landing.css"/>
@@ -11,7 +30,6 @@
 <style>
 header.site{background:rgba(250,248,243,0.92);border-bottom-color:var(--line)}
 header.site .nav-logo{color:var(--ink)}
-header.site .nav-logo .mark{border-color:var(--ink);color:var(--ink)}
 header.site .nav-links a,header.site .nav-trigger,header.site .nav-actions a.login{color:var(--text-sub)}
 header.site .nav-links a:hover,header.site .nav-trigger:hover,header.site .nav-actions a.login:hover{color:var(--ink)}
 header.site .nav-burger{color:var(--ink)}
@@ -209,7 +227,7 @@ header.site .btn-primary:hover{background:var(--accent);border-color:var(--accen
 
 <header class="site">
   <nav class="nav">
-    <a href="/" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
+    <a href="/" class="nav-logo"><img src="assets/brand/hexpay-lockup-nav.png" alt="HexPay" width="100" height="28"></a>
     <div class="nav-links" id="navLinks">
       <div class="nav-item" id="productNavItem">
         <button class="nav-trigger" id="productTrigger" aria-expanded="false" aria-controls="productMega">Product</button>
@@ -548,7 +566,7 @@ header.site .btn-primary:hover{background:var(--accent);border-color:var(--accen
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="/" class="nav-logo"><span class="mark">Hx</span>HexPay</a>
+        <a href="/" class="nav-logo"><img src="assets/brand/hexpay-lockup-nav-white.png" alt="HexPay" width="100" height="28"></a>
         <p>The operating system for African businesses, payroll, sales, finance and operations, in one intelligent platform.</p>
       </div>
       <div class="foot-col">
@@ -613,5 +631,32 @@ document.addEventListener("click",(e)=>{ if(!resourcesNavItem.contains(e.target)
 document.addEventListener("keydown",(e)=>{ if(e.key==="Escape"){ resourcesNavItem.classList.remove("open"); resourcesTrigger.setAttribute("aria-expanded","false"); } });
 </script>
 <script id="yr-script">document.querySelectorAll(".yr").forEach(e=>e.textContent=new Date().getFullYear());</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "HexPay",
+  "url": "https://www.hexpayr.com/",
+  "logo": "https://www.hexpayr.com/assets/brand/hexpay-mark.png",
+  "description": "HexPay is a payroll, HR and compliance platform for African businesses, covering payroll, bank sync, hiring, time tracking, salary advance and statutory remittance.",
+  "sameAs": []
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "HexPay",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web, iOS, Android",
+  "description": "Payroll, bank sync, hiring, time tracking, salary advance and compliance software for African businesses.",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "NGN",
+    "price": "0",
+    "description": "Free to start for small teams"
+  }
+}
+</script>
 </body>
 </html>
