@@ -1,2 +1,3 @@
 .vercel
 assets/brand/source/
+.env*
