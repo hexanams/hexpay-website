@@ -3,88 +3,73 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>HexPay Blog | Payroll, HR & Compliance Insights for Africa</title>
-<meta name="description" content="Product updates, compliance explainers and founder stories on running payroll, hiring and finance for African businesses."/>
-<meta name="keywords" content="payroll blog Africa, HR compliance blog, PAYE pension NHF guide, HexPay updates"/>
-<link rel="canonical" href="https://www.hexpayr.com/blog"/>
+<title id="metaTitleTag">HexPay Blog</title>
+<meta id="metaDescTag" name="description" content="Product updates, compliance explainers and founder stories from HexPay."/>
+<link id="metaCanonical" rel="canonical" href="https://www.hexpayr.com/blog-post"/>
 <meta name="robots" content="index, follow"/>
 <link rel="icon" type="image/png" href="/assets/brand/favicon-32.png" sizes="32x32"/>
 <link rel="icon" type="image/png" href="/assets/brand/favicon-16.png" sizes="16x16"/>
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"/>
-<meta property="og:type" content="website"/>
+<meta property="og:type" content="article"/>
 <meta property="og:site_name" content="HexPay"/>
-<meta property="og:title" content="HexPay Blog | Payroll, HR & Compliance Insights for Africa"/>
-<meta property="og:description" content="Product updates, compliance explainers and founder stories on running payroll, hiring and finance for African businesses."/>
-<meta property="og:url" content="https://www.hexpayr.com/blog"/>
-<meta property="og:image" content="https://www.hexpayr.com/assets/brand/og-image.jpg"/>
+<meta id="metaOgTitle" property="og:title" content="HexPay Blog"/>
+<meta id="metaOgDesc" property="og:description" content="Product updates, compliance explainers and founder stories from HexPay."/>
+<meta id="metaOgUrl" property="og:url" content="https://www.hexpayr.com/blog-post"/>
+<meta id="metaOgImage" property="og:image" content="https://www.hexpayr.com/assets/brand/og-image.jpg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="HexPay Blog | Payroll, HR & Compliance Insights for Africa"/>
-<meta name="twitter:description" content="Product updates, compliance explainers and founder stories on running payroll, hiring and finance for African businesses."/>
-<meta name="twitter:image" content="https://www.hexpayr.com/assets/brand/og-image.jpg"/>
+<meta id="metaTwTitle" name="twitter:title" content="HexPay Blog"/>
+<meta id="metaTwDesc" name="twitter:description" content="Product updates, compliance explainers and founder stories from HexPay."/>
+<meta id="metaTwImage" name="twitter:image" content="https://www.hexpayr.com/assets/brand/og-image.jpg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="landing.css"/>
-<script src="image-slot.js"></script>
 <style>
-.blog-hero{padding:72px 0 56px}
-.blog-hero h1{font-size:clamp(34px,4.6vw,50px);line-height:1.15;margin-top:20px;max-width:640px}
-.blog-hero p{font-size:17px;color:var(--text-sub);line-height:1.7;max-width:540px;margin-top:22px}
-
-.featured{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:48px 0}
-.featured-img{position:relative;padding:14px}
-.featured-cap{position:absolute;bottom:-24px;left:14px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute)}
-.featured-text .cat-pill{display:inline-flex;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);border:1px solid var(--accent);padding:4px 10px;margin-bottom:16px}
-.featured-text h2{font-size:28px;line-height:1.25;margin-bottom:14px}
-.featured-text p{font-size:14.5px;color:var(--text-sub);line-height:1.7;margin-bottom:20px}
-.featured-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-mute)}
-@media (max-width:860px){ .featured{grid-template-columns:1fr} }
-
-.filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px}
-.filter-btn{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:9px 16px;border:1.5px solid var(--line);background:var(--panel);color:var(--text-sub);cursor:pointer;border-radius:2px;transition:all .15s}
-.filter-btn:hover{border-color:var(--ink);color:var(--ink)}
-.filter-btn.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-
-.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.post-card{border:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column}
-.post-card .post-img{position:relative;height:180px}
-.post-card .post-img image-slot{width:100%;height:100%}
-.post-body{padding:22px}
-.post-cat{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);margin-bottom:10px}
-.post-body h3{font-size:16.5px;line-height:1.35;margin-bottom:10px}
-.post-body p{font-size:12.5px;color:var(--text-sub);line-height:1.6;margin-bottom:14px}
-.post-meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--text-mute);border-top:1px solid var(--line-soft);padding-top:14px}
-@media (max-width:900px){ .post-grid{grid-template-columns:1fr 1fr} }
-@media (max-width:640px){ .post-grid{grid-template-columns:1fr} }
-
-.post-img-empty{width:100%;height:100%;background:linear-gradient(135deg,var(--line-soft),var(--panel));display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-mute);text-transform:uppercase;letter-spacing:.06em}
-.featured-img img,.post-img img{width:100%;height:100%;object-fit:cover;display:block}
-a.featured,a.post-card{color:inherit;text-decoration:none}
-.blog-empty{padding:60px 0;text-align:center;color:var(--text-mute);font-family:'IBM Plex Mono',monospace;font-size:13px;grid-column:1/-1}
-
-.cta-band{background:var(--ink);color:var(--paper);padding:100px 0;text-align:center}
-.cta-band h2{color:#fff;font-size:36px;max-width:640px;margin:0 auto}
-.cta-band p{color:rgba(250,248,243,0.6);font-size:15.5px;margin:16px auto 0;max-width:460px}
-.cta-band .hero-cta{display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap}
-.store-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink);border-radius:2px}
-.store-badge:hover{background:var(--ink);color:var(--paper)}
-.nav-stores{display:flex;gap:8px}
-.nav-stores .store-badge{padding:6px 10px;font-size:10.5px;border-width:1px}
-@media (max-width:1140px){ .nav-stores{display:none} }
 .nav-item{position:relative;padding-bottom:26px;margin-bottom:-26px}
 .nav-trigger{background:none;border:none;font:inherit;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-sub);cursor:pointer;padding:4px 0}
 .nav-trigger:hover{color:var(--ink)}
 .mega-panel{position:fixed;top:74px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 24px 50px rgba(15,20,30,0.12);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:all .18s ease;z-index:60}
 .nav-item.open .mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:none}
-
 .mega-inner{max-width:1180px;margin:0 auto;padding:36px 32px;display:grid;grid-template-columns:1fr 1fr 340px;gap:36px}
 .mega-col h5{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text-mute);margin-bottom:16px}
 .mega-col a{display:block;font-size:14px;color:var(--text);margin-bottom:14px}
 .mega-col a span{display:block;font-size:11.5px;color:var(--text-sub);margin-top:2px;font-family:'Inter',sans-serif}
 .mega-col a:hover{color:var(--accent)}
 .mega-img{position:relative;padding:10px}
+.nav-stores{display:flex;gap:8px}
+.store-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1.5px solid var(--ink);font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink);border-radius:2px}
+.store-badge:hover{background:var(--ink);color:var(--paper)}
+.nav-stores .store-badge{padding:6px 10px;font-size:10.5px;border-width:1px}
+@media (max-width:1140px){ .nav-stores{display:none} }
 @media (max-width:940px){ .mega-inner{grid-template-columns:1fr;padding:24px} .mega-img{max-width:320px} }
+
+.post-hero{padding:64px 0 40px;max-width:760px;margin:0 auto}
+.post-hero .back-link{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-sub);margin-bottom:28px}
+.post-hero .back-link:hover{color:var(--ink)}
+.post-hero .cat-pill{display:inline-flex;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);border:1px solid var(--accent);padding:4px 10px;margin-bottom:18px}
+.post-hero h1{font-size:clamp(28px,4.2vw,42px);line-height:1.2;margin-bottom:18px}
+.post-hero .post-hero-meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-mute)}
+.post-hero-img{max-width:900px;margin:40px auto 0;padding:0 20px}
+.post-hero-img img{width:100%;height:auto;max-height:480px;object-fit:cover;display:block;border:1px solid var(--line)}
+.post-body-wrap{max-width:720px;margin:0 auto;padding:48px 20px 80px}
+.post-content{font-size:16px;line-height:1.8;color:var(--text)}
+.post-content p{margin-bottom:20px}
+.post-content h2{font-size:24px;line-height:1.3;margin:40px 0 16px}
+.post-content h3{font-size:19px;line-height:1.35;margin:32px 0 14px}
+.post-content ul,.post-content ol{margin:0 0 20px 22px}
+.post-content li{margin-bottom:8px}
+.post-content blockquote{border-left:2px solid var(--line);padding-left:18px;color:var(--text-sub);margin:24px 0}
+.post-content a{color:var(--accent);text-decoration:underline}
+.post-content img{max-width:100%;height:auto;margin:24px 0}
+.post-notfound{max-width:600px;margin:100px auto;text-align:center;padding:0 20px}
+.post-notfound h1{font-size:26px;margin-bottom:14px}
+.post-notfound p{color:var(--text-sub);margin-bottom:24px}
+
+.cta-band{background:var(--ink);color:var(--paper);padding:100px 0;text-align:center}
+.cta-band h2{color:#fff;font-size:36px;max-width:640px;margin:0 auto}
+.cta-band p{color:rgba(250,248,243,0.6);font-size:15.5px;margin:16px auto 0;max-width:460px}
+.cta-band .hero-cta{display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -170,41 +155,14 @@ a.featured,a.post-card{color:inherit;text-decoration:none}
   </nav>
 </header>
 
-<section class="blog-hero gridpaper">
-  <div class="wrap">
-    <div class="tag">BLOG</div>
-    <h1>Notes on building payroll for African businesses.</h1>
-    <p>Product updates, compliance explainers and stories from founders running their teams on HexPay.</p>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <a class="featured" id="featuredPost" href="#" style="display:none">
-      <div class="featured-img bracketed"><span class="bl"></span><span class="br"></span>
-        <div id="featuredImgSlot" style="width:100%;height:360px"></div>
-        <div class="featured-cap">FIG. 01, FEATURED POST</div>
-      </div>
-      <div class="featured-text">
-        <span class="cat-pill" id="featuredCat"></span>
-        <h2 id="featuredTitle"></h2>
-        <p id="featuredExcerpt"></p>
-        <div class="featured-meta" id="featuredMeta"></div>
-      </div>
-    </a>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="filter-row" id="filterRow">
-      <button class="filter-btn active" data-cat="all">All posts</button>
-    </div>
-    <div class="post-grid" id="postGrid">
-      <div class="blog-empty">Loading posts…</div>
+<div id="postRoot">
+  <div class="post-hero">
+    <div class="wrap" style="padding:0">
+      <a href="blog" class="back-link">&larr; Back to blog</a>
+      <div id="postLoading" style="color:var(--text-mute);font-family:'IBM Plex Mono',monospace;font-size:13px">Loading post…</div>
     </div>
   </div>
-</section>
+</div>
 
 <section class="cta-band">
   <div class="wrap">
@@ -258,6 +216,7 @@ a.featured,a.post-card{color:inherit;text-decoration:none}
   </div>
 </footer>
 
+<script src="image-slot.js"></script>
 <script>
 document.getElementById("navBurger").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("mobile-open"));
 function wireMegaMenu(itemId,triggerId){
@@ -276,6 +235,7 @@ function wireMegaMenu(itemId,triggerId){
 wireMegaMenu("productNavItem","productTrigger");
 wireMegaMenu("businessNavItem","businessTrigger");
 wireMegaMenu("resourcesNavItem","resourcesTrigger");
+document.querySelectorAll(".yr").forEach(e=>e.textContent=new Date().getFullYear());
 
 const BLOG_API_URL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname)
   ? "http://localhost:5000/api/v1"
@@ -284,96 +244,65 @@ const BLOG_API_URL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname)
 function formatPostDate(iso){
   return new Date(iso).toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"}).toUpperCase();
 }
-function postMeta(post){
-  const mins = post.read_time_minutes || 1;
-  return `${formatPostDate(post.published_at)} · ${mins} MIN READ`;
-}
-function postImageHtml(post, alt){
-  return post.featured_image_url
-    ? `<img src="${post.featured_image_url}" alt="${escapeHtml(alt)}" loading="lazy">`
-    : `<div class="post-img-empty">HexPay</div>`;
-}
-function escapeHtml(str){
-  const div=document.createElement("div");
-  div.textContent=str||"";
-  return div.innerHTML;
+
+function setMeta(id, attr, value){
+  const el = document.getElementById(id);
+  if (el) el.setAttribute(attr, value);
 }
 
-let allPosts=[];
-
-function renderFeatured(post){
-  const el=document.getElementById("featuredPost");
-  if(!post){ el.style.display="none"; return; }
-  el.style.display="grid";
-  el.href=`blog-post?slug=${encodeURIComponent(post.slug)}`;
-  document.getElementById("featuredImgSlot").innerHTML=postImageHtml(post,post.title);
-  document.getElementById("featuredCat").textContent=(post.category?.name || "HexPay").toUpperCase();
-  document.getElementById("featuredTitle").textContent=post.title;
-  document.getElementById("featuredExcerpt").textContent=post.excerpt || "";
-  document.getElementById("featuredMeta").textContent=postMeta(post);
+function renderNotFound(){
+  document.getElementById("postRoot").innerHTML = `
+    <div class="post-notfound">
+      <h1>Post not found</h1>
+      <p>This post may have been unpublished or the link is out of date.</p>
+      <a href="blog" class="btn btn-primary">Back to blog</a>
+    </div>`;
 }
 
-function renderGrid(posts){
-  const grid=document.getElementById("postGrid");
-  if(posts.length===0){
-    grid.innerHTML='<div class="blog-empty">New posts are on the way.</div>';
-    return;
+function renderPost(post){
+  document.title = post.meta_title || post.title;
+  setMeta("metaDescTag","content", post.meta_description || post.excerpt || "");
+  setMeta("metaCanonical","href", `https://www.hexpayr.com/blog-post?slug=${encodeURIComponent(post.slug)}`);
+  setMeta("metaOgTitle","content", post.meta_title || post.title);
+  setMeta("metaOgDesc","content", post.meta_description || post.excerpt || "");
+  setMeta("metaOgUrl","content", `https://www.hexpayr.com/blog-post?slug=${encodeURIComponent(post.slug)}`);
+  if (post.featured_image_url) {
+    setMeta("metaOgImage","content", post.featured_image_url);
+    setMeta("metaTwImage","content", post.featured_image_url);
   }
-  grid.innerHTML=posts.map(post=>`
-    <a class="post-card" data-cat="${escapeHtml(post.category?.slug || "")}" href="blog-post?slug=${encodeURIComponent(post.slug)}">
-      <div class="post-img">${postImageHtml(post,post.title)}</div>
-      <div class="post-body">
-        <div class="post-cat">${escapeHtml((post.category?.name || "HexPay").toUpperCase())}</div>
-        <h3>${escapeHtml(post.title)}</h3>
-        <p>${escapeHtml(post.excerpt || "")}</p>
-        <div class="post-meta">${postMeta(post)}</div>
+  setMeta("metaTwTitle","content", post.meta_title || post.title);
+  setMeta("metaTwDesc","content", post.meta_description || post.excerpt || "");
+
+  const mins = post.read_time_minutes || 1;
+  const imgHtml = post.featured_image_url
+    ? `<div class="post-hero-img"><img src="${post.featured_image_url}" alt=""></div>`
+    : "";
+
+  document.getElementById("postRoot").innerHTML = `
+    <div class="post-hero">
+      <div class="wrap" style="padding:0">
+        <a href="blog" class="back-link">&larr; Back to blog</a>
+        ${post.category ? `<div class="cat-pill">${post.category.name.toUpperCase()}</div>` : ""}
+        <h1>${post.title}</h1>
+        <div class="post-hero-meta">${formatPostDate(post.published_at)} &middot; ${mins} MIN READ</div>
       </div>
-    </a>
-  `).join("");
+    </div>
+    ${imgHtml}
+    <div class="post-body-wrap">
+      <div class="post-content">${post.content}</div>
+    </div>
+  `;
 }
 
-function renderFilters(posts){
-  const row=document.getElementById("filterRow");
-  const seen=new Map();
-  posts.forEach(p=>{ if(p.category) seen.set(p.category.slug, p.category.name); });
-  row.querySelectorAll(".filter-btn:not([data-cat='all'])").forEach(b=>b.remove());
-  seen.forEach((name,slug)=>{
-    const btn=document.createElement("button");
-    btn.className="filter-btn";
-    btn.dataset.cat=slug;
-    btn.textContent=name;
-    row.appendChild(btn);
-  });
-  wireFilters();
+const slug = new URLSearchParams(location.search).get("slug");
+if (!slug) {
+  renderNotFound();
+} else {
+  fetch(`${BLOG_API_URL}/blog/posts/${encodeURIComponent(slug)}`)
+    .then(r => { if (!r.ok) throw new Error("not found"); return r.json(); })
+    .then(res => renderPost(res.data))
+    .catch(() => renderNotFound());
 }
-
-function wireFilters(){
-  const filterBtns=document.querySelectorAll(".filter-btn");
-  filterBtns.forEach(btn=>{
-    btn.onclick=()=>{
-      filterBtns.forEach(b=>b.classList.remove("active"));
-      btn.classList.add("active");
-      const cat=btn.dataset.cat;
-      document.querySelectorAll(".post-card").forEach(card=>{
-        card.style.display = (cat==="all" || card.dataset.cat===cat) ? "flex" : "none";
-      });
-    };
-  });
-}
-
-fetch(`${BLOG_API_URL}/blog/posts?limit=50`)
-  .then(r=>r.json())
-  .then(res=>{
-    allPosts = res.data || [];
-    renderFeatured(allPosts[0]);
-    renderGrid(allPosts.slice(1));
-    renderFilters(allPosts);
-  })
-  .catch(()=>{
-    document.getElementById("postGrid").innerHTML='<div class="blog-empty">Couldn\'t load posts right now. Try again shortly.</div>';
-    wireFilters();
-  });
 </script>
-<script id="yr-script">document.querySelectorAll(".yr").forEach(e=>e.textContent=new Date().getFullYear());</script>
 </body>
 </html>
