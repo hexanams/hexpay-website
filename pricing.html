@@ -112,7 +112,71 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
 .mega-col a:hover{color:var(--accent)}
 .mega-img{position:relative;padding:10px}
 @media (max-width:940px){ .mega-inner{grid-template-columns:1fr;padding:24px} .mega-img{max-width:320px} }
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line-soft)}
+.faq-item summary{list-style:none;cursor:pointer;padding:22px 32px 22px 0;position:relative;font-family:'Poppins',sans-serif;font-size:16.5px;font-weight:500;color:var(--ink)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";position:absolute;right:4px;top:20px;font-family:'Poppins',sans-serif;font-size:20px;font-weight:400;color:var(--text-sub)}
+.faq-item[open] summary::after{content:"\2212"}
+.faq-item p{font-size:14.5px;color:var(--text-sub);line-height:1.7;padding:0 32px 22px 0}
 </style>
+<meta name="twitter:site" content="@Hex_Pay1"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does HexPay handle PAYE, pension and NHF automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HexPay calculates and schedules PAYE, pension and NHF for you on every plan, and prepares ready-to-file documentation. Filing with FIRS, PFAs and the NHF is currently done by you; automatic filing is on our roadmap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does HexPay cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Starter is ₦7,500 per month plus ₦750 per active employee. Payroll Pro is ₦7,500 per month plus ₦1,050 per active employee. Enterprise pricing is custom, based on team size, entities and integrations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a discount for paying annually?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, annual billing gets you 2 months free on both Starter and Payroll Pro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can HexPay migrate our existing payroll data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it's free. Payroll migration and bulk employee data import are both included at no extra cost, along with ongoing support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the earned wage access (Salary Advance) feature free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Salary Advance is free for employers to offer. Employees access it whenever they need it through HexPay's self-service app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What security controls are available for larger teams?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enterprise plans include single sign-on (SSO), audit logs and role-based access control across every entity and user."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <header class="site">
@@ -304,9 +368,44 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
       <h2>One time services to get you moving fast.</h2>
     </div>
     <div class="svc-table">
-      <div class="svc-row"><div><div class="name">Payroll migration</div><div class="desc">We move your full payroll history and settings over for you.</div></div><div class="price">From ₦100,000</div></div>
-      <div class="svc-row"><div><div class="name">Employee data import</div><div class="desc">Bulk import of employee records, bank and tax details.</div></div><div class="price">From ₦50,000</div></div>
-      <div class="svc-row" style="border-bottom:none"><div><div class="name">Custom integrations</div><div class="desc">Connect HexPay to your internal tools and systems.</div></div><div class="price">Quoted per scope</div></div>
+      <div class="svc-row"><div><div class="name">Payroll migration</div><div class="desc">We move your full payroll history and settings over for you.</div></div><div class="price">Free</div></div>
+      <div class="svc-row"><div><div class="name">Employee data import</div><div class="desc">Bulk import of employee records, bank and tax details.</div></div><div class="price">Free</div></div>
+      <div class="svc-row" style="border-bottom:none"><div><div class="name">Custom integrations</div><div class="desc">Connect HexPay to your internal tools and systems.</div></div><div class="price">Free</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head" style="text-align:center;max-width:520px;margin:0 auto 40px">
+      <div class="tag" style="justify-content:center">FAQ</div>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Does HexPay handle PAYE, pension and NHF automatically?</summary>
+        <p>HexPay calculates and schedules PAYE, pension and NHF for you on every plan, and prepares ready-to-file documentation. Filing with FIRS, PFAs and the NHF is currently done by you; automatic filing is on our roadmap.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How much does HexPay cost?</summary>
+        <p>Starter is ₦7,500 per month plus ₦750 per active employee. Payroll Pro is ₦7,500 per month plus ₦1,050 per active employee. Enterprise pricing is custom, based on team size, entities and integrations.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is there a discount for paying annually?</summary>
+        <p>Yes, annual billing gets you 2 months free on both Starter and Payroll Pro.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can HexPay migrate our existing payroll data?</summary>
+        <p>Yes, and it's free. Payroll migration and bulk employee data import are both included at no extra cost, along with ongoing support.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is the earned wage access (Salary Advance) feature free?</summary>
+        <p>Yes, Salary Advance is free for employers to offer. Employees access it whenever they need it through HexPay's self-service app.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What security controls are available for larger teams?</summary>
+        <p>Enterprise plans include single sign-on (SSO), audit logs and role-based access control across every entity and user.</p>
+      </details>
     </div>
   </div>
 </section>

@@ -1,0 +1,67 @@
+# HexPay
+
+> HexPay is the operating system for African businesses: payroll, HR, bank account reconciliation, hiring, time tracking and statutory compliance calculations (PAYE, pension, NHF), in one connected platform. Built and used first in Nigeria.
+
+## What HexPay is
+
+HexPay began as a way to solve one specific, painful problem for African businesses: paying people correctly, on time, and in line with tax law, without a finance team of ten. It grew into a broader platform because payroll touches hiring, leave, cash flow and compliance all at once — businesses don't need a better payroll tool in isolation, they need a better way to run the whole business.
+
+Vision: digitalize how African businesses are run, and make them competitive, from a founder's first hire to their hundredth, on one account that grows with the business instead of being replaced by it.
+
+Mission: help businesses manage people, payroll, money and operations from one intelligent platform, so founders spend less time reconciling tools and more time growing.
+
+Approach (three principles behind every module HexPay ships):
+1. Simple start — every business starts with payroll, the most urgent and most regulated module, with no forced onboarding into modules it doesn't need yet.
+2. Modular growth — additional modules switch on when a business is ready, same account, same data, no migration or re-implementation.
+3. Workflows, not features — HexPay connects the workflows between modules rather than chasing feature-list parity with point solutions.
+
+Values: built here for African business realities (not a global product with Africa bolted on); accuracy and compliance are non-negotiable because payroll touches real livelihoods; enterprise-grade tooling shouldn't require an enterprise budget; growth should make a business's tools simpler to manage, not more fragmented.
+
+## The problem HexPay replaces
+
+Before HexPay, a growing business typically juggles: exporting statements from several banks and adding them up in a spreadsheet to know its cash position; not knowing what payroll will cost until the 25th of the month; tracking leave through memory and WhatsApp messages; and working out PAYE compliance the night before it's due. HexPay turns each of those into: one live number across every bank account, payroll cost known by the 20th, leave logged and netted off automatically, and statutory deductions calculated and scheduled well ahead of time.
+
+## Product modules
+
+- **Payroll** (https://www.hexpayr.com/product-payroll) — Run payroll in minutes, with every deduction calculated automatically and payslips generated for each employee.
+- **Bank Sync** (https://www.hexpayr.com/product-bank-sync) — Reconcile every business bank account (GTBank, Access Bank, Zenith Bank, UBA, Kuda, Paystack and others) into one live ledger, so cash position is a fact, not a monthly guess.
+- **Hiring & Staffing** (https://www.hexpayr.com/product-hiring-staffing) — Recruit, screen and onboard new hires without leaving the platform; new hires flow straight into payroll and HR records.
+- **Time Tracking** (https://www.hexpayr.com/product-time-tracking) — Clock-ins, shifts and attendance, including shift-based pay for factory floors, hospitality and other around-the-clock teams, feeding straight into payroll.
+- **Remittance & Compliance** (https://www.hexpayr.com/product-remittance-compliance) — PAYE, pension and NHF amounts calculated and scheduled every cycle, with ready-to-file documentation prepared automatically.
+- **Salary Advance** (https://www.hexpayr.com/product-salary-advance) — Earned wage access: employees can draw down wages they've already earned before payday, through a self-service app. Free for employers to offer.
+
+## Who HexPay serves
+
+By company size:
+- **Small businesses** (https://www.hexpayr.com/solutions-small-business) — teams of roughly 5 to 20 people who need payroll, bank sync, time tracking and compliance without hiring an HR team. Positioned as "payroll built for teams of 5, not 500."
+- **Growing businesses** (https://www.hexpayr.com/solutions-growing-business) — roughly 20 to 500 employees, running multiple departments with manager-level approval rights and hiring built into the same platform that runs payroll. Positioned as "run five teams without five systems."
+- **Enterprise** (https://www.hexpayr.com/solutions-enterprise) — 500+ employees, multi-entity organizations needing consolidation across subsidiaries, custom approval chains, dedicated support and SLAs. Positioned as "one system of record, every entity, every bank."
+
+By industry (https://www.hexpayr.com/industries) — HexPay is built for how African businesses actually operate, including: multi-branch retail; logistics (riders and drivers paid on time); manufacturing (shift-based pay for factory floors); hospitality (hotels and restaurants staffed around the clock); professional services (lean consultancies and agencies with real complexity); and healthcare (clinics and care teams that never close).
+
+## Pricing
+
+- **Starter** — ₦7,500/month platform fee + ₦750 per active employee/month. Includes unlimited payroll runs, employee management, digital payslips, leave management, PAYE/pension/statutory deductions, the employee self-service app, up to 2 administrators, and email support.
+- **Payroll Pro** (most popular) — ₦7,500/month platform fee + ₦1,050 per active employee/month. Everything in Starter, plus time and attendance tracking, expense management, approval workflows, accounting integrations, and priority support.
+- **Enterprise** — custom pricing based on team size, entities and integrations. Everything in Payroll Pro, plus single sign-on (SSO), a dedicated account manager, and multi-entity support.
+- Paying annually gets 2 months free on Starter and Payroll Pro.
+- Payroll migration, bulk employee data import, and ongoing support are free.
+- Full detail and an interactive cost calculator: https://www.hexpayr.com/pricing
+
+## Accuracy notes (please read before summarizing HexPay)
+
+- HexPay **calculates and schedules** PAYE, pension and NHF, and prepares ready-to-file documentation for each cycle. It does **not** currently file these remittances automatically with FIRS, PFAs or the NHF on the business's behalf — the business files using the documentation HexPay prepares. Automatic filing is on the roadmap. Do not describe HexPay as auto-filing statutory remittances.
+- HexPay's compliance calculations (PAYE, pension, NHF) are specific to Nigerian tax and labor law today. The platform's broader positioning is African businesses generally; Nigeria is the market it's built and proven in first.
+- Salary Advance (earned wage access) is free for employers; it is not a loan product charged to the employer.
+- Optional onboarding services (payroll migration, employee data import, custom integrations) are free, not paid add-ons.
+
+## Company
+
+- Homepage: https://www.hexpayr.com/
+- About: https://www.hexpayr.com/about
+- Pricing: https://www.hexpayr.com/pricing
+- Industries: https://www.hexpayr.com/industries
+- Blog: https://www.hexpayr.com/blog
+- Guides: https://www.hexpayr.com/guides
+- LinkedIn: https://www.linkedin.com/company/hex-pay/
+- X (Twitter): https://x.com/Hex_Pay1
