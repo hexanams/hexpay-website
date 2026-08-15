@@ -18,7 +18,6 @@ h1,h2,h3{font-family:'Poppins',sans-serif;font-weight:600;letter-spacing:-.01em;
 .gridpaper{background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:44px 44px}
 
 .tag{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:.02em;color:var(--accent)}
-.tag::before{content:"// "}
 
 .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 24px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;font-weight:500;cursor:pointer;border:1.5px solid var(--ink);white-space:nowrap;border-radius:999px;transition:all .18s ease}
 .btn-primary{background:var(--ink);color:var(--paper)}

@@ -63,5 +63,8 @@ By industry (https://www.hexpayr.com/industries) — HexPay is built for how Afr
 - Industries: https://www.hexpayr.com/industries
 - Blog: https://www.hexpayr.com/blog
 - Guides: https://www.hexpayr.com/guides
+- Support: https://www.hexpayr.com/support
+- Privacy Policy: https://www.hexpayr.com/privacy
+- Terms of Service: https://www.hexpayr.com/terms
 - LinkedIn: https://www.linkedin.com/company/hex-pay/
 - X (Twitter): https://x.com/Hex_Pay1
