@@ -290,7 +290,7 @@ function postMeta(post){
 }
 function postImageHtml(post, alt){
   return post.featured_image_url
-    ? `<img src="${post.featured_image_url}" alt="${escapeHtml(alt)}" loading="lazy">`
+    ? `<img src="${escapeHtml(post.featured_image_url)}" alt="${escapeHtml(alt)}" loading="lazy">`
     : `<div class="post-img-empty">HexPay</div>`;
 }
 function escapeHtml(str){

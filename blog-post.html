@@ -245,6 +245,19 @@ function formatPostDate(iso){
   return new Date(iso).toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"}).toUpperCase();
 }
 
+// Post content itself comes pre-sanitized from the backend (allow-listed
+// HTML tags only) and is trusted to render as markup. Everything else
+// interpolated into this page — title, category name, image URL — is
+// plain text or an attribute value and must be escaped, since it's still
+// operator-submitted data reaching every anonymous visitor of this page.
+function escapeHtml(s){
+  return String(s ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;");
+}
+
 function setMeta(id, attr, value){
   const el = document.getElementById(id);
   if (el) el.setAttribute(attr, value);
@@ -275,15 +288,15 @@ function renderPost(post){
 
   const mins = post.read_time_minutes || 1;
   const imgHtml = post.featured_image_url
-    ? `<div class="post-hero-img"><img src="${post.featured_image_url}" alt=""></div>`
+    ? `<div class="post-hero-img"><img src="${escapeHtml(post.featured_image_url)}" alt=""></div>`
     : "";
 
   document.getElementById("postRoot").innerHTML = `
     <div class="post-hero">
       <div class="wrap" style="padding:0">
         <a href="blog" class="back-link">&larr; Back to blog</a>
-        ${post.category ? `<div class="cat-pill">${post.category.name.toUpperCase()}</div>` : ""}
-        <h1>${post.title}</h1>
+        ${post.category ? `<div class="cat-pill">${escapeHtml(post.category.name.toUpperCase())}</div>` : ""}
+        <h1>${escapeHtml(post.title)}</h1>
         <div class="post-hero-meta">${formatPostDate(post.published_at)} &middot; ${mins} MIN READ</div>
       </div>
     </div>
